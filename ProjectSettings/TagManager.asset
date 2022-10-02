@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - track
+  - background
+  - train
+  - crate
+  - HUD
+  - rotated45
+  - level
+  - rotated-45
+  - rotated90
+  - rotated-90
+  - rotated135
+  - rotated180
+  - rotated225
+  - rotated270
+  - track not to hide
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - train
+  - track
+  - background
+  - level
+  - blood
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 1727894743
+    locked: 0
+  - name: level
+    uniqueID: 2922408061
+    locked: 0
+  - name: track
+    uniqueID: 3058255201
+    locked: 0
+  - name: enemy
+    uniqueID: 1903095807
+    locked: 0
+  - name: train
+    uniqueID: 2404901257
+    locked: 0
+  - name: HUD
+    uniqueID: 3696369969
+    locked: 0
+  - name: blood
+    uniqueID: 563071575
+    locked: 0
