@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Score score; //to access score variables and add to these when picking up a crate or reaching the goal of a level
     private UIDropDownManager uIDropDownManager; //to get the difficulty from the dropdown menu and apply this to the speed of the train.
 
+
     //below are variables in this script that get called in other scripts, but not changed there. 
     public static bool movingRight = false;
     public static bool movingLeft = false;
@@ -37,7 +38,10 @@ public class PlayerController : MonoBehaviour
     public GameObject straight_track; 
     public GameObject up_track;
     public GameObject down_track;
-
+    public GameObject TimerMgmt;
+    public GameObject Gold;
+    public GameObject Silver;
+    public GameObject Bronze; 
   
     
     bool isOnRawTerrain = false;//this denotes whether the train is on the level's raw terrain as opposed to track pieces. 
@@ -372,7 +376,7 @@ public class PlayerController : MonoBehaviour
             PlayerController.Stop = true;
             PlayerController.movingLeft = false;
             PlayerController.movingRight = false;
-            StartCoroutine(VictoryEnsemble2()); //this plays the victory sound in a coroutine similarly to that at the end of level 1
+            StartCoroutine(VictoryEnsembleFinale()); //this plays the victory sound in a coroutine similarly to that at the end of level 1
 
         }
 
@@ -397,32 +401,59 @@ public class PlayerController : MonoBehaviour
             PlayerController.Stop = true;
             PlayerController.movingLeft = false;
             PlayerController.movingRight = false;
+
+            Music.GetComponent<SFX>().Music.Stop();
+            Victory.GetComponent<SFX>().Victory.Play();
+            
+            if (Timer.currentTime <= 30)
+            {
+                print("gold");
+                Timer.stop = true;
+                Gold.SetActive(true);
+            }
+
+            if (Timer.currentTime <= 45 && Timer.currentTime > 30)
+            {
+                print("silver");
+                Timer.stop = true;
+                Silver.SetActive(true);
+            }
+
+            if (Timer.currentTime >= 45)
+            {
+                print("bronze");
+                Timer.stop = true;
+                Bronze.SetActive(true);
+            }
+
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
 
 
-            StartCoroutine(VictoryEnsemble());
+            // StartCoroutine(VictoryEnsemble2());
             //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
 
         }
 
 
 
-        IEnumerator VictoryEnsemble2()
-        {
-            Music.GetComponent<SFX>().Music.Stop();
+       // IEnumerator VictoryEnsemble2()
+       // {
+           // Music.GetComponent<SFX>().Music.Stop();
             //ref: https://docs.unity3d.com/ScriptReference/AudioSource.Stop.html. Thus the soundtrack stops to be replaced by the Victory sound for 1.5 seconds. 
 
-            Victory.GetComponent<SFX>().Victory.Play(); //Thus the victory sound is played.
-
-            yield return new WaitForSeconds(1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
-            Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
-            SceneManager.LoadScene(3); //this loads the next level 
-            Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the track pieces available to the player, repleneshing any lost in level one.
-            Music.GetComponent<SFX>().Music.Play(); //this replays the game's background music as this was stopped for the victory music. 
+          //  Victory.GetComponent<SFX>().Victory.Play(); //Thus the victory sound is played.
 
 
-        }
+            //  yield return new WaitForSeconds(1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
+            //   Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
+            //   SceneManager.LoadScene(2); //this loads the next level 
+            //    Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the track pieces available to the player, repleneshing any lost in level one.
+           // Music.GetComponent<SFX>().Music.Play();
 
+
+      //  }
+
+       
 
         //to add each type of next track upon reaching each trigger point of the track currently under the train, according to its type. 
         //Thus there are a lot of combinations, each with their own requirements, specified below:

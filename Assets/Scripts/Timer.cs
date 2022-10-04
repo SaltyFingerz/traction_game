@@ -9,8 +9,9 @@ public class Timer : MonoBehaviour
     public TextMeshProUGUI timerText;
     [Header("Timer Settings")]
 
-    public float currentTime;
-
+    [SerializeField]
+    public static float currentTime;
+    public static bool stop = false;
     float startingTime;
 
     // Start is called before the first frame update
@@ -18,8 +19,21 @@ public class Timer : MonoBehaviour
 
      void Update()
     {
-        currentTime += Time.deltaTime;
-        timerText.text = currentTime.ToString("0.0");
+        if (stop)
+        {
+            currentTime = currentTime;
+            timerText.text = currentTime.ToString("0.0");
+            print("stop");
+        }
+
+        else
+
+        {
+            currentTime += Time.deltaTime;
+            timerText.text = currentTime.ToString("0.0");
+        }
+
+       
 
     }
 }
