@@ -25,9 +25,11 @@ public class PlayerController : MonoBehaviour
     public static bool movingDown = false;
     public static bool Stop = false;
 
+    public float speed = 20f;
+
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
 
-    private string nextTrack; //this variable denotes the next type of track piece that the player tells the train to add. (it takes values of "straight" "up" "down"
+    public static string nextTrack; //this variable denotes the next type of track piece that the player tells the train to add. (it takes values of "straight" "up" "down"
     //public float movementSpeed = 0.1f;
     public Text highScore; //this is the text that displays the high score at the centre top of the screen in level 2. It is public to be linked to the HUD's HighScore game object that displays this text in the HUD UI.
    
@@ -92,19 +94,31 @@ public class PlayerController : MonoBehaviour
 
         if (movingRight) //this gives the train a constant movement when it is told to move right, so the player doesn't have to hold the right key down in order to move, but uses the keys to control the track pieces that are added instead. 
         {
-            if (UIDropDownManager.Normal == true)
-            {
-                rb2d.velocity = new Vector2(1, rb2d.velocity.y); //this sets the speed at which the train moves when the dificutly is set to normal.
-            }
+           // if (UIDropDownManager.Normal == true)
+           // {
+               // rb2d.velocity = new Vector2(1, rb2d.velocity.y); //this sets the speed at which the train moves when the dificutly is set to normal.
+          //  }
 
-            else if (UIDropDownManager.Hard == true)
-            {
-                rb2d.velocity = new Vector2(2, rb2d.velocity.y); //this sets the speed to double that of normal, when the difficulty is set to hard. 
-            }
+          //  else if (UIDropDownManager.Hard == true)
+         //   {
+          //      rb2d.velocity = new Vector2(2, rb2d.velocity.y); //this sets the speed to double that of normal, when the difficulty is set to hard. 
+        //    }
 
                 spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
+            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s"))
+            {
+                // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
+                rb2d.velocity = new Vector2(2, rb2d.velocity.y);
+                
+            }
 
-           
+            else            {
+                rb2d.velocity = new Vector2(1, rb2d.velocity.y);
+            }
+
+
+
+
         }
 
 
