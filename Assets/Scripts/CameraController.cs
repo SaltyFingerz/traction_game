@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class CameraController : MonoBehaviour
 {
     public Transform train;
-    public string level1, level2;
+    public string level1, level2, level3, level4, level5, level6, level7, level8;
 
     void Update()
     {
@@ -24,5 +24,12 @@ public class CameraController : MonoBehaviour
             Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
             //with the extra passenger carriage the camera in level2 is positioned more to the left so this carriage can be seen too, this makes the second level more difficult as the player cannot see so far ahead. 
         }
+
+        else if (scene.name == level3)
+        {
+            Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
+            //with the extra passenger carriage the camera in level2 is positioned more to the left so this carriage can be seen too, this makes the second level more difficult as the player cannot see so far ahead. 
+        }
+
     }
 }
