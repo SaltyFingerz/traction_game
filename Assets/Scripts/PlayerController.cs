@@ -109,7 +109,7 @@ public class PlayerController : MonoBehaviour
         //    }
 
                 spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
-            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s"))
+            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut)
             {
                 // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
                 rb2d.velocity = new Vector2(2, rb2d.velocity.y);
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-        if (Input.GetKey("right") && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
+        if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut) && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
         {
             movingRight = true;
             movingLeft = false;
@@ -248,24 +248,34 @@ public class PlayerController : MonoBehaviour
         //adding track automatically - game mechanic - using input from wasd or arrow keys to tell the train which track to add next. 
         //the code below was learnt from following this tutorial: https://www.youtube.com/watch?v=44djqUTg2Sg&t=2240s and the player controller lectorial of DES105. 
         //I contributed to the basic controller by making the resulting variable a nextTrack rather than a vector of movement per se. The next track indirectly defines the subsequent movement of the player. 
-        if (Input.GetKey("d") || Input.GetKey("right")) 
+        if (Input.GetKey("d") || Input.GetKey("right") || UIButtonManager.StrBut) 
             {
                 nextTrack = "straight";
+            UIButtonManager.UpBut = false;
+            UIButtonManager.DowBut = false;
             }    
 
-            else if (Input.GetKey("w") || Input.GetKey("up"))
+            else if (Input.GetKey("w") || Input.GetKey("up") || UIButtonManager.UpBut)
                 {
                     nextTrack = "up";
+            UIButtonManager.StrBut = false;
+            UIButtonManager.DowBut = false;
+
                 }
 
-            else if (Input.GetKey("s") || Input.GetKey("down"))
+            else if (Input.GetKey("s") || Input.GetKey("down") || UIButtonManager.DowBut)
             {
                 nextTrack = "down";
+            UIButtonManager.StrBut = false;
+            UIButtonManager.UpBut = false;
             }
 
             else if (Input.GetKey("f"))
             {
                 nextTrack = "none";
+            UIButtonManager.StrBut = false;
+            UIButtonManager.UpBut = false;
+            UIButtonManager.DowBut = false;
             }
 
         //this functions to keep the next track as that of the last pressed key so the player doesn't need to worry about pressing the same key again and again if they are adding he same piece type. 

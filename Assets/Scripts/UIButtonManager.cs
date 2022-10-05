@@ -14,10 +14,43 @@ public class UIButtonManager : MonoBehaviour
     private TrackForceCargo trackForceCargo; //included here and below to eliminate prior additional forces onto the cargo carriage upon loading a scene.
     private TrackForcePassenger trackForcePassenger; //included here and below to eliminate prior additional forces onto the passenger carriage upon loading a scene.
     private Score score; //this is to access the CrateScore and nullify it when restarting a level to prevent players from cheating by gathering crates and restarting in a loop of endless point accumulation before completing the levels.
+    public static bool StrBut = false;
+    public static bool UpBut = false;
+    public static bool DowBut = false;
+    
+
+    public void StraightTrackButtonClicked()
+    {
+     
+       
+            StrBut = true;
+            UpBut = false;
+            DowBut = false;
+            print("straight button down");
+        
+    }
+
+    public void UpTrackButtonClicked()
+    {
+        StrBut = false;
+        UpBut = true;
+        DowBut = false;
+    }
+
+    public void DownTrackButtonClicked()
+    {
+        StrBut = false;
+        UpBut = false;
+        DowBut = true;
+    }
 
 
-   
-
+    public void NoButtonClicked()
+    {
+        StrBut = false;
+        UpBut = false;
+        DowBut = false;
+    }
     public void ResumeIsClicked()
     {
         Time.timeScale = 1;
