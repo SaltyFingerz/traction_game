@@ -7,6 +7,12 @@ public class Timer : MonoBehaviour
 {
     [Header("Component")]
     public TextMeshProUGUI timerText;
+    [Header("Component")]
+    public TextMeshProUGUI timerText2;
+    [Header("Component")]
+    public TextMeshProUGUI timerText3;
+    [Header("Component")]
+    public TextMeshProUGUI timerText4;
     [Header("Timer Settings")]
 
     [SerializeField]
@@ -23,6 +29,9 @@ public class Timer : MonoBehaviour
         {
             currentTime = currentTime;
             timerText.text = currentTime.ToString("0.0");
+            timerText2.text = currentTime.ToString("0.0");
+            timerText3.text = currentTime.ToString("0.0");
+            timerText4.text = currentTime.ToString("0.0");
             print("stop");
         }
 
@@ -31,6 +40,9 @@ public class Timer : MonoBehaviour
         {
             currentTime += Time.deltaTime;
             timerText.text = currentTime.ToString("0.0");
+            timerText2.text = currentTime.ToString("0.0");
+            timerText3.text = currentTime.ToString("0.0");
+            timerText4.text = currentTime.ToString("0.0");
         }
 
        
