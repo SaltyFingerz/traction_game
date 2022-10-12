@@ -345,7 +345,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal1")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
 
-
+            Time.timeScale = 0;
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
 
             PlayerController.Stop = true;
@@ -379,6 +379,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal9"))
         {
+
+            Time.timeScale = 0;
             //for the high score, playerprefs is used to save the score even after the game is closed and reopened.
             //This tutorial by Brackeys provided the basic code https://www.youtube.com/watch?v=vZU51tbgMXk. 
             //I modified the content of this to record the high score only at the end of level2, including the score gathered from level 1. 
@@ -411,7 +413,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal2")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-
+            Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
 
@@ -446,29 +448,29 @@ public class PlayerController : MonoBehaviour
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
 
 
-            // StartCoroutine(VictoryEnsemble2());
+            StartCoroutine(VictoryEnsemble2());
             //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
 
         }
 
 
 
-       // IEnumerator VictoryEnsemble2()
-       // {
-           // Music.GetComponent<SFX>().Music.Stop();
-            //ref: https://docs.unity3d.com/ScriptReference/AudioSource.Stop.html. Thus the soundtrack stops to be replaced by the Victory sound for 1.5 seconds. 
+       IEnumerator VictoryEnsemble2()
+        {
+            Music.GetComponent<SFX>().Music.Stop();
+           // ref: https://docs.unity3d.com/ScriptReference/AudioSource.Stop.html. Thus the soundtrack stops to be replaced by the Victory sound for 1.5 seconds. 
 
-          //  Victory.GetComponent<SFX>().Victory.Play(); //Thus the victory sound is played.
+            Victory.GetComponent<SFX>().Victory.Play(); //Thus the victory sound is played.
 
 
-            //  yield return new WaitForSeconds(1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
-            //   Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
-            //   SceneManager.LoadScene(2); //this loads the next level 
-            //    Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the track pieces available to the player, repleneshing any lost in level one.
+              yield return new WaitForSeconds(1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
+            //  Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
+             //  SceneManager.LoadScene(2); //this loads the next level 
+             //   Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the track pieces available to the player, repleneshing any lost in level one.
            // Music.GetComponent<SFX>().Music.Play();
 
 
-      //  }
+        }
 
        
 

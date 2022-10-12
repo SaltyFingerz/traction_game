@@ -66,7 +66,7 @@ public class CameraController : MonoBehaviour
              }
             if (Mathf.Abs(yDifference) >= threshold.y)
             {
-                newPosition.y = follow.y;
+                newPosition.y = follow.y - 2;
 
             }
             float moveSpeed = rb.velocity.magnitude > speed ? rb.velocity.magnitude : speed;
