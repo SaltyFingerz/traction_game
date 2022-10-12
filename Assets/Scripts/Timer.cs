@@ -5,6 +5,9 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
+
+
+
     [Header("Component")]
     public TextMeshProUGUI timerText;
     [Header("Component")]
@@ -23,7 +26,10 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
  
 
-     void Update()
+
+ 
+  
+    void Update()
     {
         if (stop)
         {
@@ -32,7 +38,7 @@ public class Timer : MonoBehaviour
             timerText2.text = currentTime.ToString("0.0");
             timerText3.text = currentTime.ToString("0.0");
             timerText4.text = currentTime.ToString("0.0");
-            print("stop");
+            
         }
 
         else

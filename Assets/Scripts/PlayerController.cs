@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public static bool movingDown = false;
     public static bool Stop = false;
 
+    public static bool camDown = false;
+
     public float speed = 20f;
 
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
@@ -59,9 +61,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Music;
     public GameObject Engine;
     //the sounds were thus added using this tutorial (https://youtu.be/JnbDxG04i7c by Jimmy Vegas) I changed the sound allocation so each sound has an individual game object, because I want them to play simultaneously
-
-
-
+    
 
 
     void Start()
@@ -324,6 +324,13 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (other.name.Contains("arrowsign"))
+        {
+            camDown = true;
+        }
+
+
         if (other.gameObject.name.Contains("Crate")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.
         {
             Score.CrateScore += 20; //the crate awards the player with points 
