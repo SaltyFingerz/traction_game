@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     private Score score; //to access score variables and add to these when picking up a crate or reaching the goal of a level
     private UIDropDownManager uIDropDownManager; //to get the difficulty from the dropdown menu and apply this to the speed of the train.
 
+    public ParticleSystem blood; //to link to the blood particle system
+    public GameObject OhNo;//to link to the AudioSource of the 'Oh No' sound
 
     //below are variables in this script that get called in other scripts, but not changed there. 
     public static bool movingRight = false;
@@ -43,7 +45,8 @@ public class PlayerController : MonoBehaviour
     public GameObject TimerMgmt;
     public GameObject Gold;
     public GameObject Silver;
-    public GameObject Bronze; 
+    public GameObject Bronze;
+    public GameObject Fail;
   
     
     bool isOnRawTerrain = false;//this denotes whether the train is on the level's raw terrain as opposed to track pieces. 
@@ -61,8 +64,15 @@ public class PlayerController : MonoBehaviour
     public GameObject Music;
     public GameObject Engine;
     //the sounds were thus added using this tutorial (https://youtu.be/JnbDxG04i7c by Jimmy Vegas) I changed the sound allocation so each sound has an individual game object, because I want them to play simultaneously
-    
 
+
+    IEnumerator PassengerHurt()
+    {
+        yield return new WaitForSeconds(1f);
+        Timer.stop = true;
+        Fail.SetActive(true);
+
+    }
 
     void Start()
     {
@@ -426,21 +436,21 @@ public class PlayerController : MonoBehaviour
             
             if (Timer.currentTime <= 30)
             {
-                print("gold");
+                
                 Timer.stop = true;
                 Gold.SetActive(true);
             }
 
             if (Timer.currentTime <= 45 && Timer.currentTime > 30)
             {
-                print("silver");
+               
                 Timer.stop = true;
                 Silver.SetActive(true);
             }
 
             if (Timer.currentTime >= 45)
             {
-                print("bronze");
+                
                 Timer.stop = true;
                 Bronze.SetActive(true);
             }
@@ -564,7 +574,7 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45")) //DEATH
             {
                 addingTrack = true;
 
@@ -576,6 +586,14 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated45"; //the rotation of the up track  is the same as that of the straight track it is added to.
 
                 hideTrack();
+
+                //blood.Play();
+                //ref: https://www.youtube.com/watch?v=0NCTAuP3BgU for the basics of playing a particle effect upon collision. This was adapted for a trigger event
+                //the particle effect (FX_BloodSplatter) comes from the free downloadable asset package: SimpleFX.
+                StartCoroutine(PassengerHurt()); //coroutine is used to give time for the blood splatter and sound effect to play before restarting the level
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
+                
 
             }
 
@@ -595,6 +613,9 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated90";
 
                 hideTrack();
+
+                StartCoroutine(PassengerHurt()); 
+                OhNo.GetComponent<SFX>().OhNo.Play();
 
             }
 
@@ -667,6 +688,9 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated-90";
                 hideTrack();
 
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
             }
 
            
@@ -706,9 +730,10 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated90";
 
-                
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
 
-                
+
 
             }
 
@@ -776,6 +801,8 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated45";
                 hideTrack();
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
 
             }
 
@@ -1064,6 +1091,8 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated-45";
                 hideTrack();
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
 
             }
 
@@ -1108,6 +1137,8 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated-90";
                 hideTrack();
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
 
             }
 
