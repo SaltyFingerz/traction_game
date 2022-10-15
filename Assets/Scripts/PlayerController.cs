@@ -339,6 +339,7 @@ public class PlayerController : MonoBehaviour
         {
             camDown = true;
             
+            
         }
 
         if (other.name.Contains("centresign"))
@@ -387,7 +388,7 @@ public class PlayerController : MonoBehaviour
             
             yield return new WaitForSeconds (1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
             Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
-            SceneManager.LoadScene(5); //this loads the next level 
+            SceneManager.LoadScene(2); //this loads the next level 
             Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the track pieces available to the player, repleneshing any lost in level one.
             Music.GetComponent<SFX>().Music.Play(); //this replays the game's background music as this was stopped for the victory music. 
 
@@ -421,10 +422,10 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
             yield return new WaitForSeconds(1.5f);
-            Time.timeScale = 1;
+           /* Time.timeScale = 1;
             SceneManager.LoadScene(4); // upon finishing level 2 the scene with credits is loaded as this is currently the end of the game.
             Player.GetComponent<InventoryManager>().RefreshTracks();
-            Music.GetComponent<SFX>().Music.Play();
+            Music.GetComponent<SFX>().Music.Play();*/
         }
 
 
@@ -470,9 +471,51 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (other.gameObject.name.Contains("Goal3")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
+        {
+            Time.timeScale = 0;
+
+            Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
+
+            PlayerController.Stop = true;
+            PlayerController.movingLeft = false;
+            PlayerController.movingRight = false;
+
+            Music.GetComponent<SFX>().Music.Stop();
+            Victory.GetComponent<SFX>().Victory.Play();
+
+            if (Timer.currentTime <= 30)
+            {
+
+                Timer.stop = true;
+                Gold.SetActive(true);
+            }
+
+            if (Timer.currentTime <= 45 && Timer.currentTime > 30)
+            {
+
+                Timer.stop = true;
+                Silver.SetActive(true);
+            }
+
+            if (Timer.currentTime >= 45)
+            {
+
+                Timer.stop = true;
+                Bronze.SetActive(true);
+            }
+
+            //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
 
 
-       IEnumerator VictoryEnsemble2()
+            StartCoroutine(VictoryEnsemble2());
+            //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
+
+        }
+
+
+
+        IEnumerator VictoryEnsemble2()
         {
             Music.GetComponent<SFX>().Music.Stop();
            // ref: https://docs.unity3d.com/ScriptReference/AudioSource.Stop.html. Thus the soundtrack stops to be replaced by the Victory sound for 1.5 seconds. 

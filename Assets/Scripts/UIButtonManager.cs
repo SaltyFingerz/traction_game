@@ -110,7 +110,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void Level1ButtonClicked()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
     }
@@ -118,7 +118,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level2ButtonClicked()
     {
         
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
@@ -127,7 +127,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level3ButtonClicked()
     {
 
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(4);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
@@ -136,7 +136,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level4ButtonClicked()
     {
 
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(5);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
@@ -145,7 +145,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level5ButtonClicked()
     {
 
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(9);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
@@ -153,7 +153,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void SaltyButtonClicked()
     {
-        SceneManager.LoadScene(4); //credits scene.
+        SceneManager.LoadScene(6); //credits scene.
        
     }
 
