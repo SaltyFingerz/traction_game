@@ -75,6 +75,29 @@ public class CameraController : MonoBehaviour
             //Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y - 2, Camera.main.transform.position.z);
         }
 
+        if (PlayerController.camCent)
+        {
+            Vector2 follow = followObject.transform.position;
+            float xDifference = Vector2.Distance(Vector2.right * transform.position.x, Vector2.right * follow.x);
+            float yDifference = Vector2.Distance(Vector2.up * transform.position.y, Vector2.up * follow.y);
+
+            Vector3 newPosition = transform.position;
+            if (Mathf.Abs(xDifference) >= threshold.x)
+            {
+                newPosition.x = follow.x + 4;
+
+            }
+            if (Mathf.Abs(yDifference) >= threshold.y)
+            {
+                newPosition.y = follow.y;
+
+            }
+            float moveSpeed = rb.velocity.magnitude > speed ? rb.velocity.magnitude : speed;
+            transform.position = Vector3.MoveTowards(transform.position, newPosition, speed * Time.deltaTime);
+
+            //Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y - 2, Camera.main.transform.position.z);
+        }
+
         //the code below adjusts the camera's position in relation to the train in each level, according to the amount of carriages present that must be included. 
         else if (scene.name == level1)
         {

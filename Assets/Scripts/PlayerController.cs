@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
     public static bool Stop = false;
 
     public static bool camDown = false;
-
+    public static bool camCent = false;
     public float speed = 20f;
 
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
@@ -338,6 +338,13 @@ public class PlayerController : MonoBehaviour
         if (other.name.Contains("arrowsign"))
         {
             camDown = true;
+            
+        }
+
+        if (other.name.Contains("centresign"))
+        {
+            camCent = true;
+
         }
 
 
