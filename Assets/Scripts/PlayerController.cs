@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Silver;
     public GameObject Bronze;
     public GameObject Fail;
-  
+    private GameObject currentPortal;
     
     bool isOnRawTerrain = false;//this denotes whether the train is on the level's raw terrain as opposed to track pieces. 
     bool addingTrack = false;//this denotes whether the train is in the process of adding a track piece. It becomes true when instantiatin a track piece and subsequently activates the animation of adding a track piece.
@@ -92,6 +92,14 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        if(currentPortal != null)
+        {
+            transform.position = currentPortal.GetComponent<Teleporter>().GetDestination().position;
+            print("tp");
+
+        }
+
         /*
        Transform childTransform = transform.Find("Mechanism");
         //print(Input.GetAxis("Horizontal")); //GetAxisRaw shows -1, 0, 1 whereas GetAxis shows -1, 0, 1 and decimal numbers in between. 
@@ -334,6 +342,12 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (other.CompareTag("Portal"))
+        {
+            currentPortal = other.gameObject;
+            print("portal");
+        }
 
         if (other.name.Contains("arrowsign"))
         {
@@ -1201,7 +1215,17 @@ public class PlayerController : MonoBehaviour
 
     }
 
-   
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Portal"))
+        {
+            if(other.gameObject == currentPortal)
+            {
+                currentPortal = null;
+                print("null");
+            }
+        }
+    }
 
 
     public void animationAddingToMoving() //this function gets called in the train_front animation of Animation_Adding, at the end in order to ensure this animation doesn't repeat until a new track is being added.
