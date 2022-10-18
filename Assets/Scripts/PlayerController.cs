@@ -31,9 +31,9 @@ public class PlayerController : MonoBehaviour
     public static bool camDown = false;
     public static bool camCent = false;
     public float speed = 20f;
-
+    private float calV = -0.12f; //the callibration value for callibrating the position of tracks when moving left based on the position of tracks when moving right.
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
-
+    private bool canFlip = true;
     public static string nextTrack; //this variable denotes the next type of track piece that the player tells the train to add. (it takes values of "straight" "up" "down"
     //public float movementSpeed = 0.1f;
     public Text highScore; //this is the text that displays the high score at the centre top of the screen in level 2. It is public to be linked to the HUD's HighScore game object that displays this text in the HUD UI.
@@ -95,10 +95,20 @@ public class PlayerController : MonoBehaviour
 
         if(currentPortal != null)
         {
+            if(currentPortal.CompareTag("FlipPortal") && canFlip)
+            {
+                canFlip = false;
+                transform.Rotate(new Vector3(0, 180, 0));
+                movingRight = false;
+                movingLeft = true;
+                print("flip");
+            }
             transform.position = currentPortal.GetComponent<Teleporter>().GetDestination().position;
             print("tp");
 
         }
+
+       
 
         /*
        Transform childTransform = transform.Find("Mechanism");
@@ -143,6 +153,36 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (movingLeft) //this gives the train a constant movement when it is told to move right, so the player doesn't have to hold the right key down in order to move, but uses the keys to control the track pieces that are added instead. 
+        {
+            // if (UIDropDownManager.Normal == true)
+            // {
+            // rb2d.velocity = new Vector2(1, rb2d.velocity.y); //this sets the speed at which the train moves when the dificutly is set to normal.
+            //  }
+
+            //  else if (UIDropDownManager.Hard == true)
+            //   {
+            //      rb2d.velocity = new Vector2(2, rb2d.velocity.y); //this sets the speed to double that of normal, when the difficulty is set to hard. 
+            //    }
+
+            spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
+            if (Input.GetKey("left") || Input.GetKey("a") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut)
+            {
+                // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
+                rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
+
+            }
+
+            else
+            {
+                rb2d.velocity = new Vector2(-1, rb2d.velocity.y);
+            }
+
+
+
+
+        }
+
 
         //movingLeft (below) is not used currently as the train only moves rightwards, it may be further developed for later versions of the game. 
 
@@ -155,7 +195,7 @@ public class PlayerController : MonoBehaviour
             //parent.transform.GetChild(0).gameObject.scaleX = -1;
         }*/
 
-        
+
 
         else if (Stop)
 
@@ -348,6 +388,13 @@ public class PlayerController : MonoBehaviour
             currentPortal = other.gameObject;
             print("portal");
         }
+
+        if (other.CompareTag("FlipPortal"))
+        {
+            currentPortal = other.gameObject;
+            print("portal");
+        }
+
 
         if (other.name.Contains("arrowsign"))
         {
@@ -569,6 +616,48 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (other.gameObject.name.Contains("Goal5")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
+        {
+            Time.timeScale = 0;
+
+            Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
+
+            PlayerController.Stop = true;
+            PlayerController.movingLeft = false;
+            PlayerController.movingRight = false;
+
+            Music.GetComponent<SFX>().Music.Stop();
+            Victory.GetComponent<SFX>().Victory.Play();
+
+            if (Timer.currentTime <= 40)
+            {
+
+                Timer.stop = true;
+                Gold.SetActive(true);
+            }
+
+            if (Timer.currentTime <= 50 && Timer.currentTime > 40)
+            {
+
+                Timer.stop = true;
+                Silver.SetActive(true);
+            }
+
+            if (Timer.currentTime >= 50)
+            {
+
+                Timer.stop = true;
+                Bronze.SetActive(true);
+            }
+
+            //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
+
+
+            StartCoroutine(VictoryEnsemble2());
+            //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
+
+        }
+
         IEnumerator VictoryEnsemble2()
         {
             Music.GetComponent<SFX>().Music.Stop();
@@ -594,7 +683,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("straight_track")) //if the train is currently on a straight track, i.e. adding a track to a straight track piece.
         {
 
-            if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track")) //if the track piece to be added at this point is another straight track, only add it if there are such pieces available in the inventory. The tag "track" is the default, denoting that the current track under the train is not rotated. 
+            if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight) //if the track piece to be added at this point is another straight track, only add it if there are such pieces available in the inventory. The tag "track" is the default, denoting that the current track under the train is not rotated. 
             {
                 addingTrack = true; //this calls the animation of the train adding a track piece to be played. 
 
@@ -610,7 +699,25 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45")) //similar to the above instance except the current straight track below is rotated by 45 degrees, meaning the new track must also be rotated. 
+            if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft) //if the track piece to be added at this point is another straight track, only add it if there are such pieces available in the inventory. The tag "track" is the default, denoting that the current track under the train is not rotated. 
+            {
+                addingTrack = true; //this calls the animation of the train adding a track piece to be played. 
+
+                showNow = false; //this specifies the new track piece to appear in time with the adding track animation in accordance with the showTrack() and hideTrack() functions that are written below and called in the animator. 
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.69f, 0f, 0), other.transform.rotation); // instead of using rotation of player, use rotation of current track to ensure tracks connecting. need to callibrate position in relation to rotated track or use object position instaed of world position.
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                //the above code for instantiating a track piece is based on the in-class example for isntantiating a bullet. However it is modified to instantiate the position and rotation in relation to the track object under the train rather than the train itself as the new track must be positioned to attach to the current track. 
+
+
+                hideTrack();
+                
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight) //similar to the above instance except the current straight track below is rotated by 45 degrees, meaning the new track must also be rotated. 
             {
                 addingTrack = true;
 
@@ -628,7 +735,25 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft) //similar to the above instance except the current straight track below is rotated by 45 degrees, meaning the new track must also be rotated. 
+            {
+                addingTrack = true;
+
+
+                showNow = false;
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.4f + calV, -0.4f, 0), other.transform.rotation); //the rotation of the new track is defined by that of the track it is being added to. The position of the new track is different from when it is not rotated, and was found by trial and error. 
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));                                                                                                                         // instead of using rotation of player, use rotation of current track to ensure tracks connect.
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated45"; //this is so the track following the rotated track is targged as rotated by 45 degrees so any track added to it can be rotated likewise.
+
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
             {
                 addingTrack = true;
 
@@ -646,7 +771,26 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
+            {
+                addingTrack = true;
+
+
+                showNow = false;
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(calV, -0.55f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated90";
+
+
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
             {
                 addingTrack = true;
 
@@ -664,7 +808,26 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track")) //this is for adding an upwards track to a non-rotated straight track.
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
+            {
+                addingTrack = true;
+
+                showNow = false;
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.4f + calV, 0.4f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated-45";
+
+
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight) //this is for adding an upwards track to a non-rotated straight track.
             {
                 addingTrack = true;
 
@@ -678,7 +841,23 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45")) //DEATH
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft) //this is for adding an upwards track to a non-rotated straight track.
+            {
+                addingTrack = true;
+
+
+                showNow = false;
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-1.5f, 0.6f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
+                InventoryManager.upTracksAvailable--;
+                //a tag for the rotation of the new track here is unecessary is it contains "track" by default.
+                hideTrack();
+                print("add up track left");
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight) //DEATH
             {
                 addingTrack = true;
 
@@ -701,7 +880,31 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft) //DEATH
+            {
+                addingTrack = true;
+
+                showNow = false;
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.58f + calV, 1.41f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated45"; //the rotation of the up track  is the same as that of the straight track it is added to.
+
+                hideTrack();
+
+                //blood.Play();
+                //ref: https://www.youtube.com/watch?v=0NCTAuP3BgU for the basics of playing a particle effect upon collision. This was adapted for a trigger event
+                //the particle effect (FX_BloodSplatter) comes from the free downloadable asset package: SimpleFX.
+                StartCoroutine(PassengerHurt()); //coroutine is used to give time for the blood splatter and sound effect to play before restarting the level
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
+
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
             {
                 addingTrack = true;
 
@@ -723,7 +926,29 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
+            {
+                addingTrack = true;
+
+
+                showNow = false;
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.6f + calV, 1.5f, 0), Quaternion.Euler(0, 0, 90));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                //ref: https://docs.unity3d.com/ScriptReference/Quaternion.Euler.html manual for Quaternion.Euler for defining the rotation of the track game object. 
+                //specifying the angle of the new track using Quaternion.Euler in this instance is interchangeble with using the rotation of the track it is being added to (other.transform.rotation).
+
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated90";
+
+                hideTrack();
+
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
             {
                 addingTrack = true;
 
@@ -738,8 +963,23 @@ public class PlayerController : MonoBehaviour
 
             }
 
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
+            {
+                addingTrack = true;
 
-            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("track"))
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.5f + calV, -0.6f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated-45";
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
             {
                 addingTrack = true;
 
@@ -752,7 +992,21 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45"))
+            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.5f + calV, -0.2f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
             {
                 addingTrack = true;
 
@@ -766,7 +1020,22 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90"))
+            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.2f + calV, 0.9f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "rotated45";
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
             {
                 addingTrack = true;
 
@@ -780,7 +1049,22 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45"))
+            else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.2f + calV, 1.48f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "rotated90";
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
             {
                 addingTrack = true;
 
@@ -797,15 +1081,33 @@ public class PlayerController : MonoBehaviour
 
             }
 
-           
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
+            {
+                addingTrack = true;
 
-            
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.85f + calV, -1.15f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "rotated-90";
+                hideTrack();
+
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
+            }
+
+
+
+
 
         }
 
         else if (other.gameObject.name.Contains("up_track")) //the following instances are for adding track pieces to upwards turning track pieces. 
         {
-            if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track"))
+            if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
             {
                 addingTrack = true;
 
@@ -823,7 +1125,26 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.3f + calV, -1.1f, 0), Quaternion.Euler(0, 0, 45));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                //adding a straight track to a non-rotated upwards track, requires rotating the straight track by 45 degrees as this is how much the upwards track turns up. 
+                //In this instance, Quaternion.Euler is used to specify the rotation of the new track piece, i.e. using other.transform.rotation would not work here because the rotation changes. 
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated45"; //the new straight track added to the up track is thus tagged as rotated by 45 degrees for the next track to also be rotated by this amount.
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") &&movingRight)
             {
                 addingTrack = true;
 
@@ -841,7 +1162,26 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.55f + calV, -1f, 0), Quaternion.Euler(0, 0, 90)); //a rotated by 45 degrees up track results in the track pointing 90 degrees upwards, so this is the required rotation for the straight track that is added to it. 
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated90";
+
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
+
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
             {
                 addingTrack = true;
 
@@ -859,7 +1199,26 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated135"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(1.1f + calV, -0.3f, 0), Quaternion.Euler(0, 0, 135)); //this is an improbably condition but is included to cover all instances and in cases where the gravity is modified, like when a loopdeloop is attempted.
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated135";
+
+
+                hideTrack();
+
+
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated135") && movingRight)
             {
                 addingTrack = true;
 
@@ -877,7 +1236,26 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45")) //adding a straight track to an up track that is 45 degrees rotated downwards.
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated135") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(1f + calV, 0), Quaternion.Euler(0, 0, 180)); //this is essentially an upside down track, not necessarily traversible.
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated180";
+
+
+                hideTrack();
+
+
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight) //adding a straight track to an up track that is 45 degrees rotated downwards.
             {
                 addingTrack = true;
 
@@ -894,7 +1272,26 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft) //adding a straight track to an up track that is 45 degrees rotated downwards.
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-1f + calV, -0.55f, 0), Quaternion.Euler(0, 0, 0));  //the resulting track points straight forwards.
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "track not to hide";
+                //this is an instance where the tracks get added too fast for them to be hidden and shown with the hideTrack() and showTrack() functions, so this tag is used to bypass them and show the new track piece immediately. 
+                //This tag name is important to include the word "track" because this is the word refered to in the default tag of non-rotated track pieces.
+
+
+
+            }
+
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
             {
                 addingTrack = true;
 
@@ -910,7 +1307,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.7f + calV, 0.77f, 0), Quaternion.Euler(0, 0, 45)); //adding an up track to a non-rotated up track must be added at 45 degrees.
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated45";
+                hideTrack();
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
             {
                 addingTrack = true;
 
@@ -925,7 +1339,23 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.05f + calV, 1f, 0), Quaternion.Euler(0, 0, 90));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated90";
+
+
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
             {
                 addingTrack = true;
 
@@ -941,7 +1371,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated135"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.75f + calV, 0.7f, 0), Quaternion.Euler(0, 0, 135)); //this improbable situation suggest a loopdeloop
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated135";
+                hideTrack();
+
+
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated135") && movingRight)
             {
                 addingTrack = true;
 
@@ -957,7 +1404,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated180"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated135") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-1.1f + calV, -0.05f, 0), Quaternion.Euler(0, 0, 180));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated180";
+                hideTrack();
+
+
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated180") && movingRight)
             {
                 addingTrack = true;
 
@@ -973,7 +1437,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated225"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated180") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.75f + calV, -0.8f, 0), Quaternion.Euler(0, 0, 225));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated225";
+                hideTrack();
+
+
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated225") && movingRight)
             {
                 addingTrack = true;
 
@@ -989,7 +1470,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated270"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated225") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.05f + calV, -1.05f, 0), Quaternion.Euler(0, 0, 270));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated270";
+                hideTrack();
+
+
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated270") && movingRight)
             {
                 addingTrack = true;
 
@@ -1006,7 +1504,25 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated270") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.85f + calV, -0.7f, 0), Quaternion.Euler(0, 0, 315));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated-45";
+                //this track represents the last track piece of a loop de loop, as the next track piece will be 360 degrees rotated i.e. not rotated at all.
+                hideTrack();
+
+
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1020,7 +1536,22 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
+            {
+                addingTrack = true;
+
+                showNow = true;
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.05f + calV, 0.05f, 0), Quaternion.Euler(0, 0, 0));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "track";
+
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
             {
                 addingTrack = true;
 
@@ -1034,7 +1565,22 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45"))
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.33f + calV, 0.24f, 0), Quaternion.Euler(0, 0, 45));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "rotated45";
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1048,9 +1594,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-           
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
+            {
+                addingTrack = true;
 
-            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45"))
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.79f + calV, 1.04f, 0), Quaternion.Euler(0, 0, 90));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "rotated90";
+                hideTrack();
+
+            }
+
+
+
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1064,13 +1625,28 @@ public class PlayerController : MonoBehaviour
 
             }
 
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.05f + calV, -0.75f, 0), Quaternion.Euler(0, 0, 0));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "track";
+                hideTrack();
+
+            }
+
 
 
         }
 
         else if (other.gameObject.name.Contains("down_track"))
         {
-            if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track"))
+            if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
             {
                 addingTrack = true;
 
@@ -1086,7 +1662,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.19f + calV, 0.68f, 0), Quaternion.Euler(0, 0, -45));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated-45";
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1102,7 +1695,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.6f + calV, 0.32f, 0), Quaternion.Euler(0, 0, 0));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "track";
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
             {
                 addingTrack = true;
 
@@ -1118,9 +1728,26 @@ public class PlayerController : MonoBehaviour
 
             }
 
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
+            {
+                addingTrack = true;
 
 
-            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45"))
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.65f + calV, -0.2f, 0), Quaternion.Euler(0, 0, 45));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated45";
+
+
+                hideTrack();
+
+            }
+
+
+
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1136,7 +1763,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track"))
+            else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.32f + calV, 0.61f, 0), Quaternion.Euler(0, 0, -90f)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated-90";
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
             {
                 addingTrack = true;
 
@@ -1152,7 +1796,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.68f + calV, -0.34f, 0), Quaternion.Euler(0, 0, -45f)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated-45";
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1168,7 +1829,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.45f + calV, 0.9f, 0), Quaternion.Euler(0, 0, 0)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "track";
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1184,7 +1862,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track"))
+            else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.95f + calV, -1.45f, 0), Quaternion.Euler(0, 0, -90)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.upTracksAvailable--;
+                newTrack.tag = "rotated-90";
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
             {
                 addingTrack = true;
 
@@ -1200,7 +1895,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45"))
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.1f + calV, -0.95f, 0), Quaternion.Euler(0, 0, -45f));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "rotated-45";
+                hideTrack();
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1214,7 +1926,22 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90"))
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.45f + calV, 0.1f, 0), Quaternion.Euler(0, 0, 0));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "track";
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
             {
                 addingTrack = true;
 
@@ -1230,7 +1957,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45"))
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.95f + calV, 1.13f, 0), Quaternion.Euler(0, 0, 45));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "rotated45";
+
+
+                hideTrack();
+
+            }
+
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
             {
                 addingTrack = true;
 
@@ -1246,7 +1990,24 @@ public class PlayerController : MonoBehaviour
 
             }
 
-           
+            else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
+            {
+                addingTrack = true;
+
+
+
+
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.1f + calV, -1.4f, 0), Quaternion.Euler(0, 0, -90f));
+                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                InventoryManager.downTracksAvailable--;
+                newTrack.tag = "rotated-90";
+                hideTrack();
+                StartCoroutine(PassengerHurt());
+                OhNo.GetComponent<SFX>().OhNo.Play();
+
+            }
+
+
 
         }
 
@@ -1260,6 +2021,15 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Portal"))
         {
             if(other.gameObject == currentPortal)
+            {
+                currentPortal = null;
+                print("null");
+            }
+        }
+
+        if (other.CompareTag("FlipPortal"))
+        {
+            if (other.gameObject == currentPortal)
             {
                 currentPortal = null;
                 print("null");
