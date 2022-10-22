@@ -25,7 +25,8 @@ public class CargoAnimationManager : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         cargoAnimator = GetComponent<Animator>();
-       
+        
+        
     }
 
     // Update is called once per frame
@@ -45,6 +46,7 @@ public class CargoAnimationManager : MonoBehaviour
             //passes the 1 integer to the animator to be used as a parameter to run the moving cargo animation when the train is moving. 
         }
 
+        
 
     }
 

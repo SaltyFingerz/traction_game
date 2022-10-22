@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
 
     public static bool camDown = false;
     public static bool camCent = false;
+    public static bool camUp = false;
     public float speed = 20f;
     private float calV = -0.12f; //the callibration value for callibrating the position of tracks when moving left based on the position of tracks when moving right.
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Engine;
     //the sounds were thus added using this tutorial (https://youtu.be/JnbDxG04i7c by Jimmy Vegas) I changed the sound allocation so each sound has an individual game object, because I want them to play simultaneously
 
+    public static bool flipped = false;
 
     IEnumerator PassengerHurt()
     {
@@ -98,7 +100,8 @@ public class PlayerController : MonoBehaviour
             if(currentPortal.CompareTag("FlipPortal") && canFlip)
             {
                 canFlip = false;
-                transform.Rotate(new Vector3(0, 180, 0));
+                transform.localScale = new Vector3(-1, 1, 1);
+                flipped = true;
                 movingRight = false;
                 movingLeft = true;
                 print("flip");
@@ -306,7 +309,7 @@ public class PlayerController : MonoBehaviour
         //adding track automatically - game mechanic - using input from wasd or arrow keys to tell the train which track to add next. 
         //the code below was learnt from following this tutorial: https://www.youtube.com/watch?v=44djqUTg2Sg&t=2240s and the player controller lectorial of DES105. 
         //I contributed to the basic controller by making the resulting variable a nextTrack rather than a vector of movement per se. The next track indirectly defines the subsequent movement of the player. 
-        if (Input.GetKey("d") || Input.GetKey("right") || UIButtonManager.StrBut) 
+        if (Input.GetKey("d") || Input.GetKey("right") || Input.GetKey("left") || Input.GetKey("a") || UIButtonManager.StrBut) 
             {
                 nextTrack = "straight";
             UIButtonManager.UpBut = false;
@@ -398,6 +401,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.name.Contains("arrowsign"))
         {
+            camUp = false;
+            camCent = false;
             camDown = true;
             
             
@@ -405,7 +410,17 @@ public class PlayerController : MonoBehaviour
 
         if (other.name.Contains("centresign"))
         {
+            camDown = false;
+            camUp = false;
             camCent = true;
+
+        }
+
+        if (other.CompareTag("UpSign"))
+        {
+            camCent = false;
+            camDown = false;
+            camUp = true;
 
         }
 
@@ -658,6 +673,49 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (other.gameObject.name.Contains("Goal6")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
+        {
+            
+            Time.timeScale = 0;
+
+            Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
+
+            PlayerController.Stop = true;
+            PlayerController.movingLeft = false;
+            PlayerController.movingRight = false;
+
+            Music.GetComponent<SFX>().Music.Stop();
+            Victory.GetComponent<SFX>().Victory.Play();
+
+            if (Timer.currentTime <= 40)
+            {
+
+                Timer.stop = true;
+                Gold.SetActive(true);
+            }
+
+            if (Timer.currentTime <= 50 && Timer.currentTime > 40)
+            {
+
+                Timer.stop = true;
+                Silver.SetActive(true);
+            }
+
+            if (Timer.currentTime >= 50)
+            {
+
+                Timer.stop = true;
+                Bronze.SetActive(true);
+            }
+
+            //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
+
+
+            StartCoroutine(VictoryEnsemble2());
+            //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
+
+        }
+
         IEnumerator VictoryEnsemble2()
         {
             Music.GetComponent<SFX>().Music.Stop();
@@ -742,8 +800,9 @@ public class PlayerController : MonoBehaviour
 
                 showNow = false;
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.4f + calV, -0.4f, 0), other.transform.rotation); //the rotation of the new track is defined by that of the track it is being added to. The position of the new track is different from when it is not rotated, and was found by trial and error. 
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));                                                                                                                         // instead of using rotation of player, use rotation of current track to ensure tracks connect.
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.4f, -0.4f, 0), other.transform.rotation); //the rotation of the new track is defined by that of the track it is being added to. The position of the new track is different from when it is not rotated, and was found by trial and error. 
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
+                
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated45"; //this is so the track following the rotated track is targged as rotated by 45 degrees so any track added to it can be rotated likewise.
 
@@ -778,8 +837,8 @@ public class PlayerController : MonoBehaviour
 
                 showNow = false;
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(calV, -0.55f, 0), other.transform.rotation);
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0f, -0.55f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated90";
 
@@ -815,8 +874,8 @@ public class PlayerController : MonoBehaviour
                 showNow = false;
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.4f + calV, 0.4f, 0), other.transform.rotation);
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.4f + calV, 0.4f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated-45";
 
@@ -887,8 +946,8 @@ public class PlayerController : MonoBehaviour
                 showNow = false;
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.58f + calV, 1.41f, 0), other.transform.rotation);
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.58f, 1.41f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated45"; //the rotation of the up track  is the same as that of the straight track it is added to.
 
@@ -933,8 +992,8 @@ public class PlayerController : MonoBehaviour
 
                 showNow = false;
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.6f + calV, 1.5f, 0), Quaternion.Euler(0, 0, 90));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.6f, 1.5f, 0), Quaternion.Euler(0, 0, 90));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 //ref: https://docs.unity3d.com/ScriptReference/Quaternion.Euler.html manual for Quaternion.Euler for defining the rotation of the track game object. 
                 //specifying the angle of the new track using Quaternion.Euler in this instance is interchangeble with using the rotation of the track it is being added to (other.transform.rotation).
 
@@ -970,8 +1029,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.5f + calV, -0.6f, 0), other.transform.rotation);
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-1.5f, -0.6f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated-45";
 
@@ -999,8 +1058,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.5f + calV, -0.2f, 0), other.transform.rotation);
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-1.5f, -0.2f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.downTracksAvailable--;
                 hideTrack();
 
@@ -1027,8 +1086,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.2f + calV, 0.9f, 0), other.transform.rotation);
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-1.2f, 0.9f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
                 hideTrack();
@@ -1056,8 +1115,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.2f + calV, 1.48f, 0), other.transform.rotation);
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-0.2f, 1.48f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated90";
                 hideTrack();
@@ -1088,8 +1147,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.85f + calV, -1.15f, 0), other.transform.rotation);
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-0.85f, -1.15f, 0), other.transform.rotation);
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated-90";
                 hideTrack();
@@ -1132,7 +1191,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.3f + calV, -1.1f, 0), Quaternion.Euler(0, 0, 45));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.3f, -1.1f, 0), Quaternion.Euler(0, 0, -45));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 //adding a straight track to a non-rotated upwards track, requires rotating the straight track by 45 degrees as this is how much the upwards track turns up. 
                 //In this instance, Quaternion.Euler is used to specify the rotation of the new track piece, i.e. using other.transform.rotation would not work here because the rotation changes. 
@@ -1169,8 +1228,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.55f + calV, -1f, 0), Quaternion.Euler(0, 0, 90)); //a rotated by 45 degrees up track results in the track pointing 90 degrees upwards, so this is the required rotation for the straight track that is added to it. 
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.55f, -1f, 0), Quaternion.Euler(0, 0, 90)); //a rotated by 45 degrees up track results in the track pointing 90 degrees upwards, so this is the required rotation for the straight track that is added to it. 
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated90";
 
@@ -1206,8 +1265,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(1.1f + calV, -0.3f, 0), Quaternion.Euler(0, 0, 135)); //this is an improbably condition but is included to cover all instances and in cases where the gravity is modified, like when a loopdeloop is attempted.
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-1.1f, -0.3f, 0), Quaternion.Euler(0, 0, 135)); //this is an improbably condition but is included to cover all instances and in cases where the gravity is modified, like when a loopdeloop is attempted.
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated135";
 
@@ -1243,8 +1302,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(1f + calV, 0), Quaternion.Euler(0, 0, 180)); //this is essentially an upside down track, not necessarily traversible.
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-1f, 0), Quaternion.Euler(0, 0, 180)); //this is essentially an upside down track, not necessarily traversible.
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated180";
 
@@ -1279,7 +1338,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-1f + calV, -0.55f, 0), Quaternion.Euler(0, 0, 0));  //the resulting track points straight forwards.
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(1f + calV, -0.55f, 0), Quaternion.Euler(0, 0, 0));  //the resulting track points straight forwards.
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "track not to hide";
@@ -1314,7 +1373,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.7f + calV, 0.77f, 0), Quaternion.Euler(0, 0, 45)); //adding an up track to a non-rotated up track must be added at 45 degrees.
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.7f, 0.77f, 0), Quaternion.Euler(0, 0, -45)); //adding an up track to a non-rotated up track must be added at 45 degrees.
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated45";
@@ -1346,8 +1405,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.05f + calV, 1f, 0), Quaternion.Euler(0, 0, 90));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.05f, 1f, 0), Quaternion.Euler(0, 0, 90));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated90";
 
@@ -1378,8 +1437,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.75f + calV, 0.7f, 0), Quaternion.Euler(0, 0, 135)); //this improbable situation suggest a loopdeloop
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.75f + calV, 0.7f, 0), Quaternion.Euler(0, 0, 135)); //this improbable situation suggest a loopdeloop
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated135";
                 hideTrack();
@@ -1411,8 +1470,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-1.1f + calV, -0.05f, 0), Quaternion.Euler(0, 0, 180));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.1f, -0.05f, 0), Quaternion.Euler(0, 0, 180));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated180";
                 hideTrack();
@@ -1444,8 +1503,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.75f + calV, -0.8f, 0), Quaternion.Euler(0, 0, 225));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.75f, -0.8f, 0), Quaternion.Euler(0, 0, 225));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated225";
                 hideTrack();
@@ -1477,8 +1536,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.05f + calV, -1.05f, 0), Quaternion.Euler(0, 0, 270));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.05f, -1.05f, 0), Quaternion.Euler(0, 0, 270));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated270";
                 hideTrack();
@@ -1511,8 +1570,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.85f + calV, -0.7f, 0), Quaternion.Euler(0, 0, 315));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.85f, -0.7f, 0), Quaternion.Euler(0, 0, 315));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated-45";
                 //this track represents the last track piece of a loop de loop, as the next track piece will be 360 degrees rotated i.e. not rotated at all.
@@ -1543,7 +1602,7 @@ public class PlayerController : MonoBehaviour
                 showNow = true;
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.05f + calV, 0.05f, 0), Quaternion.Euler(0, 0, 0));
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-1.05f, 0.05f, 0), Quaternion.Euler(0, 0, 0));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "track";
@@ -1572,7 +1631,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.33f + calV, 0.24f, 0), Quaternion.Euler(0, 0, 45));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-1.33f, 0.24f, 0), Quaternion.Euler(0, 0, -45));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
@@ -1601,8 +1660,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.79f + calV, 1.04f, 0), Quaternion.Euler(0, 0, 90));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-0.79f, 1.04f, 0), Quaternion.Euler(0, 0, 90));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated90";
                 hideTrack();
@@ -1632,7 +1691,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.05f + calV, -0.75f, 0), Quaternion.Euler(0, 0, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-1.05f, -0.75f, 0), Quaternion.Euler(0, 0, 0));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
@@ -1669,7 +1728,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.19f + calV, 0.68f, 0), Quaternion.Euler(0, 0, -45));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.19f, 0.68f, 0), Quaternion.Euler(0, 0, 45));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated-45";
@@ -1702,7 +1761,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.6f + calV, 0.32f, 0), Quaternion.Euler(0, 0, 0));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.6f, 0.32f, 0), Quaternion.Euler(0, 0, 0));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "track";
@@ -1735,8 +1794,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.65f + calV, -0.2f, 0), Quaternion.Euler(0, 0, 45));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.65f, -0.2f, 0), Quaternion.Euler(0, 0, 45));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated45";
 
@@ -1770,8 +1829,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.32f + calV, 0.61f, 0), Quaternion.Euler(0, 0, -90f)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.32f, 0.61f, 0), Quaternion.Euler(0, 0, -90f)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.straightTracksAvailable--;
                 newTrack.tag = "rotated-90";
 
@@ -1799,11 +1858,11 @@ public class PlayerController : MonoBehaviour
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
             {
                 addingTrack = true;
+                
 
 
 
-
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.68f + calV, -0.34f, 0), Quaternion.Euler(0, 0, -45f)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-1.68f, -0.34f, 0), Quaternion.Euler(0, 0, 45f)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated-45";
@@ -1836,7 +1895,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.45f + calV, 0.9f, 0), Quaternion.Euler(0, 0, 0)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-1.45f, 0.9f, 0), Quaternion.Euler(0, 0, 0)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "track";
@@ -1869,7 +1928,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.95f + calV, -1.45f, 0), Quaternion.Euler(0, 0, -90)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
+                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.95f, -1.45f, 0), Quaternion.Euler(0, 0, 90)); // instead of using rotation of player, use rotation of current track to ensure tracks connecting
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated-90";
@@ -1902,7 +1961,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.1f + calV, -0.95f, 0), Quaternion.Euler(0, 0, -45f));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-1.1f, -0.95f, 0), Quaternion.Euler(0, 0, 45f));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated-45";
@@ -1933,7 +1992,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.45f + calV, 0.1f, 0), Quaternion.Euler(0, 0, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-1.45f, 0.1f, 0), Quaternion.Euler(0, 0, 0));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
@@ -1964,8 +2023,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.95f + calV, 1.13f, 0), Quaternion.Euler(0, 0, 45));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-0.95f, 1.13f, 0), Quaternion.Euler(0, 0, 45));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
 
@@ -1997,8 +2056,8 @@ public class PlayerController : MonoBehaviour
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.1f + calV, -1.4f, 0), Quaternion.Euler(0, 0, -90f));
-                newTrack.transform.Rotate(new Vector3(0, 180, 0));
+                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-0.1f, -1.4f, 0), Quaternion.Euler(0, 0, -90f));
+                newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated-90";
                 hideTrack();
@@ -2023,6 +2082,11 @@ public class PlayerController : MonoBehaviour
             if(other.gameObject == currentPortal)
             {
                 currentPortal = null;
+                camDown = false;
+                camUp = false;
+                camCent = false;
+                
+                
                 print("null");
             }
         }
@@ -2032,6 +2096,9 @@ public class PlayerController : MonoBehaviour
             if (other.gameObject == currentPortal)
             {
                 currentPortal = null;
+                camDown = false;
+                camUp = false;
+                camCent = false;
                 print("null");
             }
         }
