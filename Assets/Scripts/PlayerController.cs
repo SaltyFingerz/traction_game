@@ -424,6 +424,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if(other.CompareTag("deadly"))
+        {
+            StartCoroutine(PassengerHurt());
+            OhNo.GetComponent<SFX>().OhNo.Play();
+        }
 
         if (other.gameObject.name.Contains("Crate")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.
         {
