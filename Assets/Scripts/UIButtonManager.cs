@@ -17,8 +17,13 @@ public class UIButtonManager : MonoBehaviour
     public static bool StrBut = false;
     public static bool UpBut = false;
     public static bool DowBut = false;
-    
-
+    private bool TuteOn = true;
+    public GameObject TutePrompt1;
+    public GameObject TutePrompt2;
+    public GameObject TutePrompt3;
+    public GameObject TutePrompt4;
+    public GameObject TutePrompt5;
+    public GameObject TutePrompt6;
     public void StraightTrackButtonClicked()
     {
      
@@ -104,10 +109,91 @@ public class UIButtonManager : MonoBehaviour
 
     public void LoadButtonClicked()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(9);
         //this function is activated upon clicking onto the levels panel at the bottom left of the main menu. It loads the scene that displays each level from where they can be loaded. 
     }
 
+    public void StartTutorialButton()
+    {
+        TutePrompt1.SetActive(false);
+        TuteOn = true;
+        TutePrompt2.SetActive(true);
+    }
+
+    public void SkipTutorialButton()
+    {
+        TuteOn = false;
+        TutePrompt1.SetActive(false);
+    }
+
+    public void ClosePrompt3()
+    {
+        Time.timeScale = 1;
+        TutePrompt3.SetActive(false);
+        TutePrompt4.SetActive(true);
+    }
+
+    public void ClosePrompt4()
+    {
+
+        TutePrompt4.SetActive(false);
+        TutePrompt5.SetActive(true);
+    }
+
+    public void ClosePrompt5()
+    {
+
+        TutePrompt5.SetActive(false);
+        TutePrompt6.SetActive(true);
+    }
+    public void Level1MenuButtonClicked()
+    {
+        SceneManager.LoadScene(1);
+        //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
+        ResetVariables();
+    }
+
+    public void Level2MenuButtonClicked()
+    {
+        SceneManager.LoadScene(2);
+        //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
+        ResetVariables();
+    }
+
+    public void Level3MenuButtonClicked()
+    {
+        SceneManager.LoadScene(3);
+        //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
+        ResetVariables();
+    }
+
+    public void Level4MenuButtonClicked()
+    {
+        SceneManager.LoadScene(4);
+        //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
+        ResetVariables();
+    }
+
+    public void Level5MenuButtonClicked()
+    {
+        SceneManager.LoadScene(5);
+        //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
+        ResetVariables();
+    }
+
+    public void Level6MenuButtonClicked()
+    {
+        SceneManager.LoadScene(6);
+        //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
+        ResetVariables();
+    }
+
+    public void Level7MenuButtonClicked()
+    {
+        SceneManager.LoadScene(7);
+        //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
+        ResetVariables();
+    }
     public void Level1ButtonClicked()
     {
         SceneManager.LoadScene(2);
@@ -145,7 +231,25 @@ public class UIButtonManager : MonoBehaviour
     public void Level5ButtonClicked()
     {
 
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(6);
+        //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
+        //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
+        ResetVariables();
+    }
+
+    public void Level6ButtonClicked()
+    {
+
+        SceneManager.LoadScene(7);
+        //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
+        //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
+        ResetVariables();
+    }
+
+    public void Level7ButtonClicked()
+    {
+
+        SceneManager.LoadScene(0);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
@@ -164,7 +268,8 @@ public class UIButtonManager : MonoBehaviour
         Time.timeScale = 1;
         
         Player.GetComponent<InventoryManager>().RefreshTracks(); //ref: https://forum.unity.com/threads/calling-function-from-other-scripts-c.57072/ for calling a function from another script.
-        
+        Timer.currentTime = 0f;
+        Timer.stop = false;
         TrackForce.onVertical = false;
         TrackForce.onInverted = false;
         TrackForceCargo.onVertical = false;

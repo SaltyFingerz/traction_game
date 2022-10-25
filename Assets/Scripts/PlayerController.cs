@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour
     public static bool movingUp = false;
     public static bool movingDown = false;
     public static bool Stop = false;
-
+    public GameObject TutePrompt2;
+    public GameObject TutePrompt3;
     public static bool camDown = false;
     public static bool camCent = false;
     public static bool camUp = false;
@@ -429,6 +430,16 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(PassengerHurt());
             OhNo.GetComponent<SFX>().OhNo.Play();
         }
+        if (other.gameObject.name.Contains("CrateTute")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.
+        {
+            TutePrompt2.SetActive(false);
+            TutePrompt3.SetActive(true);
+            Time.timeScale = 0;
+
+
+
+
+        }
 
         if (other.gameObject.name.Contains("Crate")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.
         {
@@ -445,17 +456,42 @@ public class PlayerController : MonoBehaviour
         {
 
             Time.timeScale = 0;
+
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
 
             PlayerController.Stop = true;
             PlayerController.movingLeft = false;
             PlayerController.movingRight = false;
+
+            Music.GetComponent<SFX>().Music.Stop();
+            Victory.GetComponent<SFX>().Victory.Play();
+
+            if (Timer.currentTime <= 15)
+            {
+
+                Timer.stop = true;
+                Gold.SetActive(true);
+            }
+
+            if (Timer.currentTime <= 20 && Timer.currentTime > 15)
+            {
+
+                Timer.stop = true;
+                Silver.SetActive(true);
+            }
+
+            if (Timer.currentTime > 20)
+            {
+
+                Timer.stop = true;
+                Bronze.SetActive(true);
+            }
+
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
 
 
-            StartCoroutine(VictoryEnsemble());
-            //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
-            
+            StartCoroutine(VictoryEnsemble2());
+
         }
 
 
