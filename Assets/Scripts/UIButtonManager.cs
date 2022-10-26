@@ -156,6 +156,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level2MenuButtonClicked()
     {
         SceneManager.LoadScene(2);
+        Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
     }
@@ -163,6 +164,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level3MenuButtonClicked()
     {
         SceneManager.LoadScene(3);
+        Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
     }
@@ -170,6 +172,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level4MenuButtonClicked()
     {
         SceneManager.LoadScene(4);
+        Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
     }
@@ -177,6 +180,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level5MenuButtonClicked()
     {
         SceneManager.LoadScene(5);
+        Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
     }
@@ -184,6 +188,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level6MenuButtonClicked()
     {
         SceneManager.LoadScene(6);
+        Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
     }
@@ -191,6 +196,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level7MenuButtonClicked()
     {
         SceneManager.LoadScene(7);
+        Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
     }
