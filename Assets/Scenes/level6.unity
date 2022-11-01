@@ -1307,6 +1307,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &181339753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2409,6 +2415,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &335866631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2875,6 +2887,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &396837614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3213,6 +3231,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &398894955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3514,6 +3538,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blood: {fileID: 0}
   OhNo: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
   speed: 20
   highScore: {fileID: 0}
   straight_track: {fileID: 4553434838045279324, guid: 50ab3c0c2bc85694aa67cbafb1f32e1e,
@@ -6212,6 +6238,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &862488545
 GameObject:
   m_ObjectHideFlags: 0
@@ -6518,6 +6550,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &879254951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6747,6 +6785,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &959078101
 GameObject:
   m_ObjectHideFlags: 0
@@ -7316,7 +7360,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1048954145}
         m_TargetAssemblyTypeName: UIButtonManager, Assembly-CSharp
-        m_MethodName: Level4ButtonClicked
+        m_MethodName: Level6ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7378,6 +7422,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1061172634
 GameObject:
   m_ObjectHideFlags: 0
@@ -8621,6 +8671,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &1314520600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8982,6 +9038,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1326228273
 GameObject:
   m_ObjectHideFlags: 0
@@ -9143,7 +9205,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1330144486}
         m_TargetAssemblyTypeName: UIButtonManager, Assembly-CSharp
-        m_MethodName: Level4ButtonClicked
+        m_MethodName: Level6ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9205,6 +9267,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1001 &1331678386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10403,6 +10471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blood: {fileID: 783686200}
   OhNo: {fileID: 396837614}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
   speed: 20
   highScore: {fileID: 1121621270}
   straight_track: {fileID: 7041663262691260355, guid: 3c225e726273d174da8635c7d205facd,
@@ -10743,6 +10813,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1546727911}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &1587557178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11956,7 +12032,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1807645434}
         m_TargetAssemblyTypeName: UIButtonManager, Assembly-CSharp
-        m_MethodName: Level4ButtonClicked
+        m_MethodName: Level6ButtonClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -12018,6 +12094,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1809153122
 GameObject:
   m_ObjectHideFlags: 0
@@ -12378,6 +12460,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1877002995
 GameObject:
   m_ObjectHideFlags: 0
@@ -14406,6 +14494,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &2109053693
 MonoBehaviour:
   m_ObjectHideFlags: 0
