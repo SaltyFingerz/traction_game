@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public static bool camDown = false;
     public static bool camCent = false;
     public static bool camUp = false;
+    public static bool camCentOpp = false;
     public float speed = 20f;
     private float calV = -0.12f; //the callibration value for callibrating the position of tracks when moving left based on the position of tracks when moving right.
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
@@ -405,8 +406,9 @@ public class PlayerController : MonoBehaviour
             camUp = false;
             camCent = false;
             camDown = true;
-            
-            
+            camCentOpp = false;
+
+
         }
 
         if (other.name.Contains("centresign"))
@@ -414,6 +416,7 @@ public class PlayerController : MonoBehaviour
             camDown = false;
             camUp = false;
             camCent = true;
+            camCentOpp = false;
 
         }
 
@@ -422,10 +425,29 @@ public class PlayerController : MonoBehaviour
             camCent = false;
             camDown = false;
             camUp = true;
+            camCentOpp = false;
 
         }
 
-        if(other.CompareTag("deadly"))
+        if (other.CompareTag("OppSign"))
+        {
+            camCent = false;
+            camDown = false;
+            camUp = false;
+            camCentOpp = true;
+
+        }
+
+        if (other.CompareTag("DownSign"))
+        {
+            camCent = false;
+            camDown = true;
+            camUp = false;
+            camCentOpp = false;
+
+        }
+
+        if (other.CompareTag("deadly"))
         {
             StartCoroutine(PassengerHurt());
             OhNo.GetComponent<SFX>().OhNo.Play();
@@ -774,7 +796,48 @@ public class PlayerController : MonoBehaviour
 
         }
 
-       
+        if (other.gameObject.name.Contains("Goal7")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
+        {
+
+            Time.timeScale = 0;
+
+            Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
+
+            PlayerController.Stop = true;
+            PlayerController.movingLeft = false;
+            PlayerController.movingRight = false;
+
+            Music.GetComponent<SFX>().Music.Stop();
+            Victory.GetComponent<SFX>().Victory.Play();
+
+            if (Timer.currentTime <= 35)
+            {
+
+                Timer.stop = true;
+                Gold.SetActive(true);
+            }
+
+            if (Timer.currentTime <= 42 && Timer.currentTime > 35)
+            {
+
+                Timer.stop = true;
+                Silver.SetActive(true);
+            }
+
+            if (Timer.currentTime >= 42)
+            {
+
+                Timer.stop = true;
+                Bronze.SetActive(true);
+            }
+
+            //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
+
+
+            StartCoroutine(VictoryEnsemble2());
+            //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
+
+        }
 
         //to add each type of next track upon reaching each trigger point of the track currently under the train, according to its type. 
         //Thus there are a lot of combinations, each with their own requirements, specified below:
@@ -2157,6 +2220,7 @@ public class PlayerController : MonoBehaviour
     //the following two functions get called during the addingTrack animation via the animation controller interface in unity. 
     //This is to control the moment the track being added appears. It coincides with the animation of the track being added. The track is added before the track is revealed to not risk the train falling off the track because it is too fast. 
     //ref: for animation events the DES105 lectorial for animation presented the possibility of this within unity and suggested using the variable newTrack.GetComponent<Renderer>().enabled to control the track's visibility.
+
 public void hideTrack() //this function is called at the start of the adding track animation before the new track can be seen.
     {
         if (TrackForce.onVertical == false && TrackForce.onInverted == false && TrackForce.onSteepDown == false &&TrackForce.onAssistedDesc == false && newTrack.tag != "track not to hide"  && showNow == false) //these are instances in which the temporary hiding of the track should be bypassed, otherwise it is not shown at all.
@@ -2171,7 +2235,7 @@ public void showTrack() //this function is called at the end of the adding track
         newTrack.GetComponent<Renderer>().enabled = true;  
     }
 
-
+    
    
 
 

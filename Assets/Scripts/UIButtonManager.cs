@@ -305,6 +305,12 @@ public class UIButtonManager : MonoBehaviour
         Player.GetComponent<InventoryManager>().RefreshTracks(); //ref: https://forum.unity.com/threads/calling-function-from-other-scripts-c.57072/ for calling a function from another script.
         Timer.currentTime = 0f;
         Timer.stop = false;
+
+        PlayerController.camUp = false;
+        PlayerController.camDown = false;
+        PlayerController.camCent = false;
+        PlayerController.camCentOpp = false;
+
         TrackForce.onVertical = false;
         TrackForce.onInverted = false;
         TrackForceCargo.onVertical = false;

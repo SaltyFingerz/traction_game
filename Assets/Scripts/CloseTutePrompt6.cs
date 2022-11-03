@@ -15,7 +15,7 @@ public class CloseTutePrompt6 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space) || UIButtonManager.PauBut)
         {
             StartCoroutine(NextPrompt());
         }

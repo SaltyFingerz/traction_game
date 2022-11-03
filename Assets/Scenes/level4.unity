@@ -1280,6 +1280,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &200599630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2833592116236754947, guid: 0888e71689fbf7c4f9a2bde8a784bc30,
@@ -2353,6 +2359,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &335866631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2819,6 +2831,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &396837614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3157,6 +3175,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &398894955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3374,6 +3398,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blood: {fileID: 0}
   OhNo: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
   speed: 20
   highScore: {fileID: 0}
   straight_track: {fileID: 4553434838045279324, guid: 50ab3c0c2bc85694aa67cbafb1f32e1e,
@@ -4731,6 +4757,8 @@ MonoBehaviour:
   StraightPiece: {fileID: 21300000, guid: 2ea32491ad0f939489fe7ac8b5551e72, type: 3}
   DownPiece: {fileID: 21300000, guid: 4c4b4ba364dc4664486de8a17157e120, type: 3}
   UpPiece: {fileID: 21300000, guid: 178bea921ef02d248b3853bc93170432, type: 3}
+  StartButton: {fileID: 0}
+  PauseButton: {fileID: 0}
 --- !u!1 &650780289
 GameObject:
   m_ObjectHideFlags: 0
@@ -6141,6 +6169,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &862488545
 GameObject:
   m_ObjectHideFlags: 0
@@ -6447,6 +6481,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &879254951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6676,6 +6716,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &994732338
 GameObject:
   m_ObjectHideFlags: 0
@@ -6686,9 +6732,10 @@ GameObject:
   m_Component:
   - component: {fileID: 994732340}
   - component: {fileID: 994732339}
+  - component: {fileID: 994732341}
   m_Layer: 0
   m_Name: upsign
-  m_TagString: Untagged
+  m_TagString: UpSign
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6760,6 +6807,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &994732341
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994732338}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 52.2}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 24.802656, y: 35.079998}
+    newSize: {x: 24.802656, y: 35.079998}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 24.802656, y: 144.8}
+  m_EdgeRadius: 0
 --- !u!1 &999539837
 GameObject:
   m_ObjectHideFlags: 0
@@ -7276,6 +7349,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1061172634
 GameObject:
   m_ObjectHideFlags: 0
@@ -8403,6 +8482,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &1314520600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8764,6 +8849,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1326228273
 GameObject:
   m_ObjectHideFlags: 0
@@ -8987,6 +9078,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1001 &1331678386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9916,6 +10013,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blood: {fileID: 783686200}
   OhNo: {fileID: 396837614}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
   speed: 20
   highScore: {fileID: 1121621270}
   straight_track: {fileID: 7041663262691260355, guid: 3c225e726273d174da8635c7d205facd,
@@ -10256,6 +10355,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1546727911}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &1587557178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11451,6 +11556,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1809153122
 GameObject:
   m_ObjectHideFlags: 0
@@ -11811,6 +11922,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1877002995
 GameObject:
   m_ObjectHideFlags: 0
@@ -13728,6 +13845,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &2109053693
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,12 @@ using UnityEngine;
 public class TrackTriggers : MonoBehaviour
 {
 
+    IEnumerator RemovePiece()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,6 +22,30 @@ public class TrackTriggers : MonoBehaviour
             //Changing the order of the box colliders meant unpacking the straight_track prefab. 
             //This function is to avoid adding more than one track piece to a single track piece. 
 
+        }
+        
+        if(other.gameObject.name.Contains("track"))
+        {
+            if (other.gameObject.GetComponent<SpriteRenderer>().enabled == false)
+            {
+                print("ExtraTrackPiece!");
+                if (gameObject.name.Contains("straight"))
+                {
+                    InventoryManager.straightTracksAvailable += 1;
+                }
+                else if (gameObject.name.Contains("up"))
+                {
+                    InventoryManager.upTracksAvailable += 1;
+                }
+                else if (gameObject.name.Contains("down"))
+                {
+                    InventoryManager.downTracksAvailable += 1;
+                }
+
+                // StartCoroutine(RemovePiece());
+
+                Destroy(other.gameObject);
+            }
         }
     }
   

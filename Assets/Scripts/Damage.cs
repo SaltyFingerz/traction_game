@@ -43,6 +43,13 @@ public class Damage : MonoBehaviour
         //the above is so that the player is not moving upon restart and so that they can move. 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reloads the current scene.
         Time.timeScale = 1; //ensures time is active, not paused.
+        PlayerController.camUp = false;
+        PlayerController.camDown = false;
+        PlayerController.camCent = false;
+        PlayerController.camCentOpp = false;
+
+
+
 
         TrackForce.onVertical = false;
         TrackForce.onInverted = false;
