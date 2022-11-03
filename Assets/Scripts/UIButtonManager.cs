@@ -17,6 +17,8 @@ public class UIButtonManager : MonoBehaviour
     public static bool StrBut = false;
     public static bool UpBut = false;
     public static bool DowBut = false;
+    public static bool StaBut = false;
+    public static bool PauBut = true;
     private bool TuteOn = true;
     public GameObject TutePrompt1;
     public GameObject TutePrompt2;
@@ -31,22 +33,49 @@ public class UIButtonManager : MonoBehaviour
             StrBut = true;
             UpBut = false;
             DowBut = false;
-            print("straight button down");
+        PauBut = false;
         
     }
+
+    public void StartButtonClicked()
+    {
+        if (StartPauseButtonManager.ButtonIsStart)
+        {
+
+            StrBut = true;
+            UpBut = false;
+            DowBut = false;
+            PauBut = false;
+        }
+        else
+        {
+            PauBut = true;
+            StrBut = false;
+            UpBut = false;
+            DowBut = false;
+        }
+
+    }
+
+      
+
 
     public void UpTrackButtonClicked()
     {
         StrBut = false;
         UpBut = true;
         DowBut = false;
+        PauBut = false;
     }
+
+   
 
     public void DownTrackButtonClicked()
     {
         StrBut = false;
         UpBut = false;
         DowBut = true;
+        PauBut = false;
     }
 
 

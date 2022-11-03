@@ -9,6 +9,8 @@ public class HighlightPiece : MonoBehaviour
     public Sprite StraightPiece;
     public Sprite DownPiece;
     public Sprite UpPiece;
+    public Sprite StartButton;
+    public Sprite PauseButton;
 
     // Start is called before the first frame update
     void Start()
@@ -38,5 +40,8 @@ public class HighlightPiece : MonoBehaviour
         {
             gameObject.GetComponent<Image>().sprite = NoSelection;
         }
+
+        
+
     }
 }

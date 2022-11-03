@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         //    }
 
                 spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
-            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut)
+            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.StaBut)
             {
                 // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
                 rb2d.velocity = new Vector2(2, rb2d.velocity.y);
@@ -227,7 +227,7 @@ public class PlayerController : MonoBehaviour
 
         } //currentlty in the game the player can only move from left to right, up and down because the train needs u-turn-track to turn around on horizontal axis. This may be added in further developments. 
 
-        else if (isOnRawTerrain || Input.GetKey("space")) //when to stop is determined by the player pressing space or landing on raw terrain, which cannot be traversed directly, thus the train requires tracks to move and can voluntarily stop at any point.
+        else if (isOnRawTerrain || Input.GetKey("space") || UIButtonManager.PauBut) //when to stop is determined by the player pressing space or landing on raw terrain, which cannot be traversed directly, thus the train requires tracks to move and can voluntarily stop at any point.
         { movingLeft = false;
             movingRight = false;
             Stop = true;
