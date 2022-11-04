@@ -153,6 +153,10 @@ public class UIButtonManager : MonoBehaviour
     {
         TuteOn = false;
         TutePrompt1.SetActive(false);
+        SceneManager.LoadScene(2);
+        //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
+        ResetVariables();
+
     }
 
     public void ClosePrompt3()

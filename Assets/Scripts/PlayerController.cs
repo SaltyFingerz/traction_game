@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private float calV = -0.12f; //the callibration value for callibrating the position of tracks when moving left based on the position of tracks when moving right.
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
     private bool canFlip = true;
+
+    public bool SlowDown = false;
     public static string nextTrack; //this variable denotes the next type of track piece that the player tells the train to add. (it takes values of "straight" "up" "down"
     //public float movementSpeed = 0.1f;
     public Text highScore; //this is the text that displays the high score at the centre top of the screen in level 2. It is public to be linked to the HUD's HighScore game object that displays this text in the HUD UI.
@@ -152,13 +154,19 @@ public class PlayerController : MonoBehaviour
                 spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
             if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.StaBut)
             {
-                // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
-                rb2d.velocity = new Vector2(2, rb2d.velocity.y);
-                
+                if (!SlowDown)
+                {
+                    // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
+                    rb2d.velocity = new Vector2(2, rb2d.velocity.y);
+                }
+
+                else
+                    rb2d.velocity = new Vector2(1.5f, rb2d.velocity.y);
+
             }
 
             else            {
-                rb2d.velocity = new Vector2(1, rb2d.velocity.y);
+                rb2d.velocity = new Vector2(1.5f, rb2d.velocity.y);
             }
 
 
@@ -181,14 +189,19 @@ public class PlayerController : MonoBehaviour
             spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
             if (Input.GetKey("left") || Input.GetKey("a") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut)
             {
-                // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
-                rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
+                if (!SlowDown)
+                {
+                    // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
+                    rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
+                }
+                else
+                    rb2d.velocity = new Vector2(-1.5f, rb2d.velocity.y);
 
             }
 
             else
             {
-                rb2d.velocity = new Vector2(-1, rb2d.velocity.y);
+                rb2d.velocity = new Vector2(-1.5f, rb2d.velocity.y);
             }
 
 
@@ -242,8 +255,10 @@ public class PlayerController : MonoBehaviour
         { movingLeft = false;
             movingRight = false;
             Stop = true;
-            Steam.GetComponent<SFX>().Steam.Stop(); //upon stopping, the train stops playing the steam engine sound.
-
+            if (!Steam.GetComponent<SFX>().Steam.isPlaying)
+            {
+                Steam.GetComponent<SFX>().Steam.Stop(); //upon stopping, the train stops playing the steam engine sound.
+            }
         }
 
 
@@ -282,10 +297,11 @@ public class PlayerController : MonoBehaviour
         {
             playerState = (int)PlayerState.Adding;
             playerAnimator.SetInteger(Animation_Parameter, playerState); //set the animation parameter to 2 by accessing the player state array, where adding is third in line.
-           
-            Engine.GetComponent<SFX>().Engine.Play();
-            //upon adding a track piece play the sound of the engine, as this has a suitable clicking sound.
-            
+            if (!Engine.GetComponent<SFX>().Engine.isPlaying)
+            {
+                Engine.GetComponent<SFX>().Engine.Play();
+                //upon adding a track piece play the sound of the engine, as this has a suitable clicking sound.
+            }
         }
 
 
@@ -397,6 +413,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (other.CompareTag("Slower"))
+        {
+            SlowDown = true;
+        }
 
         if (other.CompareTag("Portal"))
         {
@@ -706,7 +727,7 @@ public class PlayerController : MonoBehaviour
                 Gold.SetActive(true);
             }
 
-            if (Timer.currentTime <= 35 && Timer.currentTime > 30)
+            if (Timer.currentTime <= 35 && Timer.currentTime > 20)
             {
 
                 Timer.stop = true;
@@ -2215,6 +2236,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        if (other.CompareTag("Slower"))
+        {
+            SlowDown = false;
+        }    
+
         if (other.CompareTag("Portal"))
         {
             if(other.gameObject == currentPortal)

@@ -164,9 +164,9 @@ RectTransform:
   m_Father: {fileID: 625338755}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 72, y: -41.1}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 72, y: 194.96}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &19878347
@@ -5008,6 +5008,7 @@ MonoBehaviour:
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
   speed: 20
+  SlowDown: 0
   highScore: {fileID: 0}
   straight_track: {fileID: 4553434838045279324, guid: 50ab3c0c2bc85694aa67cbafb1f32e1e,
     type: 3}
@@ -9897,7 +9898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: 263.93}
+  m_AnchoredPosition: {x: -196, y: 230.68}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &890602968
@@ -11430,7 +11431,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -16586,7 +16587,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 24.200012, y: 33.399994}
+  m_AnchoredPosition: {x: 42.3, y: 33.399963}
   m_SizeDelta: {x: 41.01001, y: 36.050003}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492348364
@@ -16720,13 +16721,13 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: aa226b53c7a0d3543bd3903c19971673, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1492348368
 CanvasRenderer:
@@ -17039,6 +17040,7 @@ MonoBehaviour:
   TutePrompt2: {fileID: 1876872578}
   TutePrompt3: {fileID: 19878345}
   speed: 20
+  SlowDown: 0
   highScore: {fileID: 1121621270}
   straight_track: {fileID: 7041663262691260355, guid: 3c225e726273d174da8635c7d205facd,
     type: 3}
@@ -17949,8 +17951,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 178.98}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -153, y: -165}
-  m_SizeDelta: {x: 73.87, y: 27.61}
+  m_AnchoredPosition: {x: -167.13, y: -180.4}
+  m_SizeDelta: {x: 89.81, y: 21.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1647638198
 MonoBehaviour:
