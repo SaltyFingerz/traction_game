@@ -1280,6 +1280,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &192883358
 GameObject:
   m_ObjectHideFlags: 0
@@ -2348,6 +2354,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &335866631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2665,6 +2677,7 @@ MonoBehaviour:
   PickUp: {fileID: 377478666}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &382670977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2814,6 +2827,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &396837614
 GameObject:
   m_ObjectHideFlags: 0
@@ -2865,6 +2884,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 396837617}
+  Teleport: {fileID: 0}
 --- !u!82 &396837617
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3152,6 +3172,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &398894955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3369,6 +3395,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blood: {fileID: 0}
   OhNo: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
   speed: 20
   highScore: {fileID: 0}
   straight_track: {fileID: 4553434838045279324, guid: 50ab3c0c2bc85694aa67cbafb1f32e1e,
@@ -3380,6 +3408,7 @@ MonoBehaviour:
   Silver: {fileID: 0}
   Bronze: {fileID: 0}
   Fail: {fileID: 0}
+  TuteCompletePrompt: {fileID: 0}
   Player: {fileID: 0}
   pauseMenu: {fileID: 0}
   Victory: {fileID: 0}
@@ -3387,6 +3416,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   Engine: {fileID: 0}
+  TeleportSound: {fileID: 0}
 --- !u!70 &436683315
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4072,6 +4102,209 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
+--- !u!1 &525530867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525530868}
+  - component: {fileID: 525530874}
+  - component: {fileID: 525530873}
+  - component: {fileID: 525530872}
+  - component: {fileID: 525530871}
+  - component: {fileID: 525530870}
+  - component: {fileID: 525530869}
+  m_Layer: 5
+  m_Name: StartButton
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &525530868
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525530867}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 4210.891}
+  m_LocalScale: {x: 0.99998033, y: 0.99998033, z: 0.99998033}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 625338755}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 24.199982, y: 33.399994}
+  m_SizeDelta: {x: 41.01001, y: 36.050003}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &525530869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525530867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88f9203d6e7e6e245bc2f46e634f5cfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartButton: {fileID: 21300000, guid: aa226b53c7a0d3543bd3903c19971673, type: 3}
+  PauseButton: {fileID: 21300000, guid: 260277164b2cc4c4d868dbe5b299c480, type: 3}
+--- !u!114 &525530870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525530867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 616080bd69c313e49a7ad0bf692c28d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 0}
+  Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
+--- !u!114 &525530871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525530867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 525530870}
+          m_TargetAssemblyTypeName: UIButtonManager, Assembly-CSharp
+          m_MethodName: StartButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 525530870}
+          m_TargetAssemblyTypeName: UIButtonManager, Assembly-CSharp
+          m_MethodName: NoButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &525530872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525530867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 525530873}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &525530873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525530867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: aa226b53c7a0d3543bd3903c19971673, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &525530874
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525530867}
+  m_CullTransparentMesh: 1
 --- !u!1 &557273313
 GameObject:
   m_ObjectHideFlags: 0
@@ -4813,6 +5046,7 @@ RectTransform:
   - {fileID: 1314520598}
   - {fileID: 1587557173}
   - {fileID: 2109053688}
+  - {fileID: 525530868}
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4837,6 +5071,8 @@ MonoBehaviour:
   StraightPiece: {fileID: 21300000, guid: 2ea32491ad0f939489fe7ac8b5551e72, type: 3}
   DownPiece: {fileID: 21300000, guid: 4c4b4ba364dc4664486de8a17157e120, type: 3}
   UpPiece: {fileID: 21300000, guid: 178bea921ef02d248b3853bc93170432, type: 3}
+  StartButton: {fileID: 0}
+  PauseButton: {fileID: 0}
 --- !u!1 &650780289
 GameObject:
   m_ObjectHideFlags: 0
@@ -4984,6 +5220,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &704374998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2833592116236754947, guid: 0888e71689fbf7c4f9a2bde8a784bc30,
@@ -6168,6 +6405,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &839135243
 GameObject:
   m_ObjectHideFlags: 0
@@ -6585,6 +6828,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &879254951
 GameObject:
   m_ObjectHideFlags: 0
@@ -6814,6 +7063,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &999539837
 GameObject:
   m_ObjectHideFlags: 0
@@ -7330,6 +7585,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1058864744
 GameObject:
   m_ObjectHideFlags: 0
@@ -8505,6 +8766,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &1314520600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8866,6 +9133,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1325051920
 GameObject:
   m_ObjectHideFlags: 0
@@ -9200,6 +9473,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1337643183
 GameObject:
   m_ObjectHideFlags: 0
@@ -9644,8 +9923,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490517606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0057, y: -0.0236, z: 10}
-  m_LocalScale: {x: 0.63227695, y: 0.2668736, z: 1}
+  m_LocalPosition: {x: -0.1977, y: -0.1381, z: 10}
+  m_LocalScale: {x: 0.7366321, y: 0.31092018, z: 1.1650466}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 519420032}
@@ -9922,11 +10201,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blood: {fileID: 783686200}
   OhNo: {fileID: 396837614}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
   speed: 20
   highScore: {fileID: 1121621270}
   straight_track: {fileID: 7041663262691260355, guid: 3c225e726273d174da8635c7d205facd,
     type: 3}
-  up_track: {fileID: 2363506742763000218, guid: 541cf6d50378e7d4db85cbf6f4961a8b,
+  up_track: {fileID: 7430977992325300718, guid: bf53b70d6cc5659448776d4d287024f2,
     type: 3}
   down_track: {fileID: 1461984579844261736, guid: d0ab971eb3f2426488751ff237d86b67,
     type: 3}
@@ -9935,6 +10216,7 @@ MonoBehaviour:
   Silver: {fileID: 782126788}
   Bronze: {fileID: 823292878}
   Fail: {fileID: 761053225}
+  TuteCompletePrompt: {fileID: 0}
   Player: {fileID: 1546727911}
   pauseMenu: {fileID: 1047494369}
   Victory: {fileID: 1657577096}
@@ -9942,6 +10224,7 @@ MonoBehaviour:
   PickUp: {fileID: 377478664}
   Music: {fileID: 1567527648}
   Engine: {fileID: 650780289}
+  TeleportSound: {fileID: 0}
 --- !u!70 &1546727918
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10125,6 +10408,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 1567527650}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &1587557172
 GameObject:
   m_ObjectHideFlags: 0
@@ -10262,6 +10546,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1546727911}
   Player: {fileID: 0}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &1587557178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10480,6 +10770,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &1661300245
 GameObject:
   m_ObjectHideFlags: 0
@@ -10776,6 +11067,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!4 &1680779189
 Transform:
   m_ObjectHideFlags: 0
@@ -11351,6 +11643,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1809153122
 GameObject:
   m_ObjectHideFlags: 0
@@ -11822,6 +12120,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!1 &1877002995
 GameObject:
   m_ObjectHideFlags: 0
@@ -13250,6 +13554,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &2087351031
 GameObject:
   m_ObjectHideFlags: 0
@@ -13845,6 +14150,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
+  TutePrompt1: {fileID: 0}
+  TutePrompt2: {fileID: 0}
+  TutePrompt3: {fileID: 0}
+  TutePrompt4: {fileID: 0}
+  TutePrompt5: {fileID: 0}
+  TutePrompt6: {fileID: 0}
 --- !u!114 &2109053693
 MonoBehaviour:
   m_ObjectHideFlags: 0

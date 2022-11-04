@@ -2544,6 +2544,7 @@ MonoBehaviour:
   PickUp: {fileID: 377478666}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &382670977
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,6 +2751,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 396837617}
+  Teleport: {fileID: 0}
 --- !u!82 &396837617
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3273,6 +3275,7 @@ MonoBehaviour:
   Silver: {fileID: 0}
   Bronze: {fileID: 0}
   Fail: {fileID: 0}
+  TuteCompletePrompt: {fileID: 0}
   Player: {fileID: 0}
   pauseMenu: {fileID: 0}
   Victory: {fileID: 0}
@@ -3280,6 +3283,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   Engine: {fileID: 0}
+  TeleportSound: {fileID: 0}
 --- !u!70 &436683315
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5094,6 +5098,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &704374998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2833592116236754947, guid: 0888e71689fbf7c4f9a2bde8a784bc30,
@@ -9805,7 +9810,7 @@ MonoBehaviour:
   highScore: {fileID: 1121621270}
   straight_track: {fileID: 7041663262691260355, guid: 3c225e726273d174da8635c7d205facd,
     type: 3}
-  up_track: {fileID: 2363506742763000218, guid: 541cf6d50378e7d4db85cbf6f4961a8b,
+  up_track: {fileID: 7430977992325300718, guid: bf53b70d6cc5659448776d4d287024f2,
     type: 3}
   down_track: {fileID: 1461984579844261736, guid: d0ab971eb3f2426488751ff237d86b67,
     type: 3}
@@ -9814,6 +9819,7 @@ MonoBehaviour:
   Silver: {fileID: 782126788}
   Bronze: {fileID: 823292878}
   Fail: {fileID: 761053225}
+  TuteCompletePrompt: {fileID: 0}
   Player: {fileID: 1546727911}
   pauseMenu: {fileID: 1047494369}
   Victory: {fileID: 1657577096}
@@ -9821,6 +9827,7 @@ MonoBehaviour:
   PickUp: {fileID: 377478664}
   Music: {fileID: 1567527648}
   Engine: {fileID: 650780289}
+  TeleportSound: {fileID: 0}
 --- !u!70 &1546727918
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -10004,6 +10011,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 1567527650}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &1587557172
 GameObject:
   m_ObjectHideFlags: 0
@@ -10471,6 +10479,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &1661300245
 GameObject:
   m_ObjectHideFlags: 0
@@ -10767,6 +10776,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!4 &1680779189
 Transform:
   m_ObjectHideFlags: 0
@@ -13087,6 +13097,7 @@ MonoBehaviour:
   PickUp: {fileID: 0}
   Music: {fileID: 0}
   OhNo: {fileID: 0}
+  Teleport: {fileID: 0}
 --- !u!1 &2087351031
 GameObject:
   m_ObjectHideFlags: 0

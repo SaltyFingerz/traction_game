@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     public string level1, level2, level3, level4, level5, level6, level7, level8;
     public GameObject player;
 
-    public float speed = 3f;
+    public float speed = 20f;
     private Vector2 threshold;
     public GameObject followObject;
     public Vector2 followOffset;

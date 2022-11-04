@@ -48,7 +48,10 @@ public class Damage : MonoBehaviour
         PlayerController.camCent = false;
         PlayerController.camCentOpp = false;
 
-
+        UIButtonManager.StrBut = false;
+        UIButtonManager.UpBut = false;
+        UIButtonManager.DowBut = false;
+        UIButtonManager.PauBut = true;
 
 
         TrackForce.onVertical = false;

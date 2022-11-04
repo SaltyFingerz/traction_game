@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Bronze;
     public GameObject Fail;
     private GameObject currentPortal;
+    public GameObject TuteCompletePrompt;
     
     bool isOnRawTerrain = false;//this denotes whether the train is on the level's raw terrain as opposed to track pieces. 
     bool addingTrack = false;//this denotes whether the train is in the process of adding a track piece. It becomes true when instantiatin a track piece and subsequently activates the animation of adding a track piece.
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
     public GameObject PickUp;
     public GameObject Music;
     public GameObject Engine;
+    public GameObject TeleportSound;
     //the sounds were thus added using this tutorial (https://youtu.be/JnbDxG04i7c by Jimmy Vegas) I changed the sound allocation so each sound has an individual game object, because I want them to play simultaneously
 
     public static bool flipped = false;
@@ -109,11 +111,17 @@ public class PlayerController : MonoBehaviour
                 print("flip");
             }
             transform.position = currentPortal.GetComponent<Teleporter>().GetDestination().position;
-            print("tp");
+            TeleportSound.GetComponent<SFX>().Teleport.Play();
+            /*camUp = false;
+            camDown = false;
+            camCent = false;
+            camCentOpp = false;
+            */
 
         }
 
        
+      
 
         /*
        Transform childTransform = transform.Find("Mechanism");
@@ -214,8 +222,10 @@ public class PlayerController : MonoBehaviour
             movingRight = true;
             movingLeft = false;
             Stop = false;
-            Steam.GetComponent<SFX>().Steam.Play(); //moving right starts the engine so the sound effect is thus played.
-            
+            if (!Steam.GetComponent<SFX>().Steam.isPlaying)
+            {
+                Steam.GetComponent<SFX>().Steam.Play(); //moving right starts the engine so the sound effect is thus played.
+            }
 
         }
        
@@ -449,7 +459,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("deadly"))
         {
-            StartCoroutine(PassengerHurt());
+            blood.Play();
+            StartCoroutine(Spiked());
             OhNo.GetComponent<SFX>().OhNo.Play();
         }
         if (other.gameObject.name.Contains("CrateTute")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.
@@ -461,6 +472,29 @@ public class PlayerController : MonoBehaviour
 
 
 
+        }
+
+
+        IEnumerator Spiked()
+        {
+            yield return new WaitForSeconds(1f); //enough time for the hurt animation to play
+            PlayerController.Stop = true;
+            PlayerController.movingLeft = false;
+            PlayerController.movingRight = false;
+            //the above is so that the player is not moving upon restart and so that they can move. 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reloads the current scene.
+            Time.timeScale = 1; //ensures time is active, not paused.
+            PlayerController.camUp = false;
+            PlayerController.camDown = false;
+            PlayerController.camCent = false;
+            PlayerController.camCentOpp = false;
+
+            UIButtonManager.StrBut = false;
+            UIButtonManager.UpBut = false;
+            UIButtonManager.DowBut = false;
+            UIButtonManager.PauBut = true;
+
+            Player.GetComponent<InventoryManager>().RefreshTracks();
         }
 
         if (other.gameObject.name.Contains("Crate")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.

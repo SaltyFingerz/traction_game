@@ -311,6 +311,11 @@ public class UIButtonManager : MonoBehaviour
         PlayerController.camCent = false;
         PlayerController.camCentOpp = false;
 
+        StrBut = false;
+        UpBut = false;
+        DowBut = false;
+        PauBut = true;
+
         TrackForce.onVertical = false;
         TrackForce.onInverted = false;
         TrackForceCargo.onVertical = false;
