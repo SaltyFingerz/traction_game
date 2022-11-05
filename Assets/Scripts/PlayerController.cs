@@ -636,21 +636,21 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
             
-            if (Timer.currentTime <= 30)
+            if (Timer.currentTime <= 51)
             {
                 
                 Timer.stop = true;
                 Gold.SetActive(true);
             }
 
-            if (Timer.currentTime <= 45 && Timer.currentTime > 30)
+            if (Timer.currentTime <= 56 && Timer.currentTime > 51)
             {
                
                 Timer.stop = true;
                 Silver.SetActive(true);
             }
 
-            if (Timer.currentTime >= 45)
+            if (Timer.currentTime > 56)
             {
                 
                 Timer.stop = true;
@@ -678,21 +678,21 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 30)
+            if (Timer.currentTime <= 47)
             {
 
                 Timer.stop = true;
                 Gold.SetActive(true);
             }
 
-            if (Timer.currentTime <= 45 && Timer.currentTime > 30)
+            if (Timer.currentTime <= 52 && Timer.currentTime > 47)
             {
 
                 Timer.stop = true;
                 Silver.SetActive(true);
             }
 
-            if (Timer.currentTime >= 45)
+            if (Timer.currentTime > 52)
             {
 
                 Timer.stop = true;
@@ -720,21 +720,21 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 20)
+            if (Timer.currentTime <= 22)
             {
 
                 Timer.stop = true;
                 Gold.SetActive(true);
             }
 
-            if (Timer.currentTime <= 35 && Timer.currentTime > 20)
+            if (Timer.currentTime <= 30 && Timer.currentTime > 22)
             {
 
                 Timer.stop = true;
                 Silver.SetActive(true);
             }
 
-            if (Timer.currentTime >= 35)
+            if (Timer.currentTime > 30)
             {
 
                 Timer.stop = true;
@@ -762,21 +762,21 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 40)
+            if (Timer.currentTime <= 45)
             {
 
                 Timer.stop = true;
                 Gold.SetActive(true);
             }
 
-            if (Timer.currentTime <= 50 && Timer.currentTime > 40)
+            if (Timer.currentTime <= 50 && Timer.currentTime > 45)
             {
 
                 Timer.stop = true;
                 Silver.SetActive(true);
             }
 
-            if (Timer.currentTime >= 50)
+            if (Timer.currentTime > 50)
             {
 
                 Timer.stop = true;
@@ -805,21 +805,21 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 40)
+            if (Timer.currentTime <= 44)
             {
 
                 Timer.stop = true;
                 Gold.SetActive(true);
             }
 
-            if (Timer.currentTime <= 50 && Timer.currentTime > 40)
+            if (Timer.currentTime <= 50 && Timer.currentTime > 44)
             {
 
                 Timer.stop = true;
                 Silver.SetActive(true);
             }
 
-            if (Timer.currentTime >= 50)
+            if (Timer.currentTime > 50)
             {
 
                 Timer.stop = true;

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1818507033615021221}
   - component: {fileID: 6029334297515259164}
   m_Layer: 0
-  m_Name: spikeprojectile
+  m_Name: spikeprojectilePink
   m_TagString: deadly
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 53
+  m_RootOrder: 54
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6177298622666527933
 SpriteRenderer:
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: -1890066039
   m_SortingLayer: 5
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: c0aeb34f28c299042874dbe29eb54f47, type: 3}
-  m_Color: {r: 0.19365776, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: d620b1b5e3a52bb40a4a934bd2878476, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
