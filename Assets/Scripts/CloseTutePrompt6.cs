@@ -26,6 +26,7 @@ public class CloseTutePrompt6 : MonoBehaviour
         yield return new WaitForSeconds(1f);
         PromptDeac.SetActive(false);
             PromptAct.SetActive(true);
+        PlayerPrefs.SetFloat("Prog1", 1f);
         
     }
 }

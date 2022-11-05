@@ -562,6 +562,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Gold.SetActive(true);
+                PlayerPrefs.SetFloat("Prog", 1.1f);
             }
 
             if (Timer.currentTime <= 20 && Timer.currentTime > 15)
@@ -569,6 +570,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Silver.SetActive(true);
+                PlayerPrefs.SetFloat("Prog", 1.2f);
             }
 
             if (Timer.currentTime > 20)
@@ -576,6 +578,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                PlayerPrefs.SetFloat("Prog", 1.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
@@ -655,6 +658,7 @@ public class PlayerController : MonoBehaviour
                 
                 Timer.stop = true;
                 Gold.SetActive(true);
+                PlayerPrefs.SetFloat("Prog2", 2.1f);
             }
 
             if (Timer.currentTime <= 56 && Timer.currentTime > 51)
@@ -662,6 +666,7 @@ public class PlayerController : MonoBehaviour
                
                 Timer.stop = true;
                 Silver.SetActive(true);
+                PlayerPrefs.SetFloat("Prog2", 2.2f);
             }
 
             if (Timer.currentTime > 56)
@@ -669,6 +674,7 @@ public class PlayerController : MonoBehaviour
                 
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                PlayerPrefs.SetFloat("Prog2", 2.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
@@ -697,6 +703,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Gold.SetActive(true);
+                PlayerPrefs.SetFloat("Prog3", 3.1f);
             }
 
             if (Timer.currentTime <= 52 && Timer.currentTime > 47)
@@ -704,6 +711,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Silver.SetActive(true);
+                PlayerPrefs.SetFloat("Prog3", 3.2f);
             }
 
             if (Timer.currentTime > 52)
@@ -711,6 +719,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                PlayerPrefs.SetFloat("Prog3", 3.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
@@ -739,6 +748,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Gold.SetActive(true);
+                PlayerPrefs.SetFloat("Prog4", 4.1f);
             }
 
             if (Timer.currentTime <= 30 && Timer.currentTime > 22)
@@ -746,6 +756,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Silver.SetActive(true);
+                PlayerPrefs.SetFloat("Prog4", 4.2f);
             }
 
             if (Timer.currentTime > 30)
@@ -753,6 +764,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                PlayerPrefs.SetFloat("Prog4", 4.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
@@ -781,6 +793,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Gold.SetActive(true);
+                PlayerPrefs.SetFloat("Prog5", 5.1f);
             }
 
             if (Timer.currentTime <= 50 && Timer.currentTime > 45)
@@ -788,6 +801,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Silver.SetActive(true);
+                PlayerPrefs.SetFloat("Prog5", 5.2f);
             }
 
             if (Timer.currentTime > 50)
@@ -795,6 +809,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                PlayerPrefs.SetFloat("Prog5", 5.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
@@ -824,6 +839,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Gold.SetActive(true);
+                PlayerPrefs.SetFloat("Prog6", 6.1f);
             }
 
             if (Timer.currentTime <= 50 && Timer.currentTime > 44)
@@ -831,6 +847,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Silver.SetActive(true);
+                PlayerPrefs.SetFloat("Prog6", 6.2f);
             }
 
             if (Timer.currentTime > 50)
@@ -838,6 +855,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                PlayerPrefs.SetFloat("Prog6", 6.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
@@ -884,6 +902,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Gold.SetActive(true);
+                PlayerPrefs.SetFloat("Prog7", 7.1f);
             }
 
             if (Timer.currentTime <= 42 && Timer.currentTime > 35)
@@ -891,6 +910,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Silver.SetActive(true);
+                PlayerPrefs.SetFloat("Prog7", 7.2f);
             }
 
             if (Timer.currentTime >= 42)
@@ -898,6 +918,7 @@ public class PlayerController : MonoBehaviour
 
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                PlayerPrefs.SetFloat("Prog7", 7.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
