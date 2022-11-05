@@ -3413,6 +3413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 0}
+  Boost: {fileID: 0}
   OhNo: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -4964,12 +4965,12 @@ RectTransform:
   - {fileID: 782126789}
   - {fileID: 823292879}
   - {fileID: 761053226}
-  - {fileID: 1314520598}
-  - {fileID: 1587557173}
-  - {fileID: 2109053688}
   - {fileID: 1407768418}
   - {fileID: 18328610}
   - {fileID: 119123759}
+  - {fileID: 1314520598}
+  - {fileID: 1587557173}
+  - {fileID: 2109053688}
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9470,7 +9471,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1407768417}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4209.226}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.0000101, y: 1.0000101, z: 1.0000101}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10035,6 +10036,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blood: {fileID: 783686200}
+  Boost: {fileID: 1801650800}
   OhNo: {fileID: 396837614}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -11284,7 +11286,7 @@ GameObject:
   - component: {fileID: 1801650800}
   - component: {fileID: 1801650799}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: FX_Boost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11395,7 +11397,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -18684,6 +18686,10 @@ PrefabInstance:
     - target: {fileID: 19954650, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
       propertyPath: m_SortingLayerID
       value: -1890066039
+      objectReference: {fileID: 0}
+    - target: {fileID: 19954650, guid: 8c27aeead6d968e4ba986702d6b84335, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

@@ -320,6 +320,8 @@ public class UIButtonManager : MonoBehaviour
         DowBut = false;
         PauBut = true;
 
+        PlayerController.nextTrack = "none";
+
         TrackForce.onVertical = false;
         TrackForce.onInverted = false;
         TrackForceCargo.onVertical = false;

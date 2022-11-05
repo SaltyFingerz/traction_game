@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private UIDropDownManager uIDropDownManager; //to get the difficulty from the dropdown menu and apply this to the speed of the train.
 
     public ParticleSystem blood; //to link to the blood particle system
+    [SerializeField] ParticleSystem Boost = null;
     public GameObject OhNo;//to link to the AudioSource of the 'Oh No' sound
 
     //below are variables in this script that get called in other scripts, but not changed there. 
@@ -78,14 +79,15 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         Timer.stop = true;
+        nextTrack = "none";
         Fail.SetActive(true);
 
     }
 
     void Start()
     {
-  
 
+        
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerAnimator = GetComponent<Animator>();
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
         //the 0 here denotes the initial highscore before any have been stored using playerprefs. 
         //this text is displayed in scene 2 at the centre top of the screen, using the HighScore game object in the UI HUD parent.
 
+        
 
     }
 
@@ -100,6 +103,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+       
 
         if(currentPortal != null)
         {
@@ -158,15 +163,20 @@ public class PlayerController : MonoBehaviour
                 {
                     // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
                     rb2d.velocity = new Vector2(2, rb2d.velocity.y);
+                    if (!Boost.isPlaying)
+                    Boost.Play();
                 }
 
                 else
                     rb2d.velocity = new Vector2(1.5f, rb2d.velocity.y);
 
+                
+
             }
 
             else            {
                 rb2d.velocity = new Vector2(1.5f, rb2d.velocity.y);
+                Boost.Stop();
             }
 
 
@@ -193,15 +203,19 @@ public class PlayerController : MonoBehaviour
                 {
                     // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
                     rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
+                    if (!Boost.isPlaying)
+                        Boost.Play();
                 }
                 else
                     rb2d.velocity = new Vector2(-1.5f, rb2d.velocity.y);
+                
 
             }
 
             else
             {
                 rb2d.velocity = new Vector2(-1.5f, rb2d.velocity.y);
+                Boost.Stop();
             }
 
 

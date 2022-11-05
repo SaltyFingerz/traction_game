@@ -53,6 +53,8 @@ public class Damage : MonoBehaviour
         UIButtonManager.DowBut = false;
         UIButtonManager.PauBut = true;
 
+        Timer.currentTime = 0;
+        PlayerController.nextTrack = "none";
 
         TrackForce.onVertical = false;
         TrackForce.onInverted = false;
