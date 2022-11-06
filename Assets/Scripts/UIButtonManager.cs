@@ -20,12 +20,17 @@ public class UIButtonManager : MonoBehaviour
     public static bool StaBut = false;
     public static bool PauBut = true;
     private bool TuteOn = true;
+    public string playerName;
+    
     public GameObject TutePrompt1;
     public GameObject TutePrompt2;
     public GameObject TutePrompt3;
     public GameObject TutePrompt4;
     public GameObject TutePrompt5;
     public GameObject TutePrompt6;
+    public GameObject Shade;
+    public GameObject Waiver;
+    public GameObject Nickname;
     public void StraightTrackButtonClicked()
     {
      
@@ -35,6 +40,25 @@ public class UIButtonManager : MonoBehaviour
             DowBut = false;
         PauBut = false;
         
+    }
+
+    public void AcceptButton()
+    {
+        
+        Waiver.SetActive(false);
+        Nickname.SetActive(true);
+    }
+
+    public void DeclineButton()
+    {
+        Application.Quit();
+    }
+
+    public void DoneButton()
+    {
+       
+        Shade.SetActive(false);
+        Nickname.SetActive(false);
     }
 
     public void StartButtonClicked()
@@ -102,7 +126,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void ExitButtonClicked() 
     { 
-        Application.Quit(); print("quit pressed");
+        Application.Quit(); 
         //Application.Quit was found in the Unity Manual, demonstrated here: https://docs.unity3d.com/ScriptReference/Application.Quit.html
         //this function is called upon clicking on the exit button in the main menu and causes the application to close when running a build, or to display "quit is pressed" if running in the unity editor.
     }
