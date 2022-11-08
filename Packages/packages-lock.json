@@ -1,5 +1,15 @@
 {
   "dependencies": {
+    "com.abertay.analytics": {
+      "version": "https://github.com/Abertay-University-SDI/AbertayAnalytics.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.0.2",
+        "com.unity.services.analytics": "4.2.0"
+      },
+      "hash": "395f5e56638a7895874d00673ebcf9fc633be018"
+    },
     "com.unity.2d.animation": {
       "version": "8.0.3",
       "depth": 0,
@@ -125,7 +135,7 @@
     },
     "com.unity.nuget.newtonsoft-json": {
       "version": "3.0.2",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -156,6 +166,16 @@
       "depth": 2,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.services.analytics": {
+      "version": "4.2.0",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.services.core": "1.4.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {

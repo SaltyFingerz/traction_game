@@ -775,11 +775,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: c32b87be-d825-45d6-8570-ab07a0fc3182
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: 'Traction '
+  organizationId: saltyfingerz
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 

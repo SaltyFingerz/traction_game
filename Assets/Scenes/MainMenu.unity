@@ -1356,8 +1356,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 952298468}
   m_HandleRect: {fileID: 952298467}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.9999999
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1400,6 +1400,77 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 405443178}
   m_CullTransparentMesh: 1
+--- !u!1001 &440662360
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1810374959312665364, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
+        type: 3}
+      propertyPath: m_Name
+      value: Analytics Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: d0e1b03230cdb0b4684e322e8b49bdfe, type: 3}
 --- !u!1 &447689247
 GameObject:
   m_ObjectHideFlags: 0
@@ -4113,7 +4184,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1441743928}
   m_Direction: 2
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 2
   m_OnValueChanged:
     m_PersistentCalls:

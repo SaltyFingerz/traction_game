@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
 
 public class UIButtonManager : MonoBehaviour
 {
@@ -21,7 +22,8 @@ public class UIButtonManager : MonoBehaviour
     public static bool PauBut = true;
     private bool TuteOn = true;
     public string playerName;
-    
+    private bool Accepted = false;
+    private bool Declined = false;
     public GameObject TutePrompt1;
     public GameObject TutePrompt2;
     public GameObject TutePrompt3;
@@ -42,16 +44,37 @@ public class UIButtonManager : MonoBehaviour
         
     }
 
+   void OnAcceptedTerms(bool Accepted)
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        {
+            { "Accepted", Accepted}
+        };
+        Analytics.CustomEvent("waiverResponse", parameters);
+    }
+
+    void OnDeclinedTerms(bool Declined)
+    {
+        Dictionary<string, object> parameters = new Dictionary<string, object>()
+        {
+            { "Declined", Declined}
+        };
+        Analytics.CustomEvent("waiverResponse", parameters);
+
+    }
+
     public void AcceptButton()
     {
         
         Waiver.SetActive(false);
         Nickname.SetActive(true);
+        OnAcceptedTerms(true);
     }
 
     public void DeclineButton()
     {
         Application.Quit();
+        OnDeclinedTerms(true);
     }
 
     public void DoneButton()
