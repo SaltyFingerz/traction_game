@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
+using Abertay.Analytics;
 
 public class UIButtonManager : MonoBehaviour
 {
@@ -50,8 +51,10 @@ public class UIButtonManager : MonoBehaviour
         {
             { "Accepted", Accepted}
         };
-        Analytics.CustomEvent("waiverResponse", parameters);
+       // Analytics.CustomEvent("waiverResponse", parameters);
+        AnalyticsManager.SendCustomEvent("waiverResponse", parameters);
     }
+
 
     void OnDeclinedTerms(bool Declined)
     {
@@ -59,7 +62,8 @@ public class UIButtonManager : MonoBehaviour
         {
             { "Declined", Declined}
         };
-        Analytics.CustomEvent("waiverResponse", parameters);
+      //  Analytics.CustomEvent("waiverResponse", parameters);
+      AnalyticsManager.SendCustomEvent("waiverResponse", parameters);
 
     }
 
