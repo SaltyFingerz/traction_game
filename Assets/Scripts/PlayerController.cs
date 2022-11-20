@@ -4,6 +4,8 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
+using Abertay.Analytics;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private SFX sFX; //to get the AudioSources and play these to instances of player interaction with the level
     private Score score; //to access score variables and add to these when picking up a crate or reaching the goal of a level
     private UIDropDownManager uIDropDownManager; //to get the difficulty from the dropdown menu and apply this to the speed of the train.
-
+    private string medal;
     public ParticleSystem blood; //to link to the blood particle system
     [SerializeField] ParticleSystem Boost = null;
     public GameObject OhNo;//to link to the AudioSource of the 'Oh No' sound
@@ -86,27 +88,24 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
-        
+  
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerAnimator = GetComponent<Animator>();
         highScore.text = "HIGH SCORE  " + PlayerPrefs.GetInt("HighScore", 0).ToString();
         //the 0 here denotes the initial highscore before any have been stored using playerprefs. 
         //this text is displayed in scene 2 at the centre top of the screen, using the HighScore game object in the UI HUD parent.
-
-        
-
     }
 
-    
+
+ 
 
     void Update()
     {
+     
 
-       
 
-        if(currentPortal != null)
+        if (currentPortal != null)
         {
             if(currentPortal.CompareTag("FlipPortal") && canFlip)
             {
@@ -518,6 +517,7 @@ public class PlayerController : MonoBehaviour
             PlayerController.movingRight = false;
             //the above is so that the player is not moving upon restart and so that they can move. 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reloads the current scene.
+            Timer.currentTime = 0;
             Time.timeScale = 1; //ensures time is active, not paused.
             PlayerController.camUp = false;
             PlayerController.camDown = false;
@@ -559,7 +559,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 15)
             {
-
+                medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 PlayerPrefs.SetFloat("Prog", 1.1f);
@@ -567,7 +567,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 20 && Timer.currentTime > 15)
             {
-
+                medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 PlayerPrefs.SetFloat("Prog", 1.2f);
@@ -575,7 +575,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime > 20)
             {
-
+                medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 PlayerPrefs.SetFloat("Prog", 1.3f);
@@ -655,7 +655,7 @@ public class PlayerController : MonoBehaviour
             
             if (Timer.currentTime <= 51)
             {
-                
+                medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 PlayerPrefs.SetFloat("Prog2", 2.1f);
@@ -663,7 +663,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 56 && Timer.currentTime > 51)
             {
-               
+                medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 PlayerPrefs.SetFloat("Prog2", 2.2f);
@@ -671,7 +671,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime > 56)
             {
-                
+                medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 PlayerPrefs.SetFloat("Prog2", 2.3f);
@@ -700,7 +700,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 47)
             {
-
+                medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 PlayerPrefs.SetFloat("Prog3", 3.1f);
@@ -708,7 +708,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 52 && Timer.currentTime > 47)
             {
-
+                medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 PlayerPrefs.SetFloat("Prog3", 3.2f);
@@ -716,7 +716,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime > 52)
             {
-
+                medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 PlayerPrefs.SetFloat("Prog3", 3.3f);
@@ -745,7 +745,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 22)
             {
-
+                medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 PlayerPrefs.SetFloat("Prog4", 4.1f);
@@ -753,7 +753,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 30 && Timer.currentTime > 22)
             {
-
+                medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 PlayerPrefs.SetFloat("Prog4", 4.2f);
@@ -761,7 +761,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime > 30)
             {
-
+                medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 PlayerPrefs.SetFloat("Prog4", 4.3f);
@@ -790,7 +790,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 45)
             {
-
+                medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 PlayerPrefs.SetFloat("Prog5", 5.1f);
@@ -798,7 +798,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 50 && Timer.currentTime > 45)
             {
-
+                medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 PlayerPrefs.SetFloat("Prog5", 5.2f);
@@ -806,7 +806,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime > 50)
             {
-
+                medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 PlayerPrefs.SetFloat("Prog5", 5.3f);
@@ -836,7 +836,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 44)
             {
-
+                medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 PlayerPrefs.SetFloat("Prog6", 6.1f);
@@ -844,7 +844,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 50 && Timer.currentTime > 44)
             {
-
+                medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 PlayerPrefs.SetFloat("Prog6", 6.2f);
@@ -852,7 +852,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime > 50)
             {
-
+                medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 PlayerPrefs.SetFloat("Prog6", 6.3f);
@@ -873,6 +873,15 @@ public class PlayerController : MonoBehaviour
 
             Victory.GetComponent<SFX>().Victory.Play(); //Thus the victory sound is played.
 
+
+            Dictionary<string, object> myParameters = new Dictionary<string, object>()
+            {
+                {"level", SceneManager.GetActiveScene().buildIndex},
+                {"playerName", PlayerPrefs.GetString("nickname")},
+                {"medal", medal},
+                {"time", Timer.currentTime}
+            };
+            AnalyticsManager.SendCustomEvent("LevelComplete", myParameters);
 
               yield return new WaitForSeconds(1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
             //  Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
@@ -899,7 +908,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 35)
             {
-
+                medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 PlayerPrefs.SetFloat("Prog7", 7.1f);
@@ -907,7 +916,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime <= 42 && Timer.currentTime > 35)
             {
-
+                medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 PlayerPrefs.SetFloat("Prog7", 7.2f);
@@ -915,7 +924,7 @@ public class PlayerController : MonoBehaviour
 
             if (Timer.currentTime >= 42)
             {
-
+                medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 PlayerPrefs.SetFloat("Prog7", 7.3f);

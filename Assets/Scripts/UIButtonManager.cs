@@ -22,7 +22,7 @@ public class UIButtonManager : MonoBehaviour
     public static bool StaBut = false;
     public static bool PauBut = true;
     private bool TuteOn = true;
-    public string playerName;
+    private string playerName;
     private bool Accepted = false;
     private bool Declined = false;
     public GameObject TutePrompt1;
@@ -45,13 +45,24 @@ public class UIButtonManager : MonoBehaviour
         
     }
 
+
+
+
+    public void ReadStringInput(string input)
+    {
+        playerName = input;
+        
+        PlayerPrefs.SetString("nickname", playerName);
+        print(PlayerPrefs.GetString("nickname"));
+    }
+
    void OnAcceptedTerms(bool Accepted)
     {
         Dictionary<string, object> parameters = new Dictionary<string, object>()
         {
             { "Accepted", Accepted}
         };
-       // Analytics.CustomEvent("waiverResponse", parameters);
+      
         AnalyticsManager.SendCustomEvent("waiverResponse", parameters);
     }
 
@@ -66,6 +77,8 @@ public class UIButtonManager : MonoBehaviour
       AnalyticsManager.SendCustomEvent("waiverResponse", parameters);
 
     }
+
+   
 
     public void AcceptButton()
     {
@@ -166,6 +179,7 @@ public class UIButtonManager : MonoBehaviour
         Timer.stop = false;
         Timer.currentTime = 0f;
         PlayerController.camDown = false;
+        PauBut = true;
         //the above is to reinitialise the player movement so that the player can move after restart.
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //the above line of code reloads the current scene, which I learnt from: https://www.youtube.com/watch?v=ZmjYw8Z51mg.      
