@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
     private SFX sFX; //to get the AudioSources and play these to instances of player interaction with the level
     private Score score; //to access score variables and add to these when picking up a crate or reaching the goal of a level
     private UIDropDownManager uIDropDownManager; //to get the difficulty from the dropdown menu and apply this to the speed of the train.
-    private string medal;
+    public static string medal;
     public ParticleSystem blood; //to link to the blood particle system
     [SerializeField] ParticleSystem Boost = null;
     public GameObject OhNo;//to link to the AudioSource of the 'Oh No' sound
@@ -63,7 +63,7 @@ public class PlayerController : MonoBehaviour
     enum PlayerState { Static, Moving, Adding }; //0, 1, 2 are the respective integer parameters used for switching between the three different animations of the train_front i.e. engine (static, moving, adding).
     int playerState = 0; //this sets the starting player state to static i.e. the train is not moving till the player tells it to.
     string Animation_Parameter = "Animation_Player_State"; //this is the name of the parameter in the unity editor's animator window for the train_front. 
-    
+    private int timeInLevel;
     //UI stuff here. The below link to the sound FX and menu screens that are accessible from within the gameplay scenes.
     public GameObject Player;
     public GameObject pauseMenu;
@@ -90,6 +90,32 @@ public class PlayerController : MonoBehaviour
 
             };
         AnalyticsManager.SendCustomEvent("PlayerDeath", deathParameters);
+    }
+
+    public void CratePickup()
+    {
+        Dictionary<string, object> crateParameters = new Dictionary<string, object>()
+            {
+                {"level", SceneManager.GetActiveScene().buildIndex},
+                {"playerName", PlayerPrefs.GetString("nickname")},
+                {"time", Timer.currentTime},
+            
+                {"position", Mathf.RoundToInt(transform.position.x / 5f)}
+
+            };
+        AnalyticsManager.SendCustomEvent("CratePickup", crateParameters);
+    }
+
+    public void TimeInLevel()
+    {
+        Dictionary<string, object> levelTimeParameters = new Dictionary<string, object>()
+            {
+                {"level", SceneManager.GetActiveScene().buildIndex},
+                {"playerName", PlayerPrefs.GetString("nickname")},
+            {"timeInLevel", timeInLevel }
+
+            };
+        AnalyticsManager.SendCustomEvent("TimeInLevel", levelTimeParameters);
     }
 
     IEnumerator PassengerHurt()
@@ -297,6 +323,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.Escape))
         {
+
             pauseMenu.SetActive(true);
             Time.timeScale = 0;
             //pressing the escape key will pause the game and open the pause menu UI game object
@@ -555,6 +582,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Crate")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.
         {
+            CratePickup();
             Score.CrateScore += 20; //the crate awards the player with points 
             Player.GetComponent<InventoryManager>().PickUpTracks(); //the crate awards the player with extra track pieces too. This is carried out using the PickUpTrack function in the Inventory manager script. 
             PickUp.GetComponent<SFX>().PickUp.Play(); //upon picking up the crate, the sound of a crate opening is played.
@@ -566,7 +594,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal1")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-
+            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+            TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -663,6 +692,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal2")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
+            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+            TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -708,6 +739,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal3")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
+            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+            TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -753,6 +786,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal4")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
+            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+            TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -798,6 +833,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal5")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
+            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+            TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -843,7 +880,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal6")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-            
+            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+            TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -920,7 +958,8 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal7")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-
+            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+            TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.

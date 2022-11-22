@@ -189,6 +189,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 890602966}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &27354054
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1093,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!114 &148509861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,6 +1251,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!114 &149793591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10362,6 +10371,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -10814,6 +10826,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!114 &541287810
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12179,6 +12194,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &630631302
 GameObject:
   m_ObjectHideFlags: 0
@@ -12245,6 +12263,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 630631302}
   TutePrompt6: {fileID: 541287807}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &650780289
 GameObject:
   m_ObjectHideFlags: 0
@@ -14412,6 +14433,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &873717542
 GameObject:
   m_ObjectHideFlags: 0
@@ -14588,6 +14612,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &879254951
 GameObject:
   m_ObjectHideFlags: 0
@@ -14736,6 +14763,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 890602966}
   TutePrompt5: {fileID: 630631302}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &898814394
 GameObject:
   m_ObjectHideFlags: 0
@@ -16116,6 +16146,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!114 &1029961942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19622,6 +19655,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &1326228273
 GameObject:
   m_ObjectHideFlags: 0
@@ -21425,6 +21461,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!114 &1492348365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23400,6 +23439,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!114 &1691706616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24616,8 +24658,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1870955859}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: RestartButtonClicked
+        m_TargetAssemblyTypeName: UIButtonManager, Assembly-CSharp
+        m_MethodName: RestartButtonClickedDuringLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24685,6 +24727,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &1876872578
 GameObject:
   m_ObjectHideFlags: 0
@@ -24751,6 +24796,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!1 &1877002995
 GameObject:
   m_ObjectHideFlags: 0
@@ -26219,6 +26267,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!114 &2013082974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27421,6 +27472,9 @@ MonoBehaviour:
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
+  Shade: {fileID: 0}
+  Waiver: {fileID: 0}
+  Nickname: {fileID: 0}
 --- !u!82 &2091080972
 AudioSource:
   m_ObjectHideFlags: 0

@@ -171,8 +171,52 @@ public class UIButtonManager : MonoBehaviour
         //this function is called upon clicking on the exit button in the main menu and causes the application to close when running a build, or to display "quit is pressed" if running in the unity editor.
     }
 
+
+    public void Restarted(bool onComplete)
+    {
+        Dictionary<string, object> restartParameters = new Dictionary<string, object>()
+            {
+                {"level", SceneManager.GetActiveScene().buildIndex},
+                {"playerName", PlayerPrefs.GetString("nickname")},
+                {"time", Timer.currentTime},
+            {"onComplete", onComplete},
+            {"medal", PlayerController.medal},
+                {"position", Mathf.RoundToInt(transform.position.x / 5f)}
+
+            };
+        AnalyticsManager.SendCustomEvent("Restarts", restartParameters);
+    }
+
+
+
+    public void TutorialSkipped(bool skip)
+    {
+        Dictionary<string, object> tutorialParameters = new Dictionary<string, object>()
+            {
+               
+                {"playerName", PlayerPrefs.GetString("nickname")},
+            {"skip", skip },
+
+            };
+        AnalyticsManager.SendCustomEvent("TutorialResponse", tutorialParameters);
+    }
+
+    public void PromptClosed(int prompt)
+    {
+        Dictionary<string, object> promptParameters = new Dictionary<string, object>()
+            {
+
+                {"playerName", PlayerPrefs.GetString("nickname")},
+            {"promptNumber", prompt },
+            {"closedPrompt", true}
+
+            };
+        AnalyticsManager.SendCustomEvent("PromptClosed", promptParameters);
+    }
+
     public void RestartButtonClicked()
     {
+        Restarted(true);
         PlayerController.Stop = true;
         PlayerController.movingLeft = false;
         PlayerController.movingRight = false;
@@ -190,6 +234,29 @@ public class UIButtonManager : MonoBehaviour
 
 
     }
+
+    public void RestartButtonClickedDuringLevel()
+    {
+        Restarted(false);
+        PlayerController.Stop = true;
+        PlayerController.movingLeft = false;
+        PlayerController.movingRight = false;
+        Timer.stop = false;
+        Timer.currentTime = 0f;
+        PlayerController.camDown = false;
+        PauBut = true;
+        //the above is to reinitialise the player movement so that the player can move after restart.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //the above line of code reloads the current scene, which I learnt from: https://www.youtube.com/watch?v=ZmjYw8Z51mg.      
+        ResetVariables();
+        //this function, that is coded at the bottom of this script, resets the tracks available, eliminates additional forces applied from the TrackForce scripts, and sets the Time.time to 1 i.e. the time is ensured to be running.
+
+
+
+
+    }
+
+
 
     public void MainMenuButtonClicked()
     {
@@ -209,6 +276,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void StartTutorialButton()
     {
+        TutorialSkipped(false);
         TutePrompt1.SetActive(false);
         TuteOn = true;
         TutePrompt2.SetActive(true);
@@ -216,6 +284,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void SkipTutorialButton()
     {
+        TutorialSkipped(true); 
         TuteOn = false;
         TutePrompt1.SetActive(false);
         SceneManager.LoadScene(2);
@@ -226,6 +295,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void ClosePrompt3()
     {
+        PromptClosed(3);
         Time.timeScale = 1;
         TutePrompt3.SetActive(false);
         TutePrompt4.SetActive(true);
@@ -233,14 +303,14 @@ public class UIButtonManager : MonoBehaviour
 
     public void ClosePrompt4()
     {
-
+        PromptClosed(4);
         TutePrompt4.SetActive(false);
         TutePrompt5.SetActive(true);
     }
 
     public void ClosePrompt5()
     {
-
+        PromptClosed(5);
         TutePrompt5.SetActive(false);
         TutePrompt6.SetActive(true);
     }
