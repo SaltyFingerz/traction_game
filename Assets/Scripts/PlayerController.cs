@@ -77,12 +77,29 @@ public class PlayerController : MonoBehaviour
 
     public static bool flipped = false;
 
+
+    public void PlayerDied(string cause)
+    {
+        Dictionary<string, object> deathParameters = new Dictionary<string, object>()
+            {
+                {"level", SceneManager.GetActiveScene().buildIndex},
+                {"playerName", PlayerPrefs.GetString("nickname")},
+                {"time", Timer.currentTime},
+            {"cause", cause },
+                {"position", Mathf.RoundToInt(transform.position.x / 5f)}
+
+            };
+        AnalyticsManager.SendCustomEvent("PlayerDeath", deathParameters);
+    }
+
     IEnumerator PassengerHurt()
     {
         yield return new WaitForSeconds(1f);
         Timer.stop = true;
         nextTrack = "none";
         Fail.SetActive(true);
+        PlayerDied("intraversible track");
+       
 
     }
 
@@ -511,12 +528,15 @@ public class PlayerController : MonoBehaviour
 
         IEnumerator Spiked()
         {
+            
             yield return new WaitForSeconds(1f); //enough time for the hurt animation to play
             PlayerController.Stop = true;
             PlayerController.movingLeft = false;
             PlayerController.movingRight = false;
             //the above is so that the player is not moving upon restart and so that they can move. 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reloads the current scene.
+            Timer.currentTime -= 1;
+            PlayerDied("spikes");
             Timer.currentTime = 0;
             Time.timeScale = 1; //ensures time is active, not paused.
             PlayerController.camUp = false;
@@ -530,6 +550,7 @@ public class PlayerController : MonoBehaviour
             UIButtonManager.PauBut = true;
 
             Player.GetComponent<InventoryManager>().RefreshTracks();
+            
         }
 
         if (other.gameObject.name.Contains("Crate")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.
@@ -883,7 +904,12 @@ public class PlayerController : MonoBehaviour
             };
             AnalyticsManager.SendCustomEvent("LevelComplete", myParameters);
 
-              yield return new WaitForSeconds(1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
+
+
+
+          
+
+            yield return new WaitForSeconds(1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
             //  Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
              //  SceneManager.LoadScene(2); //this loads the next level 
              //   Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the track pieces available to the player, repleneshing any lost in level one.

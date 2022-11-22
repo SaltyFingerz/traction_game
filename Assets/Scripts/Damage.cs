@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Analytics;
+using Abertay.Analytics;
 
 public class Damage : MonoBehaviour
 {
@@ -34,8 +36,22 @@ public class Damage : MonoBehaviour
         }
     }
 
+    public void PlayerDied(string cause)
+    {
+        Dictionary<string, object> deathParameters = new Dictionary<string, object>()
+            {
+                {"level", SceneManager.GetActiveScene().buildIndex},
+                {"playerName", PlayerPrefs.GetString("nickname")},
+                {"time", Timer.currentTime},
+            {"cause", cause },
+                {"position", Mathf.RoundToInt(transform.position.x / 5f)}
+
+            };
+        AnalyticsManager.SendCustomEvent("PlayerDeath", deathParameters);
+    }
     IEnumerator PassengerHurt()
     {
+        PlayerDied("hit rock");
         yield return new WaitForSeconds(1f); //enough time for the hurt animation to play
         PlayerController.Stop = true;
         PlayerController.movingLeft = false;
