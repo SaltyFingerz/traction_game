@@ -3920,7 +3920,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 398894954}
         m_TargetAssemblyTypeName: UIButtonManager, Assembly-CSharp
-        m_MethodName: RestartButtonClicked
+        m_MethodName: RestartButtonOnDeath
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

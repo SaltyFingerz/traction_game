@@ -25,6 +25,7 @@ public class UIButtonManager : MonoBehaviour
     private string playerName;
     private bool Accepted = false;
     private bool Declined = false;
+    public static int Restarts = 0;
     public GameObject TutePrompt1;
     public GameObject TutePrompt2;
     public GameObject TutePrompt3;
@@ -53,6 +54,7 @@ public class UIButtonManager : MonoBehaviour
         playerName = input;
         
         PlayerPrefs.SetString("nickname", playerName);
+        
         print(PlayerPrefs.GetString("nickname"));
     }
 
@@ -172,15 +174,15 @@ public class UIButtonManager : MonoBehaviour
     }
 
 
-    public void Restarted(bool onComplete)
+    public void Restarted(string situation)
     {
         Dictionary<string, object> restartParameters = new Dictionary<string, object>()
             {
                 {"level", SceneManager.GetActiveScene().buildIndex},
                 {"playerName", PlayerPrefs.GetString("nickname")},
                 {"time", Timer.currentTime},
-            {"onComplete", onComplete},
-            {"medal", PlayerController.medal},
+            {"situation", situation},
+            //{"medal", PlayerController.medal},
                 {"position", Mathf.RoundToInt(transform.position.x / 5f)}
 
             };
@@ -216,7 +218,7 @@ public class UIButtonManager : MonoBehaviour
 
     public void RestartButtonClicked()
     {
-        Restarted(true);
+        Restarted("completion");
         PlayerController.Stop = true;
         PlayerController.movingLeft = false;
         PlayerController.movingRight = false;
@@ -237,7 +239,8 @@ public class UIButtonManager : MonoBehaviour
 
     public void RestartButtonClickedDuringLevel()
     {
-        Restarted(false);
+        Restarts += 1;
+        Restarted("during level");
         PlayerController.Stop = true;
         PlayerController.movingLeft = false;
         PlayerController.movingRight = false;
@@ -256,7 +259,25 @@ public class UIButtonManager : MonoBehaviour
 
     }
 
+    public void RestartButtonOnDeath()
+    {
+        Restarts += 1;
+        Restarted("on death");
+        PlayerController.Stop = true;
+        PlayerController.movingLeft = false;
+        PlayerController.movingRight = false;
+        Timer.stop = false;
+        Timer.currentTime = 0f;
+        PlayerController.camDown = false;
+        PauBut = true;
+        //the above is to reinitialise the player movement so that the player can move after restart.
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //the above line of code reloads the current scene, which I learnt from: https://www.youtube.com/watch?v=ZmjYw8Z51mg.      
+        ResetVariables();
+        //this function, that is coded at the bottom of this script, resets the tracks available, eliminates additional forces applied from the TrackForce scripts, and sets the Time.time to 1 i.e. the time is ensured to be running.
 
+
+    }
 
     public void MainMenuButtonClicked()
     {
@@ -319,6 +340,8 @@ public class UIButtonManager : MonoBehaviour
         SceneManager.LoadScene(1);
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level2MenuButtonClicked()
@@ -327,6 +350,8 @@ public class UIButtonManager : MonoBehaviour
         Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level3MenuButtonClicked()
@@ -335,6 +360,8 @@ public class UIButtonManager : MonoBehaviour
         Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level4MenuButtonClicked()
@@ -343,6 +370,8 @@ public class UIButtonManager : MonoBehaviour
         Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level5MenuButtonClicked()
@@ -351,6 +380,8 @@ public class UIButtonManager : MonoBehaviour
         Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level6MenuButtonClicked()
@@ -359,6 +390,8 @@ public class UIButtonManager : MonoBehaviour
         Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level7MenuButtonClicked()
@@ -367,12 +400,16 @@ public class UIButtonManager : MonoBehaviour
         Timer.currentTime = 0;
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
     public void Level1ButtonClicked()
     {
         SceneManager.LoadScene(2);
         //this function is called when the level 1 button is clicked from within the levels menu. It thus loads level one and resets the variables. 
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level2ButtonClicked()
@@ -382,6 +419,8 @@ public class UIButtonManager : MonoBehaviour
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level3ButtonClicked()
@@ -391,6 +430,8 @@ public class UIButtonManager : MonoBehaviour
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level4ButtonClicked()
@@ -400,6 +441,8 @@ public class UIButtonManager : MonoBehaviour
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level5ButtonClicked()
@@ -409,6 +452,8 @@ public class UIButtonManager : MonoBehaviour
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level6ButtonClicked()
@@ -418,6 +463,8 @@ public class UIButtonManager : MonoBehaviour
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void Level7ButtonClicked()
@@ -427,6 +474,8 @@ public class UIButtonManager : MonoBehaviour
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
+        Restarts = 0;
+        PlayerController.levelDeaths = 0;
     }
 
     public void SaltyButtonClicked()

@@ -44,6 +44,9 @@ public class Damage : MonoBehaviour
                 {"playerName", PlayerPrefs.GetString("nickname")},
                 {"time", Timer.currentTime},
             {"cause", cause },
+             {"restarts", UIButtonManager.Restarts},
+             {"playerSpeed", PlayerController.playerSpeed},
+            {"playerRotation", PlayerController.playerRotation },
                 {"position", Mathf.RoundToInt(transform.position.x / 5f)}
 
             };
@@ -52,6 +55,7 @@ public class Damage : MonoBehaviour
     IEnumerator PassengerHurt()
     {
         PlayerDied("hit rock");
+        PlayerController.levelDeaths += 1;
         yield return new WaitForSeconds(1f); //enough time for the hurt animation to play
         PlayerController.Stop = true;
         PlayerController.movingLeft = false;

@@ -40,8 +40,11 @@ public class PlayerController : MonoBehaviour
     private float calV = -0.12f; //the callibration value for callibrating the position of tracks when moving left based on the position of tracks when moving right.
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
     private bool canFlip = true;
-
+    public static int levelDeaths = 0;
     public bool SlowDown = false;
+    private bool boosting = false;
+    public static float playerSpeed;
+    public static int playerRotation;
     public static string nextTrack; //this variable denotes the next type of track piece that the player tells the train to add. (it takes values of "straight" "up" "down"
     //public float movementSpeed = 0.1f;
     public Text highScore; //this is the text that displays the high score at the centre top of the screen in level 2. It is public to be linked to the HUD's HighScore game object that displays this text in the HUD UI.
@@ -86,6 +89,9 @@ public class PlayerController : MonoBehaviour
                 {"playerName", PlayerPrefs.GetString("nickname")},
                 {"time", Timer.currentTime},
             {"cause", cause },
+            {"restarts", UIButtonManager.Restarts},
+            {"playerSpeed", playerSpeed},
+            {"playerRotation", playerRotation },
                 {"position", Mathf.RoundToInt(transform.position.x / 5f)}
 
             };
@@ -125,7 +131,8 @@ public class PlayerController : MonoBehaviour
         nextTrack = "none";
         Fail.SetActive(true);
         PlayerDied("intraversible track");
-       
+        levelDeaths += 1;
+
 
     }
 
@@ -142,11 +149,26 @@ public class PlayerController : MonoBehaviour
 
 
  
-
+   /* IEnumerator boostCheck()
+    {
+        yield return new WaitForSeconds(1);
+        if (playerSpeed == 2)
+            boosting = true;
+        
+    }
+   */
     void Update()
     {
-     
 
+        playerSpeed = rb2d.velocity.x;
+        playerRotation = Mathf.RoundToInt(rb2d.rotation);
+
+       /* if (playerSpeed == 2)
+            StartCoroutine(boostCheck());
+        else
+            boosting = false;
+       */
+      
 
         if (currentPortal != null)
         {
@@ -564,6 +586,7 @@ public class PlayerController : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reloads the current scene.
             Timer.currentTime -= 1;
             PlayerDied("spikes");
+            levelDeaths += 1;
             Timer.currentTime = 0;
             Time.timeScale = 1; //ensures time is active, not paused.
             PlayerController.camUp = false;
@@ -595,7 +618,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal1")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
             timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-            TimeInLevel();
+            //TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -693,7 +716,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal2")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
             timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-            TimeInLevel();
+           // TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -740,7 +763,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal3")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
             timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-            TimeInLevel();
+          //  TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -787,7 +810,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal4")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
             timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-            TimeInLevel();
+            //TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -834,7 +857,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal5")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
             timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-            TimeInLevel();
+           // TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -881,7 +904,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal6")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
             timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-            TimeInLevel();
+           // TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
@@ -938,6 +961,8 @@ public class PlayerController : MonoBehaviour
                 {"level", SceneManager.GetActiveScene().buildIndex},
                 {"playerName", PlayerPrefs.GetString("nickname")},
                 {"medal", medal},
+                {"restarts", UIButtonManager.Restarts },
+                {"levelDeaths", levelDeaths },
                 {"time", Timer.currentTime}
             };
             AnalyticsManager.SendCustomEvent("LevelComplete", myParameters);
@@ -959,7 +984,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal7")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
             timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
-            TimeInLevel();
+           // TimeInLevel();
             Time.timeScale = 0;
 
             Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
