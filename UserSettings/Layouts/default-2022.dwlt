@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 4}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 108
+  controlID: 115
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 130
+  controlID: 137
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -195,7 +195,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 107
+  controlID: 114
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -517,9 +517,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ec0e0000
-      m_LastClickedID: 0
-      m_ExpandedIDs: 5c87f7ff0688f7ff668af7ff7e8af7ff108bf7ff8a8bf7ff388cf7ffe08cf7ff8c8df7ff048ef7ff7c8ef7ff3a8ff7ff7e8ff7ff0a3cf8ffe49df8ff1ad1f8ffaa18f9ffcc68f9ff3080f9ff8092f9ff32a6f9ff6cc8f9fffeddf9fff8f3f9ff5c3afaff9045faff827efaffa494fbff4e95fbffaa97fbffbe97fbff4c98fbffc298fbff6c99fbff109afbffb89afbff2c9bfbffa09bfbff5a9cfbff9a9cfbff4a0bfcff66d3fdff8a08feff82c5feff76fffeff24fbffffce9200004a3d01003c400100a4580100da5801000c610100426101000869010074690100b26901005c72010092720100b27b0100e07b0100b8840100ee840100
+      m_SelectedIDs: 7c09feff
+      m_LastClickedID: -128644
+      m_ExpandedIDs: 7e09feff4e7cffffeef4ffff24fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1086,22 +1086,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Packages/com.abertay.analytics/Runtime/Implementations
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Packages/com.abertay.analytics/Runtime/Implementations
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Repos\traction_game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 379}
-    m_SelectedIDs: d8640000
-    m_LastClickedID: 25816
-    m_ExpandedIDs: 000000008e640000906400009264000094640000966400009864000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: ba640000
+    m_LastClickedID: 25786
+    m_ExpandedIDs: 0000000090640000926400009464000096640000986400009a64000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1129,7 +1129,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000008e6400009064000092640000946400009664000098640000
+    m_ExpandedIDs: 0000000090640000926400009464000096640000986400009a640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
