@@ -148,15 +148,23 @@ public class PlayerController : MonoBehaviour
     }
 
 
- 
-   /* IEnumerator boostCheck()
+
+    /* IEnumerator boostCheck()
+     {
+         yield return new WaitForSeconds(1);
+         if (playerSpeed == 2)
+             boosting = true;
+
+     }
+    */
+
+    private void FixedUpdate()
     {
-        yield return new WaitForSeconds(1);
-        if (playerSpeed == 2)
-            boosting = true;
-        
+       if(rb2d.rotation < -10)
+        {
+            rb2d.velocity = new Vector2(1, rb2d.velocity.y);
+        }
     }
-   */
     void Update()
     {
 
@@ -265,19 +273,24 @@ public class PlayerController : MonoBehaviour
             {
                 if (!SlowDown)
                 {
+                    rb2d.constraints = RigidbodyConstraints2D.None;
                     // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
                     rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
                     if (!Boost.isPlaying)
                         Boost.Play();
                 }
                 else
+                {
+                    rb2d.constraints = RigidbodyConstraints2D.None;
                     rb2d.velocity = new Vector2(-1.5f, rb2d.velocity.y);
+                }
                 
 
             }
 
             else
             {
+                rb2d.constraints = RigidbodyConstraints2D.None;
                 rb2d.velocity = new Vector2(-1.5f, rb2d.velocity.y);
                 Boost.Stop();
             }
@@ -304,12 +317,14 @@ public class PlayerController : MonoBehaviour
         else if (Stop)
 
         { rb2d.velocity = new Vector2(0, 0); //this sets the train's movement to 0 when it is told to stop.
+            rb2d.constraints = RigidbodyConstraints2D.FreezePosition;
         }
 
 
 
         if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut) && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
         {
+            rb2d.constraints = RigidbodyConstraints2D.None;
             movingRight = true;
             movingLeft = false;
             Stop = false;
@@ -323,7 +338,7 @@ public class PlayerController : MonoBehaviour
 
         else if (movingLeft == true)
         {
-
+            rb2d.constraints = RigidbodyConstraints2D.None;
             movingRight = false;
             Stop = false;
 
@@ -728,7 +743,7 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
             
-            if (Timer.currentTime <= 51)
+            if (Timer.currentTime <= 45)
             {
                 medal = "gold";
                 Timer.stop = true;
@@ -736,7 +751,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetFloat("Prog2", 2.1f);
             }
 
-            if (Timer.currentTime <= 56 && Timer.currentTime > 51)
+            if (Timer.currentTime <= 50 && Timer.currentTime > 45)
             {
                 medal = "silver";
                 Timer.stop = true;
@@ -744,7 +759,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetFloat("Prog2", 2.2f);
             }
 
-            if (Timer.currentTime > 56)
+            if (Timer.currentTime > 50)
             {
                 medal = "bronze";
                 Timer.stop = true;
