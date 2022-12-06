@@ -21,6 +21,7 @@ public class UIButtonManager : MonoBehaviour
     public static bool DowBut = false;
     public static bool StaBut = false;
     public static bool PauBut = true;
+    public static bool BooBut = false;
     private bool TuteOn = true;
     private string playerName;
     private bool Accepted = false;
@@ -32,6 +33,8 @@ public class UIButtonManager : MonoBehaviour
     public GameObject TutePrompt4;
     public GameObject TutePrompt5;
     public GameObject TutePrompt6;
+    public GameObject TutePrompt7;
+    public GameObject TutePrompt8;
     public GameObject Shade;
     public GameObject Waiver;
     public GameObject Nickname;
@@ -124,7 +127,10 @@ public class UIButtonManager : MonoBehaviour
     }
 
       
-
+    public void BoostButtonClicked()
+    {
+        BooBut = true;
+    }
 
     public void UpTrackButtonClicked()
     {
@@ -150,12 +156,24 @@ public class UIButtonManager : MonoBehaviour
         StrBut = false;
         UpBut = false;
         DowBut = false;
+        
+    }
+
+    public void BoostButtonUnclicked()
+    {
+        BooBut = false;
     }
     public void ResumeIsClicked()
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
         //this function is called by the resume button in unity editor. It ensure the pause menu is deactivated and time is running upon clicking resume.
+    }
+
+    public void PauseButtonClicked()
+    {
+        pauseMenu.SetActive(true);
+        Time.timeScale = 0;
     }
 
     public void StartIsClicked()
@@ -329,11 +347,24 @@ public class UIButtonManager : MonoBehaviour
         TutePrompt5.SetActive(true);
     }
 
+    public void ClosePrompt2()
+    {
+        PromptClosed(2);
+        TutePrompt2.SetActive(false); 
+    }
+
     public void ClosePrompt5()
     {
         PromptClosed(5);
         TutePrompt5.SetActive(false);
         TutePrompt6.SetActive(true);
+    }
+
+    public void ClosePrompt6()
+    {
+        PromptClosed(6);
+        TutePrompt6.SetActive(false);
+        TutePrompt7.SetActive(true);
     }
     public void Level1MenuButtonClicked()
     {
@@ -459,7 +490,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level6ButtonClicked()
     {
 
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(0);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
@@ -470,7 +501,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level7ButtonClicked()
     {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(7);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();

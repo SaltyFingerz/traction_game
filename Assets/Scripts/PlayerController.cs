@@ -229,7 +229,7 @@ public class PlayerController : MonoBehaviour
         //    }
 
                 spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
-            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.StaBut)
+            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.StaBut || UIButtonManager.BooBut)
             {
                 if (!SlowDown)
                 {
@@ -269,7 +269,7 @@ public class PlayerController : MonoBehaviour
             //    }
 
             spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
-            if (Input.GetKey("left") || Input.GetKey("a") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut)
+            if (Input.GetKey("left") || Input.GetKey("a") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.BooBut)
             {
                 if (!SlowDown)
                 {
@@ -748,6 +748,7 @@ public class PlayerController : MonoBehaviour
                 medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog2", 2.1f);
             }
 
@@ -756,6 +757,7 @@ public class PlayerController : MonoBehaviour
                 medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog2", 2.2f);
             }
 
@@ -764,6 +766,7 @@ public class PlayerController : MonoBehaviour
                 medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog2", 2.3f);
             }
 
@@ -795,6 +798,7 @@ public class PlayerController : MonoBehaviour
                 medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog3", 3.1f);
             }
 
@@ -803,6 +807,7 @@ public class PlayerController : MonoBehaviour
                 medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog3", 3.2f);
             }
 
@@ -811,6 +816,7 @@ public class PlayerController : MonoBehaviour
                 medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog3", 3.3f);
             }
 
@@ -842,6 +848,7 @@ public class PlayerController : MonoBehaviour
                 medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog4", 4.1f);
             }
 
@@ -850,6 +857,7 @@ public class PlayerController : MonoBehaviour
                 medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog4", 4.2f);
             }
 
@@ -858,6 +866,7 @@ public class PlayerController : MonoBehaviour
                 medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog4", 4.3f);
             }
 
@@ -889,6 +898,7 @@ public class PlayerController : MonoBehaviour
                 medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog5", 5.1f);
             }
 
@@ -897,6 +907,7 @@ public class PlayerController : MonoBehaviour
                 medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog5", 5.2f);
             }
 
@@ -905,6 +916,7 @@ public class PlayerController : MonoBehaviour
                 medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog5", 5.3f);
             }
 
@@ -936,6 +948,7 @@ public class PlayerController : MonoBehaviour
                 medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog6", 6.1f);
             }
 
@@ -944,6 +957,7 @@ public class PlayerController : MonoBehaviour
                 medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog6", 6.2f);
             }
 
@@ -952,6 +966,7 @@ public class PlayerController : MonoBehaviour
                 medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog6", 6.3f);
             }
 
@@ -1016,6 +1031,7 @@ public class PlayerController : MonoBehaviour
                 medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog7", 7.1f);
             }
 
@@ -1024,6 +1040,7 @@ public class PlayerController : MonoBehaviour
                 medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog7", 7.2f);
             }
 
@@ -1032,6 +1049,7 @@ public class PlayerController : MonoBehaviour
                 medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
+                Fail.SetActive(false);
                 PlayerPrefs.SetFloat("Prog7", 7.3f);
             }
 
@@ -1062,7 +1080,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft) //if the track piece to be added at this point is another straight track, only add it if there are such pieces available in the inventory. The tag "track" is the default, denoting that the current track under the train is not rotated. 
@@ -1079,7 +1097,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-                
+                nextTrack = "straight";
 
             }
 
@@ -1098,7 +1116,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft) //similar to the above instance except the current straight track below is rotated by 45 degrees, meaning the new track must also be rotated. 
@@ -1117,7 +1135,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
@@ -1135,7 +1153,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
@@ -1154,7 +1172,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
@@ -1172,7 +1190,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
@@ -1191,7 +1209,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight) //this is for adding an upwards track to a non-rotated straight track.
@@ -1205,7 +1223,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 //a tag for the rotation of the new track here is unecessary is it contains "track" by default.
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft) //this is for adding an upwards track to a non-rotated straight track.
@@ -1220,8 +1238,8 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 //a tag for the rotation of the new track here is unecessary is it contains "track" by default.
                 hideTrack();
-                print("add up track left");
 
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight) //DEATH
@@ -1242,8 +1260,9 @@ public class PlayerController : MonoBehaviour
                 //the particle effect (FX_BloodSplatter) comes from the free downloadable asset package: SimpleFX.
                 StartCoroutine(PassengerHurt()); //coroutine is used to give time for the blood splatter and sound effect to play before restarting the level
                 OhNo.GetComponent<SFX>().OhNo.Play();
+                nextTrack = "straight";
 
-                
+
 
             }
 
@@ -1267,7 +1286,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(PassengerHurt()); //coroutine is used to give time for the blood splatter and sound effect to play before restarting the level
                 OhNo.GetComponent<SFX>().OhNo.Play();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1290,7 +1309,7 @@ public class PlayerController : MonoBehaviour
 
                 StartCoroutine(PassengerHurt()); 
                 OhNo.GetComponent<SFX>().OhNo.Play();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
@@ -1312,7 +1331,7 @@ public class PlayerController : MonoBehaviour
 
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
@@ -1327,7 +1346,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated-45";
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
@@ -1343,7 +1362,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated-45";
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
@@ -1356,7 +1375,7 @@ public class PlayerController : MonoBehaviour
                 newTrack = Instantiate(down_track, other.transform.position + new Vector3(1.5f, -0.2f, 0), other.transform.rotation);
                 InventoryManager.downTracksAvailable--;
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
@@ -1370,7 +1389,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.downTracksAvailable--;
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
@@ -1384,7 +1403,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
@@ -1399,7 +1418,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
@@ -1413,7 +1432,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated90";
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
@@ -1428,7 +1447,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated90";
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
@@ -1445,7 +1464,7 @@ public class PlayerController : MonoBehaviour
 
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
@@ -1463,7 +1482,7 @@ public class PlayerController : MonoBehaviour
 
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
-
+                nextTrack = "straight";
             }
 
 
@@ -1489,7 +1508,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
@@ -1508,7 +1527,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
             }
 
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") &&movingRight)
@@ -1525,7 +1544,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1543,7 +1562,7 @@ public class PlayerController : MonoBehaviour
 
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
-
+                nextTrack = "straight";
 
 
             }
@@ -1562,7 +1581,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1581,7 +1600,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1599,7 +1618,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1617,7 +1636,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-
+                nextTrack = "straight";
 
 
             }
@@ -1631,11 +1650,11 @@ public class PlayerController : MonoBehaviour
 
                 newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-1f, -0.55f, 0), Quaternion.Euler(0, 0, 0));  //the resulting track points straight forwards.
                 InventoryManager.straightTracksAvailable--;
-                newTrack.tag = "track not to hide"; 
+                newTrack.tag = "track not to hide";
                 //this is an instance where the tracks get added too fast for them to be hidden and shown with the hideTrack() and showTrack() functions, so this tag is used to bypass them and show the new track piece immediately. 
                 //This tag name is important to include the word "track" because this is the word refered to in the default tag of non-rotated track pieces.
 
-               
+                nextTrack = "straight";
 
             }
 
@@ -1652,7 +1671,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "track not to hide";
                 //this is an instance where the tracks get added too fast for them to be hidden and shown with the hideTrack() and showTrack() functions, so this tag is used to bypass them and show the new track piece immediately. 
                 //This tag name is important to include the word "track" because this is the word refered to in the default tag of non-rotated track pieces.
-
+                nextTrack = "straight";
 
 
             }
@@ -1674,6 +1693,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
                 /* StartCoroutine(PassengerHurt());
                  OhNo.GetComponent<SFX>().OhNo.Play();*/
 
@@ -1695,6 +1715,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
                 /*
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();*/
@@ -1711,8 +1732,8 @@ public class PlayerController : MonoBehaviour
                 newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.05f, 1f, 0), Quaternion.Euler(0, 0, 90)); 
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated90";
-              
-                
+
+                nextTrack = "straight";
 
             }
 
@@ -1727,7 +1748,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.transform.Rotate(new Vector3(0, 0, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated90";
-
+                nextTrack = "straight";
 
 
             }
@@ -1743,7 +1764,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated135";
                 hideTrack();
-
+                nextTrack = "straight";
 
 
             }
@@ -1761,7 +1782,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated135";
                 hideTrack();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1776,8 +1797,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated180";
                 hideTrack();
-
-
+                nextTrack = "straight";
 
             }
 
@@ -1794,7 +1814,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated180";
                 hideTrack();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1810,7 +1830,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated225";
                 hideTrack();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1827,7 +1847,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated225";
                 hideTrack();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1842,7 +1862,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "rotated270";
                 hideTrack();
-
+                nextTrack = "straight";
 
 
             }
@@ -1860,7 +1880,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated270";
                 hideTrack();
 
-
+                nextTrack = "straight";
 
             }
 
@@ -1876,7 +1896,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated-45";
               //this track represents the last track piece of a loop de loop, as the next track piece will be 360 degrees rotated i.e. not rotated at all.
                 hideTrack();
-
+                nextTrack = "straight";
 
 
             }
@@ -1894,6 +1914,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated-45";
                 //this track represents the last track piece of a loop de loop, as the next track piece will be 360 degrees rotated i.e. not rotated at all.
                 hideTrack();
+                nextTrack = "straight";
 
 
 
@@ -1909,7 +1930,9 @@ public class PlayerController : MonoBehaviour
                 newTrack = Instantiate(up_track, other.transform.position + new Vector3(1.05f, 0.05f, 0), Quaternion.Euler(0, 0, 0)); 
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "track";
-                
+                nextTrack = "straight";
+
+
 
             }
 
@@ -1924,6 +1947,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "track";
+                nextTrack = "straight";
 
 
             }
@@ -1939,6 +1963,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -1954,6 +1979,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -1968,6 +1994,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated90";
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -1983,6 +2010,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated90";
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -1999,6 +2027,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2014,6 +2043,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2036,6 +2066,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2053,6 +2084,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2069,6 +2101,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2086,6 +2119,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2102,6 +2136,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2119,6 +2154,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2137,6 +2173,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2154,6 +2191,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2170,6 +2208,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2187,6 +2226,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2203,6 +2243,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2220,6 +2261,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2236,6 +2278,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2253,6 +2296,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2269,6 +2313,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                
                 /*
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
@@ -2290,6 +2335,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
                 /*
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
@@ -2308,6 +2354,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2323,6 +2370,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2339,6 +2387,7 @@ public class PlayerController : MonoBehaviour
 
               
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2356,6 +2405,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                nextTrack = "straight";
 
             }
 
@@ -2372,6 +2422,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
+                nextTrack = "straight";
 
             }
 
@@ -2389,6 +2440,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
+                nextTrack = "straight";
 
             }
 
