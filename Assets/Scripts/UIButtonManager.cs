@@ -22,6 +22,7 @@ public class UIButtonManager : MonoBehaviour
     public static bool StaBut = false;
     public static bool PauBut = true;
     public static bool BooBut = false;
+    
     private bool TuteOn = true;
     private string playerName;
     private bool Accepted = false;
@@ -130,6 +131,7 @@ public class UIButtonManager : MonoBehaviour
     public void BoostButtonClicked()
     {
         BooBut = true;
+        
     }
 
     public void UpTrackButtonClicked()
@@ -543,7 +545,9 @@ public class UIButtonManager : MonoBehaviour
         TrackForceCargo.onInverted = false;
         TrackForcePassenger.onVertical = false;
         TrackForcePassenger.onInverted = false;
-        
+
+    
+
     }
 
 }

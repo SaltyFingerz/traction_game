@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private bool showNow = false; //this is to debug certain instances where adding a track piece did not result in it becoming visible.
     private bool canFlip = true;
     public static int levelDeaths = 0;
+    private float timeBoosting = 0;
     public bool SlowDown = false;
     private bool boosting = false;
     public static float playerSpeed;
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
     enum PlayerState { Static, Moving, Adding }; //0, 1, 2 are the respective integer parameters used for switching between the three different animations of the train_front i.e. engine (static, moving, adding).
     int playerState = 0; //this sets the starting player state to static i.e. the train is not moving till the player tells it to.
     string Animation_Parameter = "Animation_Player_State"; //this is the name of the parameter in the unity editor's animator window for the train_front. 
-    private int timeInLevel;
+    private float timeInLevel;
     //UI stuff here. The below link to the sound FX and menu screens that are accessible from within the gameplay scenes.
     public GameObject Player;
     public GameObject pauseMenu;
@@ -112,7 +113,7 @@ public class PlayerController : MonoBehaviour
         AnalyticsManager.SendCustomEvent("CratePickup", crateParameters);
     }
 
-    public void TimeInLevel()
+  /*  public void TimeInLevel()
     {
         Dictionary<string, object> levelTimeParameters = new Dictionary<string, object>()
             {
@@ -122,7 +123,7 @@ public class PlayerController : MonoBehaviour
 
             };
         AnalyticsManager.SendCustomEvent("TimeInLevel", levelTimeParameters);
-    }
+    } */
 
     IEnumerator PassengerHurt()
     {
@@ -171,12 +172,17 @@ public class PlayerController : MonoBehaviour
         playerSpeed = rb2d.velocity.x;
         playerRotation = Mathf.RoundToInt(rb2d.rotation);
 
-       /* if (playerSpeed == 2)
-            StartCoroutine(boostCheck());
-        else
-            boosting = false;
-       */
-      
+        /* if (playerSpeed == 2)
+             StartCoroutine(boostCheck());
+         else
+             boosting = false;
+        */
+        if (UIButtonManager.BooBut)
+        {
+            timeBoosting += Time.deltaTime;
+        }
+       
+        timeInLevel += Time.deltaTime;
 
         if (currentPortal != null)
         {
@@ -632,7 +638,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal1")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+           
             //TimeInLevel();
             Time.timeScale = 0;
 
@@ -730,7 +736,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal2")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+            
            // TimeInLevel();
             Time.timeScale = 0;
 
@@ -780,7 +786,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal3")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+           
           //  TimeInLevel();
             Time.timeScale = 0;
 
@@ -830,7 +836,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal4")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+           
             //TimeInLevel();
             Time.timeScale = 0;
 
@@ -880,7 +886,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal5")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+           
            // TimeInLevel();
             Time.timeScale = 0;
 
@@ -930,7 +936,7 @@ public class PlayerController : MonoBehaviour
 
         if (other.gameObject.name.Contains("Goal6")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+           
            // TimeInLevel();
             Time.timeScale = 0;
 
@@ -993,27 +999,31 @@ public class PlayerController : MonoBehaviour
                 {"medal", medal},
                 {"restarts", UIButtonManager.Restarts },
                 {"levelDeaths", levelDeaths },
+                {"timeBoosting", timeBoosting },
+                {"totalTimeInLevel", timeInLevel },
                 {"time", Timer.currentTime}
             };
             AnalyticsManager.SendCustomEvent("LevelComplete", myParameters);
 
 
 
-
-          
+            timeInLevel = 0;
+            timeBoosting = 0;
+            
 
             yield return new WaitForSeconds(1.5f); //Thus one and a half seconds is provided for the victory to be celebrated.
-            //  Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
-             //  SceneManager.LoadScene(2); //this loads the next level 
-             //   Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the track pieces available to the player, repleneshing any lost in level one.
-           // Music.GetComponent<SFX>().Music.Play();
+                                                   //  Time.timeScale = 1; //this ensures the time is flowing normally into the next level.
+                                                   //  SceneManager.LoadScene(2); //this loads the next level 
+                                                   //   Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the track pieces available to the player, repleneshing any lost in level one.
+                                                   // Music.GetComponent<SFX>().Music.Play();
+           
 
 
         }
 
         if (other.gameObject.name.Contains("Goal7")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
-            timeInLevel = Mathf.RoundToInt(Time.timeSinceLevelLoad);
+           
            // TimeInLevel();
             Time.timeScale = 0;
 
