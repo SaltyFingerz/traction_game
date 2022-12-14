@@ -531,7 +531,7 @@ public class UIButtonManager : MonoBehaviour
         PlayerController.camDown = false;
         PlayerController.camCent = false;
         PlayerController.camCentOpp = false;
-
+        PlayerController.flipped = false;
         StrBut = false;
         UpBut = false;
         DowBut = false;

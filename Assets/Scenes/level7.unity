@@ -8082,7 +8082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123bee4d94ca5cd459df16ce70a341e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 7306504956669635214, guid: 508bddc178b37c942a47616e4dd5922f,
+  projectile: {fileID: 7306504956669635214, guid: f4e8a5fa4f46663499c4f6c9040f887c,
     type: 3}
   speedFactor: 5
   Delay: 6
@@ -10097,7 +10097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 123bee4d94ca5cd459df16ce70a341e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1357139528517193289, guid: 9d4a8d18946475b4f9cf28ac48bc62a1,
+  projectile: {fileID: 1357139528517193289, guid: c50c4e177856f65489ba52f8e6dbf4e5,
     type: 3}
   speedFactor: 5
   Delay: 6

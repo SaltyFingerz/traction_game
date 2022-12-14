@@ -127,12 +127,14 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator PassengerHurt()
     {
+        flipped = false;
         yield return new WaitForSeconds(1f);
         Timer.stop = true;
         nextTrack = "none";
         Fail.SetActive(true);
         PlayerDied("intraversible track");
         levelDeaths += 1;
+        
 
 
     }
@@ -168,6 +170,16 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        if (transform.localScale.x == 1)
+        {
+            flipped = false;
+            
+        }
+        else if (transform.localScale.x == -1)
+        { 
+            flipped = true;
+           
+        }
 
         playerSpeed = rb2d.velocity.x;
         playerRotation = Mathf.RoundToInt(rb2d.rotation);
@@ -222,7 +234,7 @@ public class PlayerController : MonoBehaviour
         //Thus I contributed the mechanism through which the player movement is controlled, no other game where the player adds elements to move along was found or copied.
 
 
-        if (movingRight) //this gives the train a constant movement when it is told to move right, so the player doesn't have to hold the right key down in order to move, but uses the keys to control the track pieces that are added instead. 
+        if (movingRight && !flipped) //this gives the train a constant movement when it is told to move right, so the player doesn't have to hold the right key down in order to move, but uses the keys to control the track pieces that are added instead. 
         {
            // if (UIDropDownManager.Normal == true)
            // {
@@ -262,7 +274,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (movingLeft) //this gives the train a constant movement when it is told to move right, so the player doesn't have to hold the right key down in order to move, but uses the keys to control the track pieces that are added instead. 
+        if (movingLeft && flipped) //this gives the train a constant movement when it is told to move right, so the player doesn't have to hold the right key down in order to move, but uses the keys to control the track pieces that are added instead. 
         {
             // if (UIDropDownManager.Normal == true)
             // {
@@ -275,7 +287,7 @@ public class PlayerController : MonoBehaviour
             //    }
 
             spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
-            if (Input.GetKey("left") || Input.GetKey("a") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.BooBut)
+            if (Input.GetKey("left") || Input.GetKey("a") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.StaBut || UIButtonManager.BooBut)
             {
                 if (!SlowDown)
                 {
@@ -327,31 +339,52 @@ public class PlayerController : MonoBehaviour
         }
 
 
-
-        if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut) && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
+        if (!flipped)
         {
-            rb2d.constraints = RigidbodyConstraints2D.None;
-            movingRight = true;
-            movingLeft = false;
-            Stop = false;
-            if (!Steam.GetComponent<SFX>().Steam.isPlaying)
+            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut) && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
             {
-                Steam.GetComponent<SFX>().Steam.Play(); //moving right starts the engine so the sound effect is thus played.
+                rb2d.constraints = RigidbodyConstraints2D.None;
+                movingRight = true;
+                movingLeft = false;
+                Stop = false;
+                if (!Steam.GetComponent<SFX>().Steam.isPlaying)
+                {
+                    Steam.GetComponent<SFX>().Steam.Play(); //moving right starts the engine so the sound effect is thus played.
+                }
+
+            }
+        }
+
+        else if (flipped)
+        {
+            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut) && movingRight == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
+            {
+                rb2d.constraints = RigidbodyConstraints2D.None;
+                movingRight = false;
+                movingLeft = true;
+                Stop = false;
+                if (!Steam.GetComponent<SFX>().Steam.isPlaying)
+                {
+                    Steam.GetComponent<SFX>().Steam.Play(); //moving right starts the engine so the sound effect is thus played.
+                }
+
             }
 
-        }
-       
 
-        else if (movingLeft == true)
+        }
+
+
+        /*else if (movingLeft == true)
         {
-            rb2d.constraints = RigidbodyConstraints2D.None;
+            //rb2d.constraints = RigidbodyConstraints2D.None;
             movingRight = false;
-            Stop = false;
+            // Stop = false;
 
         } //currentlty in the game the player can only move from left to right, up and down because the train needs u-turn-track to turn around on horizontal axis. This may be added in further developments. 
-
-        else if (isOnRawTerrain || Input.GetKey("space") || UIButtonManager.PauBut) //when to stop is determined by the player pressing space or landing on raw terrain, which cannot be traversed directly, thus the train requires tracks to move and can voluntarily stop at any point.
-        { movingLeft = false;
+*/
+         if (isOnRawTerrain || Input.GetKey("space") || UIButtonManager.PauBut) //when to stop is determined by the player pressing space or landing on raw terrain, which cannot be traversed directly, thus the train requires tracks to move and can voluntarily stop at any point.
+        {
+            movingLeft = false;
             movingRight = false;
             Stop = true;
             if (!Steam.GetComponent<SFX>().Steam.isPlaying)
@@ -598,7 +631,7 @@ public class PlayerController : MonoBehaviour
 
         IEnumerator Spiked()
         {
-            
+            flipped = false;
             yield return new WaitForSeconds(1f); //enough time for the hurt animation to play
             PlayerController.Stop = true;
             PlayerController.movingLeft = false;
@@ -614,7 +647,7 @@ public class PlayerController : MonoBehaviour
             PlayerController.camDown = false;
             PlayerController.camCent = false;
             PlayerController.camCentOpp = false;
-
+            
             UIButtonManager.StrBut = false;
             UIButtonManager.UpBut = false;
             UIButtonManager.DowBut = false;
