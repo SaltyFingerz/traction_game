@@ -247,7 +247,7 @@ public class PlayerController : MonoBehaviour
         //    }
 
                 spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
-            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.StaBut || UIButtonManager.BooBut)
+            if (Input.GetKey("right") || Input.GetKey("d") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.BooBut)
             {
                 if (!SlowDown)
                 {
