@@ -39,6 +39,10 @@ public class UIButtonManager : MonoBehaviour
     public GameObject Shade;
     public GameObject Waiver;
     public GameObject Nickname;
+    public GameObject ChooseHandedness;
+  
+  
+
     public void StraightTrackButtonClicked()
     {
      
@@ -51,6 +55,16 @@ public class UIButtonManager : MonoBehaviour
     }
 
 
+    public void RightHandedOption()
+    {
+        PlayerPrefs.SetInt("hand", 1);
+        ChooseHandedness.SetActive(false);
+    }
+    public void LeftHandedOption()
+    {
+        PlayerPrefs.SetInt("hand", 2);
+        ChooseHandedness.SetActive(false);
+    }
 
 
     public void ReadStringInput(string input)
@@ -308,6 +322,7 @@ public class UIButtonManager : MonoBehaviour
         SceneManager.LoadScene(0); //this ensures that time in the game does not pass when the main menu is open.
         
     }
+
 
     public void LoadButtonClicked()
     {

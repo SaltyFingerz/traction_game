@@ -77,6 +77,8 @@ public class PlayerController : MonoBehaviour
     public GameObject Music;
     public GameObject Engine;
     public GameObject TeleportSound;
+    public GameObject RightHanded;
+    public GameObject LeftHanded;
     //the sounds were thus added using this tutorial (https://youtu.be/JnbDxG04i7c by Jimmy Vegas) I changed the sound allocation so each sound has an individual game object, because I want them to play simultaneously
 
     public static bool flipped = false;
@@ -217,7 +219,17 @@ public class PlayerController : MonoBehaviour
 
         }
 
-       
+        if (PlayerPrefs.GetInt("hand") == 1)
+        {
+            RightHanded.SetActive(true);
+            LeftHanded.SetActive(false);
+        }
+
+        if (PlayerPrefs.GetInt("hand") == 2)
+        {
+            RightHanded.SetActive(false);
+            LeftHanded.SetActive(true);
+        }
       
 
         /*
