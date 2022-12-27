@@ -40,8 +40,8 @@ public class UIButtonManager : MonoBehaviour
     public GameObject Waiver;
     public GameObject Nickname;
     public GameObject ChooseHandedness;
-  
-  
+
+    public static bool TutorialRight = true;
 
     public void StraightTrackButtonClicked()
     {
@@ -57,15 +57,34 @@ public class UIButtonManager : MonoBehaviour
 
     public void RightHandedOption()
     {
+        if (PlayerPrefs.GetInt("hand") != 1)
         PlayerPrefs.SetInt("hand", 1);
+        if (SceneManager.GetActiveScene().buildIndex == 11)
+        {
+            SceneManager.LoadScene(1);
+            ResetVariables();
+        }
         ChooseHandedness.SetActive(false);
+        Time.timeScale = 1;
     }
     public void LeftHandedOption()
     {
-        PlayerPrefs.SetInt("hand", 2);
+        if (PlayerPrefs.GetInt("hand") != 2)
+            PlayerPrefs.SetInt("hand", 2);
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            SceneManager.LoadScene(11);
+            ResetVariables();
+        }
         ChooseHandedness.SetActive(false);
+        Time.timeScale = 1;
     }
 
+    public void OptionsButton()
+    {
+        ChooseHandedness.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
 
     public void ReadStringInput(string input)
     {
