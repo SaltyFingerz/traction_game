@@ -22,7 +22,7 @@ public class UIButtonManager : MonoBehaviour
     public static bool StaBut = false;
     public static bool PauBut = true;
     public static bool BooBut = false;
-    
+    public static bool MenuDirect = false;
     private bool TuteOn = true;
     private string playerName;
     private bool Accepted = false;
@@ -43,6 +43,18 @@ public class UIButtonManager : MonoBehaviour
 
     public static bool TutorialRight = true;
 
+    private void Start()
+    {
+         if(SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            if(MenuDirect)
+            {
+                Waiver.SetActive(false);
+                Shade.SetActive(false);
+                Nickname.SetActive(false);
+            }
+        }
+    }
     public void StraightTrackButtonClicked()
     {
      
@@ -57,24 +69,55 @@ public class UIButtonManager : MonoBehaviour
 
     public void RightHandedOption()
     {
+       
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 11)
+        { PauBut = true;
+            TutePrompt2.SetActive(false);
+            TutePrompt3.SetActive(false);
+            TutePrompt4.SetActive(false);
+            TutePrompt5.SetActive(false);
+            TutePrompt6.SetActive(false);
+            TutePrompt7.SetActive(false);
+            TutePrompt8.SetActive(false);
+        }
+
         if (PlayerPrefs.GetInt("hand") != 1)
         PlayerPrefs.SetInt("hand", 1);
         if (SceneManager.GetActiveScene().buildIndex == 11)
         {
+          
             SceneManager.LoadScene(1);
+          
+
             ResetVariables();
+            ChooseHandedness.SetActive(false);
+           
         }
         ChooseHandedness.SetActive(false);
         Time.timeScale = 1;
     }
     public void LeftHandedOption()
     {
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 11)
+        {
+            TutePrompt2.SetActive(false);
+            TutePrompt3.SetActive(false);
+            TutePrompt4.SetActive(false);
+            TutePrompt5.SetActive(false);
+            TutePrompt6.SetActive(false);
+            TutePrompt7.SetActive(false);
+            TutePrompt8.SetActive(false);
+        }
         if (PlayerPrefs.GetInt("hand") != 2)
             PlayerPrefs.SetInt("hand", 2);
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
+         
             SceneManager.LoadScene(11);
+            PauBut = true;
+            
             ResetVariables();
+           
         }
         ChooseHandedness.SetActive(false);
         Time.timeScale = 1;
@@ -83,6 +126,7 @@ public class UIButtonManager : MonoBehaviour
     public void OptionsButton()
     {
         ChooseHandedness.SetActive(true);
+        if(SceneManager.GetActiveScene().buildIndex != 0)
         pauseMenu.SetActive(false);
     }
 
@@ -214,6 +258,7 @@ public class UIButtonManager : MonoBehaviour
     public void StartIsClicked()
     {
         SceneManager.LoadScene(1);
+
         //ref: using the manual and material covered in the DES105 lecture on 'UI & Menus' (https://docs.unity3d.com/ScriptReference/SceneManagement.SceneManager.html) 
         
         Time.timeScale = 1;//this is to ensure the time is running when the gameplay starts.
@@ -337,6 +382,7 @@ public class UIButtonManager : MonoBehaviour
         PlayerController.Stop = true;
         PlayerController.movingLeft = false;
         PlayerController.movingRight = false;
+        MenuDirect = true;
         //the above ensure the train is not moving when the main menu is opened.
         SceneManager.LoadScene(0); //this ensures that time in the game does not pass when the main menu is open.
         

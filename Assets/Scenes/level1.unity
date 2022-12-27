@@ -5417,10 +5417,10 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
   TutePrompt1: {fileID: 0}
-  TutePrompt2: {fileID: 0}
-  TutePrompt3: {fileID: 0}
-  TutePrompt4: {fileID: 0}
-  TutePrompt5: {fileID: 0}
+  TutePrompt2: {fileID: 1876872578}
+  TutePrompt3: {fileID: 19878345}
+  TutePrompt4: {fileID: 890602966}
+  TutePrompt5: {fileID: 228818019}
   TutePrompt6: {fileID: 630631302}
   TutePrompt7: {fileID: 541287807}
   TutePrompt8: {fileID: 0}
@@ -14556,13 +14556,13 @@ MonoBehaviour:
   pauseMenu: {fileID: 1047494369}
   Player: {fileID: 1546727911}
   TutePrompt1: {fileID: 0}
-  TutePrompt2: {fileID: 0}
-  TutePrompt3: {fileID: 0}
-  TutePrompt4: {fileID: 0}
-  TutePrompt5: {fileID: 0}
-  TutePrompt6: {fileID: 0}
-  TutePrompt7: {fileID: 0}
-  TutePrompt8: {fileID: 0}
+  TutePrompt2: {fileID: 1876872578}
+  TutePrompt3: {fileID: 19878345}
+  TutePrompt4: {fileID: 890602966}
+  TutePrompt5: {fileID: 228818019}
+  TutePrompt6: {fileID: 630631302}
+  TutePrompt7: {fileID: 541287807}
+  TutePrompt8: {fileID: 2091080969}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -20019,10 +20019,10 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
   TutePrompt1: {fileID: 0}
-  TutePrompt2: {fileID: 0}
-  TutePrompt3: {fileID: 0}
-  TutePrompt4: {fileID: 0}
-  TutePrompt5: {fileID: 0}
+  TutePrompt2: {fileID: 1876872578}
+  TutePrompt3: {fileID: 19878345}
+  TutePrompt4: {fileID: 890602966}
+  TutePrompt5: {fileID: 228818019}
   TutePrompt6: {fileID: 630631302}
   TutePrompt7: {fileID: 541287807}
   TutePrompt8: {fileID: 0}
