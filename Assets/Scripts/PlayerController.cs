@@ -403,6 +403,7 @@ public class PlayerController : MonoBehaviour
             movingLeft = false;
             movingRight = false;
             Stop = true;
+           
             if (!Steam.GetComponent<SFX>().Steam.isPlaying)
             {
                 Steam.GetComponent<SFX>().Steam.Stop(); //upon stopping, the train stops playing the steam engine sound.
@@ -533,7 +534,7 @@ public class PlayerController : MonoBehaviour
         {
     
             isOnRawTerrain = true; //boolean variable for controling train movement to stop it when it is on raw terrain. In most cases the player will want to restart upon this happening.
-
+            
         }
     }
 

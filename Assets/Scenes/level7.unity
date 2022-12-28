@@ -379,10 +379,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &943101
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1089,10 +1092,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &96479157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1924,10 +1930,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &192883358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,7 +1964,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 192883358}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -2102,10 +2111,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 1960645822}
+  NoInput: {fileID: 0}
 --- !u!114 &193622189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2306,10 +2318,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &219204540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3631,10 +3646,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &335866631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3925,10 +3943,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &376424868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4316,10 +4337,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &395388572
 GameObject:
   m_ObjectHideFlags: 0
@@ -4751,10 +4775,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &398894955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4975,6 +5002,7 @@ MonoBehaviour:
   OhNo: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
+  NoInput: {fileID: 0}
   speed: 20
   SlowDown: 0
   highScore: {fileID: 0}
@@ -5482,10 +5510,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &470862788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6395,7 +6426,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 562607128}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6410,7 +6441,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.93, y: 5.81}
+  m_Size: {x: 2.5, y: 5.81}
   m_EdgeRadius: 0
 --- !u!212 &562607130
 SpriteRenderer:
@@ -7398,6 +7429,8 @@ GameObject:
   - component: {fileID: 708245821}
   - component: {fileID: 708245820}
   - component: {fileID: 708245819}
+  - component: {fileID: 708245823}
+  - component: {fileID: 708245822}
   m_Layer: 0
   m_Name: levelBlock2 (2)
   m_TagString: Untagged
@@ -7414,11 +7447,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 708245818}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18, y: -0.5}
+  m_Offset: {x: 0.42, y: -0.61}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -7429,7 +7462,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.06, y: 14.6}
+  m_Size: {x: 2.38, y: 10.97}
   m_EdgeRadius: 0
 --- !u!212 &708245820
 SpriteRenderer:
@@ -7498,6 +7531,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 46
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -360.195}
+--- !u!61 &708245822
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708245818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11, y: 7.28}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.58, y: 16.71}
+    newSize: {x: 4.58, y: 16.71}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.33, y: 0.88}
+  m_EdgeRadius: 0
+--- !u!61 &708245823
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708245818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.21, y: 5.74}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.58, y: 16.71}
+    newSize: {x: 4.58, y: 16.71}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.02, y: 1.48}
+  m_EdgeRadius: 0
 --- !u!1 &710336763
 GameObject:
   m_ObjectHideFlags: 0
@@ -7990,10 +8075,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &763029608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8597,10 +8685,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &814597710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8834,6 +8925,7 @@ GameObject:
   - component: {fileID: 839135246}
   - component: {fileID: 839135245}
   - component: {fileID: 839135244}
+  - component: {fileID: 839135247}
   m_Layer: 0
   m_Name: levelBlock1 (3)
   m_TagString: Untagged
@@ -8850,11 +8942,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 839135243}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.46, y: -0.92}
+  m_Offset: {x: 0.48, y: -1.42}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -8865,7 +8957,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.7, y: 9.77}
+  m_Size: {x: 2.86, y: 9.77}
   m_EdgeRadius: 0
 --- !u!212 &839135245
 SpriteRenderer:
@@ -8934,6 +9026,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 47
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &839135247
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839135243}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.15, y: 4.3}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.42, y: 11.64}
+    newSize: {x: 6.42, y: 11.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.18, y: 0.9}
+  m_EdgeRadius: 0
 --- !u!1 &862488545
 GameObject:
   m_ObjectHideFlags: 0
@@ -9383,10 +9501,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &976794250
 GameObject:
   m_ObjectHideFlags: 0
@@ -9495,10 +9616,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &976794254
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10372,10 +10496,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1054931528
 GameObject:
   m_ObjectHideFlags: 0
@@ -10537,7 +10664,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1058864744}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11871,10 +11998,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1314520600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12098,6 +12228,9 @@ GameObject:
   - component: {fileID: 1325051923}
   - component: {fileID: 1325051922}
   - component: {fileID: 1325051921}
+  - component: {fileID: 1325051926}
+  - component: {fileID: 1325051925}
+  - component: {fileID: 1325051924}
   m_Layer: 0
   m_Name: levelBlock1 (2)
   m_TagString: Untagged
@@ -12114,11 +12247,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1325051920}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.49, y: -0.82}
+  m_Offset: {x: 0.22, y: 0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12129,7 +12262,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.85, y: 8.96}
+  m_Size: {x: 1.15, y: 9.39}
   m_EdgeRadius: 0
 --- !u!212 &1325051922
 SpriteRenderer:
@@ -12198,6 +12331,84 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 45
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.076}
+--- !u!61 &1325051924
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325051920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.69, y: -0.62}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.42, y: 11.64}
+    newSize: {x: 6.42, y: 11.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.43, y: 8.46}
+  m_EdgeRadius: 0
+--- !u!61 &1325051925
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325051920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.22, y: -1.61}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.42, y: 11.64}
+    newSize: {x: 6.42, y: 11.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.23, y: 8.21}
+  m_EdgeRadius: 0
+--- !u!61 &1325051926
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325051920}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.71, y: -0.62}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 6.42, y: 11.64}
+    newSize: {x: 6.42, y: 11.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.43, y: 8.46}
+  m_EdgeRadius: 0
 --- !u!1 &1326228273
 GameObject:
   m_ObjectHideFlags: 0
@@ -12531,10 +12742,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1337643183
 GameObject:
   m_ObjectHideFlags: 0
@@ -12901,10 +13115,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1435542891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13350,10 +13567,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1488303371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13860,10 +14080,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1546640209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13981,6 +14204,7 @@ MonoBehaviour:
   OhNo: {fileID: 396837614}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
+  NoInput: {fileID: 0}
   speed: 20
   SlowDown: 0
   highScore: {fileID: 1121621270}
@@ -14335,10 +14559,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1587557178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15230,10 +15457,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 1960645822}
+  NoInput: {fileID: 0}
 --- !u!114 &1799538992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15355,11 +15585,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1799974127}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.18, y: -0.5}
+  m_Offset: {x: 0.18, y: 0.01}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15370,7 +15600,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.06, y: 14.6}
+  m_Size: {x: 1.29, y: 14.6}
   m_EdgeRadius: 0
 --- !u!212 &1799974129
 SpriteRenderer:
@@ -15596,10 +15826,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1809153122
 GameObject:
   m_ObjectHideFlags: 0
@@ -15809,7 +16042,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1833628512}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -15824,7 +16057,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.06, y: 14.6}
+  m_Size: {x: 1.4, y: 15.12}
   m_EdgeRadius: 0
 --- !u!212 &1833628514
 SpriteRenderer:
@@ -16013,10 +16246,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1853459519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16391,10 +16627,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1877002995
 GameObject:
   m_ObjectHideFlags: 0
@@ -16581,6 +16820,7 @@ GameObject:
   - component: {fileID: 1890072797}
   - component: {fileID: 1890072796}
   - component: {fileID: 1890072795}
+  - component: {fileID: 1890072798}
   m_Layer: 11
   m_Name: levelblock3 (2)
   m_TagString: Untagged
@@ -16597,11 +16837,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 1890072794}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13, y: -0.54}
+  m_Offset: {x: 1, y: 0.11}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -16612,7 +16852,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.93, y: 5.81}
+  m_Size: {x: 0.44, y: 5.6}
   m_EdgeRadius: 0
 --- !u!212 &1890072796
 SpriteRenderer:
@@ -16681,6 +16921,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 42
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180.56}
+--- !u!61 &1890072798
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890072794}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.29, y: 0.11}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.71, y: 6.89}
+    newSize: {x: 4.71, y: 6.89}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.44, y: 5.6}
+  m_EdgeRadius: 0
 --- !u!1 &1892694892
 GameObject:
   m_ObjectHideFlags: 0
@@ -23479,10 +23745,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &2109053693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23539,6 +23808,7 @@ GameObject:
   - component: {fileID: 2128412891}
   - component: {fileID: 2128412890}
   - component: {fileID: 2128412889}
+  - component: {fileID: 2128412892}
   m_Layer: 11
   m_Name: levelblock3 (3)
   m_TagString: Untagged
@@ -23555,11 +23825,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 2128412888}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.13, y: -0.54}
+  m_Offset: {x: 1.06, y: -0.54}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -23570,7 +23840,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.93, y: 5.81}
+  m_Size: {x: 0.3, y: 7.05}
   m_EdgeRadius: 0
 --- !u!212 &2128412890
 SpriteRenderer:
@@ -23639,6 +23909,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 44
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &2128412892
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128412888}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.29, y: -0.54}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4.71, y: 6.89}
+    newSize: {x: 4.71, y: 6.89}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.3, y: 6.77}
+  m_EdgeRadius: 0
 --- !u!1 &2142533887
 GameObject:
   m_ObjectHideFlags: 0

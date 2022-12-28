@@ -6103,10 +6103,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &192883358
 GameObject:
   m_ObjectHideFlags: 0
@@ -6231,7 +6234,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 192883358}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6257,7 +6260,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 192883358}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6283,7 +6286,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 192883358}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -6309,7 +6312,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 192883358}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -7532,10 +7535,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &335866631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7738,10 +7744,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &363512058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8205,10 +8214,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &396837614
 GameObject:
   m_ObjectHideFlags: 0
@@ -8556,10 +8568,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &398894955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8994,6 +9009,7 @@ MonoBehaviour:
   OhNo: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
+  NoInput: {fileID: 0}
   speed: 20
   SlowDown: 0
   highScore: {fileID: 0}
@@ -9274,10 +9290,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &456098037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10038,10 +10057,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &525530871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10347,7 +10369,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 562607128}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -10440,7 +10462,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 562607128}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -10466,7 +10488,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 562607128}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -10492,7 +10514,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 562607128}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11310,7 +11332,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 708245818}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11403,7 +11425,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 708245818}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11429,7 +11451,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 708245818}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -11455,7 +11477,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 708245818}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -12742,7 +12764,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 839135243}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -12835,7 +12857,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 839135243}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -13281,10 +13303,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &953549874
 GameObject:
   m_ObjectHideFlags: 0
@@ -13467,10 +13492,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &995743120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13984,10 +14012,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1053524775
 GameObject:
   m_ObjectHideFlags: 0
@@ -14096,7 +14127,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1058864744}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -14189,7 +14220,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1058864744}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -14593,10 +14624,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1077235500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15688,10 +15722,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1314520600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15933,7 +15970,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1325051920}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -16026,7 +16063,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1325051920}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -16052,7 +16089,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1325051920}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -16300,10 +16337,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1337643183
 GameObject:
   m_ObjectHideFlags: 0
@@ -17326,6 +17366,7 @@ MonoBehaviour:
   OhNo: {fileID: 396837614}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
+  NoInput: {fileID: 0}
   speed: 20
   SlowDown: 0
   highScore: {fileID: 1121621270}
@@ -17680,10 +17721,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1587557178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17849,10 +17893,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1644084847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18579,10 +18626,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1730458629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19021,7 +19071,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1799974127}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19114,7 +19164,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1799974127}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19140,7 +19190,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1799974127}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19314,10 +19364,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1809153122
 GameObject:
   m_ObjectHideFlags: 0
@@ -19502,10 +19555,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1821368164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19694,7 +19750,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1833628512}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19787,7 +19843,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1833628512}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19813,7 +19869,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1833628512}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19839,7 +19895,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1833628512}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -19920,10 +19976,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 1486030880}
+  NoInput: {fileID: 0}
 --- !u!114 &1850294135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20310,10 +20369,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1877002995
 GameObject:
   m_ObjectHideFlags: 0
@@ -20567,10 +20629,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1889966924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20740,7 +20805,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1890072794}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -20833,7 +20898,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1890072794}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -20859,7 +20924,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1890072794}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -20885,7 +20950,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1890072794}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -21022,10 +21087,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1903087060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21873,10 +21941,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1979401185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22518,10 +22589,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &2031198303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23205,7 +23279,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2105834142}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -23298,7 +23372,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2105834142}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -23324,7 +23398,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2105834142}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -23350,7 +23424,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2105834142}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -23512,10 +23586,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &2109053693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23590,7 +23667,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2128412888}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -23683,7 +23760,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2128412888}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -23709,7 +23786,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2128412888}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 2b9cf326d8c42bf459aeb97c9db485de, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
