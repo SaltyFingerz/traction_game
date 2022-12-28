@@ -36,11 +36,13 @@ public class UIButtonManager : MonoBehaviour
     public GameObject TutePrompt6;
     public GameObject TutePrompt7;
     public GameObject TutePrompt8;
+    public GameObject TutePrompt9;
+    public GameObject TutePromptFinal;
     public GameObject Shade;
     public GameObject Waiver;
     public GameObject Nickname;
     public GameObject ChooseHandedness;
-
+    public GameObject NoInput;
     public static bool TutorialRight = true;
 
     private void Start()
@@ -66,6 +68,8 @@ public class UIButtonManager : MonoBehaviour
         
     }
 
+
+ 
 
     public void RightHandedOption()
     {
@@ -317,6 +321,9 @@ public class UIButtonManager : MonoBehaviour
     public void RestartButtonClicked()
     {
         Restarted("completion");
+
+       
+
         PlayerController.Stop = true;
         PlayerController.movingLeft = false;
         PlayerController.movingRight = false;
@@ -325,6 +332,12 @@ public class UIButtonManager : MonoBehaviour
         PlayerController.camDown = false;
         PauBut = true;
         //the above is to reinitialise the player movement so that the player can move after restart.
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 11)
+        {
+            SceneManager.LoadScene(12);
+            ResetVariables();
+        }
+        else 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //the above line of code reloads the current scene, which I learnt from: https://www.youtube.com/watch?v=ZmjYw8Z51mg.      
         ResetVariables();
@@ -337,6 +350,8 @@ public class UIButtonManager : MonoBehaviour
 
     public void RestartButtonClickedDuringLevel()
     {
+        
+
         Restarts += 1;
         Restarted("during level");
         PlayerController.Stop = true;
@@ -347,7 +362,13 @@ public class UIButtonManager : MonoBehaviour
         PlayerController.camDown = false;
         PauBut = true;
         //the above is to reinitialise the player movement so that the player can move after restart.
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 11)
+        {
+            SceneManager.LoadScene(12);
+            ResetVariables();
+        }
+        else
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //the above line of code reloads the current scene, which I learnt from: https://www.youtube.com/watch?v=ZmjYw8Z51mg.      
         ResetVariables();
         //this function, that is coded at the bottom of this script, resets the tracks available, eliminates additional forces applied from the TrackForce scripts, and sets the Time.time to 1 i.e. the time is ensured to be running.
@@ -431,8 +452,12 @@ public class UIButtonManager : MonoBehaviour
 
     public void ClosePrompt2()
     {
-        PromptClosed(2);
-        TutePrompt2.SetActive(false); 
+        if (TutePrompt2.activeSelf)
+        {
+            PromptClosed(2);
+            TutePrompt2.SetActive(false);
+            NoInput.SetActive(true);
+        }
     }
 
     public void ClosePrompt5()
@@ -625,6 +650,18 @@ public class UIButtonManager : MonoBehaviour
         TrackForceCargo.onInverted = false;
         TrackForcePassenger.onVertical = false;
         TrackForcePassenger.onInverted = false;
+
+        if(SceneManager.GetActiveScene().buildIndex == 1 | SceneManager.GetActiveScene().buildIndex == 11)
+        {
+            TutePrompt2.SetActive(false);
+            TutePrompt3.SetActive(false);
+            TutePrompt4.SetActive(false);
+            TutePrompt5.SetActive(false);
+            TutePrompt6.SetActive(false);
+            TutePrompt7.SetActive(false);
+            TutePrompt8.SetActive(false);
+            ChooseHandedness.SetActive(false);
+        }
 
     
 

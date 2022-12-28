@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public static bool Stop = false;
     public GameObject TutePrompt2;
     public GameObject TutePrompt3;
+    public GameObject NoInput;
     public static bool camDown = false;
     public static bool camCent = false;
     public static bool camUp = false;
@@ -208,9 +209,12 @@ public class PlayerController : MonoBehaviour
                 movingRight = false;
                 movingLeft = true;
                 print("flip");
+               
+
             }
             transform.position = currentPortal.GetComponent<Teleporter>().GetDestination().position;
             TeleportSound.GetComponent<SFX>().Teleport.Play();
+          
             /*camUp = false;
             camDown = false;
             camCent = false;
@@ -299,7 +303,7 @@ public class PlayerController : MonoBehaviour
             //    }
 
             spriteRenderer.flipX = false; // Sprite renderer is used for flipping instead of transform so the child camera does not get flipped too. However this is not currently used as the train only moves rightwards.
-            if (Input.GetKey("left") || Input.GetKey("a") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut || UIButtonManager.StaBut || UIButtonManager.BooBut)
+            if (Input.GetKey("left") || Input.GetKey("a") || Input.GetKey("up") || Input.GetKey("w") || Input.GetKey("down") || Input.GetKey("s") || UIButtonManager.StaBut || UIButtonManager.BooBut)
             {
                 if (!SlowDown)
                 {
@@ -353,7 +357,7 @@ public class PlayerController : MonoBehaviour
 
         if (!flipped)
         {
-            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut) && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
+            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.BooBut) && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
             {
                 rb2d.constraints = RigidbodyConstraints2D.None;
                 movingRight = true;
@@ -369,7 +373,7 @@ public class PlayerController : MonoBehaviour
 
         else if (flipped)
         {
-            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.UpBut || UIButtonManager.DowBut) && movingRight == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
+            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.BooBut) && movingRight == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
             {
                 rb2d.constraints = RigidbodyConstraints2D.None;
                 movingRight = false;
@@ -562,18 +566,19 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Slower"))
         {
             SlowDown = true;
+           
         }
 
         if (other.CompareTag("Portal"))
         {
             currentPortal = other.gameObject;
-            print("portal");
+        
         }
 
         if (other.CompareTag("FlipPortal"))
         {
             currentPortal = other.gameObject;
-            print("portal");
+         
         }
 
 
@@ -633,6 +638,7 @@ public class PlayerController : MonoBehaviour
         {
             TutePrompt2.SetActive(false);
             TutePrompt3.SetActive(true);
+            NoInput.SetActive(false);
             Time.timeScale = 0;
 
 
@@ -1269,6 +1275,8 @@ public class PlayerController : MonoBehaviour
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight) //this is for adding an upwards track to a non-rotated straight track.
             {
+                nextTrack = "straight";
+
                 addingTrack = true;
 
 
@@ -1278,7 +1286,6 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 //a tag for the rotation of the new track here is unecessary is it contains "track" by default.
                 hideTrack();
-                nextTrack = "straight";
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft) //this is for adding an upwards track to a non-rotated straight track.
@@ -2525,7 +2532,6 @@ public class PlayerController : MonoBehaviour
                 camCent = false;
                 
                 
-                print("null");
             }
         }
 
@@ -2537,7 +2543,7 @@ public class PlayerController : MonoBehaviour
                 camDown = false;
                 camUp = false;
                 camCent = false;
-                print("null");
+            
             }
         }
     }
