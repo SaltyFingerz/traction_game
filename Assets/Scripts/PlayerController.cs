@@ -399,7 +399,7 @@ public class PlayerController : MonoBehaviour
 
         if (!flipped)
         {
-            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.BooBut) && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
+            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || !UIButtonManager.PauBut || UIButtonManager.BooBut) && movingLeft == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
             {
                 rb2d.constraints = RigidbodyConstraints2D.None;
                 movingRight = true;
@@ -415,7 +415,7 @@ public class PlayerController : MonoBehaviour
 
         else if (flipped)
         {
-            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || UIButtonManager.BooBut) && movingRight == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
+            if ((Input.GetKey("right") || Input.GetKey("up") || Input.GetKey("down") || Input.GetKey("w") || Input.GetKey("s") || Input.GetKey("d") || UIButtonManager.StrBut || !UIButtonManager.PauBut || UIButtonManager.BooBut) && movingRight == false) //to tell the train to move right when the right arrow key is pressed. movingLeft must be false, in case the train is currently moving left in the worldspace during a loopdeloop in which case this should overide moving right.
             {
                 rb2d.constraints = RigidbodyConstraints2D.None;
                 movingRight = false;
@@ -1329,6 +1329,8 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 //a tag for the rotation of the new track here is unecessary is it contains "track" by default.
                 hideTrack();
+                nextTrack = "straight";
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft) //this is for adding an upwards track to a non-rotated straight track.
@@ -1345,6 +1347,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
 
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight) //DEATH
@@ -1362,7 +1365,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
 
 
             }
@@ -1383,6 +1386,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
 
             }
 
@@ -1406,6 +1410,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(PassengerHurt()); 
                 OhNo.GetComponent<SFX>().OhNo.Play();
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
@@ -1428,6 +1433,7 @@ public class PlayerController : MonoBehaviour
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
@@ -1443,6 +1449,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
@@ -1459,6 +1466,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingRight)
@@ -1472,6 +1480,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.DowBut = false;
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
@@ -1486,6 +1495,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.DowBut = false;
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
@@ -1500,6 +1510,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated45";
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.DowBut = false;
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
@@ -1515,6 +1526,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated45";
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.DowBut = false;
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
@@ -1529,6 +1541,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated90";
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.DowBut = false;
             }
 
             else if (nextTrack == "down" && InventoryManager.downTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingLeft)
@@ -1544,6 +1557,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated90";
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.DowBut = false;
             }
 
             else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingRight)
@@ -1562,6 +1576,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.DowBut = false;
 
             }
 
@@ -1578,6 +1593,7 @@ public class PlayerController : MonoBehaviour
 
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.DowBut = false;
 
             }
 
@@ -1792,7 +1808,7 @@ public class PlayerController : MonoBehaviour
                 nextTrack = "straight";
                 /* StartCoroutine(PassengerHurt());
                  OhNo.GetComponent<SFX>().OhNo.Play();*/
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("track") && movingLeft)
@@ -1815,7 +1831,7 @@ public class PlayerController : MonoBehaviour
                 /*
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();*/
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
@@ -1830,7 +1846,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated90";
 
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingLeft)
@@ -1846,7 +1862,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated90";
                 nextTrack = "straight";
 
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated90") && movingRight)
@@ -1861,7 +1877,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated135";
                 hideTrack();
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
 
             }
 
@@ -1879,7 +1895,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
 
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated135") && movingRight)
@@ -1894,7 +1910,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated180";
                 hideTrack();
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated135") && movingLeft)
@@ -1911,7 +1927,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
 
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated180") && movingRight)
@@ -1927,7 +1943,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
 
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated180") && movingLeft)
@@ -1944,7 +1960,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
 
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated225") && movingRight)
@@ -1959,7 +1975,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.tag = "rotated270";
                 hideTrack();
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
 
             }
 
@@ -1977,7 +1993,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
 
                 nextTrack = "straight";
-
+                UIButtonManager.UpBut = false;
             }
 
             else if (nextTrack == "up" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated270") && movingRight)
@@ -1993,6 +2009,7 @@ public class PlayerController : MonoBehaviour
               //this track represents the last track piece of a loop de loop, as the next track piece will be 360 degrees rotated i.e. not rotated at all.
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
 
 
             }
@@ -2011,6 +2028,7 @@ public class PlayerController : MonoBehaviour
                 //this track represents the last track piece of a loop de loop, as the next track piece will be 360 degrees rotated i.e. not rotated at all.
                 hideTrack();
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
 
 
 
@@ -2027,6 +2045,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "track";
                 nextTrack = "straight";
+                UIButtonManager.UpBut = false;
 
 
 
@@ -2043,6 +2062,7 @@ public class PlayerController : MonoBehaviour
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
                 InventoryManager.upTracksAvailable--;
                 newTrack.tag = "track";
+                UIButtonManager.UpBut = false;
                 nextTrack = "straight";
 
 
@@ -2059,6 +2079,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2075,6 +2096,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated45";
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2090,6 +2112,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated90";
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2106,6 +2129,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "rotated90";
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2123,6 +2147,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2139,6 +2164,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2187,7 +2213,7 @@ public class PlayerController : MonoBehaviour
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
             {
                 addingTrack = true;
-
+                print("should add straight track");
 
 
 
@@ -2206,7 +2232,7 @@ public class PlayerController : MonoBehaviour
                 addingTrack = true;
 
 
-
+                
 
                 newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.6f, 0.32f, 0), Quaternion.Euler(0, 0, 0));
                 newTrack.transform.Rotate(new Vector3(0, 180, 0));
@@ -2287,6 +2313,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+
                 nextTrack = "straight";
 
             }
@@ -2304,6 +2331,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                UIButtonManager.UpBut = false;
                 nextTrack = "straight";
 
             }
@@ -2322,6 +2350,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                UIButtonManager.UpBut = false;
                 nextTrack = "straight";
 
             }
@@ -2339,6 +2368,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                UIButtonManager.UpBut = false;
                 nextTrack = "straight";
 
             }
@@ -2357,6 +2387,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                UIButtonManager.UpBut = false;
                 nextTrack = "straight";
 
             }
@@ -2374,6 +2405,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                UIButtonManager.UpBut = false;
                 nextTrack = "straight";
 
             }
@@ -2392,6 +2424,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                UIButtonManager.UpBut = false;
                 nextTrack = "straight";
 
             }
@@ -2409,11 +2442,13 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
-                
+
                 /*
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
                 */
+                UIButtonManager.DowBut = false;
+                nextTrack = "straight";
 
             }
 
@@ -2431,6 +2466,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
                 /*
                 StartCoroutine(PassengerHurt());
@@ -2450,6 +2486,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2466,6 +2503,7 @@ public class PlayerController : MonoBehaviour
                 InventoryManager.downTracksAvailable--;
                 newTrack.tag = "track";
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2483,6 +2521,7 @@ public class PlayerController : MonoBehaviour
 
               
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2501,6 +2540,7 @@ public class PlayerController : MonoBehaviour
 
 
                 hideTrack();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2518,6 +2558,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }
@@ -2536,6 +2577,7 @@ public class PlayerController : MonoBehaviour
                 hideTrack();
                 StartCoroutine(PassengerHurt());
                 OhNo.GetComponent<SFX>().OhNo.Play();
+                UIButtonManager.DowBut = false;
                 nextTrack = "straight";
 
             }

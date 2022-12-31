@@ -1480,8 +1480,8 @@ RectTransform:
   - {fileID: 1862272715}
   - {fileID: 446873031}
   - {fileID: 1836931147}
-  - {fileID: 1290029066}
   - {fileID: 594200488}
+  - {fileID: 1290029066}
   m_Father: {fileID: 625338755}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5733,19 +5733,7 @@ MonoBehaviour:
   - eventID: 3
     callback:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 476192361}
-          m_TargetAssemblyTypeName: UIButtonManager, Assembly-CSharp
-          m_MethodName: NoButtonClicked
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
 --- !u!114 &476192363
 MonoBehaviour:
   m_ObjectHideFlags: 0
