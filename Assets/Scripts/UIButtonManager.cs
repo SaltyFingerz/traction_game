@@ -212,7 +212,10 @@ public class UIButtonManager : MonoBehaviour
     public void BoostButtonClicked()
     {
         BooBut = true;
-        
+        if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 11)
+        {
+            StartCoroutine(CheckBoost());
+        }
     }
 
     public void UpTrackButtonClicked()
@@ -220,7 +223,7 @@ public class UIButtonManager : MonoBehaviour
         StrBut = false;
         UpBut = true;
         DowBut = false;
-        PauBut = false;
+       // PauBut = false;
     }
 
    
@@ -230,7 +233,7 @@ public class UIButtonManager : MonoBehaviour
         StrBut = false;
         UpBut = false;
         DowBut = true;
-        PauBut = false;
+       // PauBut = false;
     }
 
 
@@ -245,6 +248,14 @@ public class UIButtonManager : MonoBehaviour
     public void BoostButtonUnclicked()
     {
         BooBut = false;
+       
+    }
+
+    IEnumerator CheckBoost()
+    {
+        yield return new WaitForSeconds(1f);
+        if (BooBut)
+            ClosePrompt6();
     }
     public void ResumeIsClicked()
     {
@@ -259,7 +270,7 @@ public class UIButtonManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    public void StartIsClicked()
+    public void StartisClicked()
     {
         SceneManager.LoadScene(1);
 

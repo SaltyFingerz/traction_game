@@ -168,9 +168,51 @@ public class PlayerController : MonoBehaviour
     {
        if(rb2d.rotation < -10)
         {
-            rb2d.velocity = new Vector2(1, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(1, rb2d.velocity.y); //this is to slow down the train when moving downhill
+        }
+       if(rb2d.rotation > 90 || rb2d.rotation < -90)
+        {
+            print("boo");
+            PlayerDied("hit rock");
+            blood.Play();
+            StartCoroutine(PassengerHurtRock());
         }
     }
+
+    IEnumerator PassengerHurtRock()
+    {
+        PlayerDied("hit rock");
+        PlayerController.levelDeaths += 1;
+        yield return new WaitForSeconds(1f); //enough time for the hurt animation to play
+        PlayerController.Stop = true;
+        PlayerController.movingLeft = false;
+        PlayerController.movingRight = false;
+        //the above is so that the player is not moving upon restart and so that they can move. 
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //reloads the current scene.
+        Time.timeScale = 1; //ensures time is active, not paused.
+        PlayerController.camUp = false;
+        PlayerController.camDown = false;
+        PlayerController.camCent = false;
+        PlayerController.camCentOpp = false;
+
+        UIButtonManager.StrBut = false;
+        UIButtonManager.UpBut = false;
+        UIButtonManager.DowBut = false;
+        UIButtonManager.PauBut = true;
+
+        Timer.currentTime = 0;
+        PlayerController.nextTrack = "none";
+
+        TrackForce.onVertical = false;
+        TrackForce.onInverted = false;
+        TrackForceCargo.onVertical = false;
+        TrackForceCargo.onInverted = false;
+        TrackForcePassenger.onVertical = false;
+        TrackForcePassenger.onInverted = false;
+        //the above ensures the train is not in loopdeloop mode upon restarting a level.
+        Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the tracks available in the inventory upon restarting a level.
+    }
+
     void Update()
     {
         if (transform.localScale.x == 1)
@@ -1311,18 +1353,14 @@ public class PlayerController : MonoBehaviour
 
                 showNow = false;
 
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.4f, -0.4f, 0), other.transform.rotation); //the rotation of the new track is defined by that of the track it is being added to. The position of the new track is different from when it is not rotated, and was found by trial and error. 
+                                                                                                                                           // instead of using rotation of player, use rotation of current track to ensure tracks connect.
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated45"; //this is so the track following the rotated track is targged as rotated by 45 degrees so any track added to it can be rotated likewise.
 
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(0.58f, 1.41f, 0), other.transform.rotation);
-                InventoryManager.upTracksAvailable--;
-                newTrack.tag = "rotated45"; //the rotation of the up track  is the same as that of the straight track it is added to.
+
 
                 hideTrack();
-
-                //blood.Play();
-                //ref: https://www.youtube.com/watch?v=0NCTAuP3BgU for the basics of playing a particle effect upon collision. This was adapted for a trigger event
-                //the particle effect (FX_BloodSplatter) comes from the free downloadable asset package: SimpleFX.
-                StartCoroutine(PassengerHurt()); //coroutine is used to give time for the blood splatter and sound effect to play before restarting the level
-                OhNo.GetComponent<SFX>().OhNo.Play();
                 nextTrack = "straight";
 
 
@@ -1335,20 +1373,15 @@ public class PlayerController : MonoBehaviour
 
                 showNow = false;
 
-
-                newTrack = Instantiate(up_track, other.transform.position + new Vector3(-0.58f, 1.41f, 0), other.transform.rotation);
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.4f, -0.4f, 0), other.transform.rotation); //the rotation of the new track is defined by that of the track it is being added to. The position of the new track is different from when it is not rotated, and was found by trial and error. 
                 newTrack.transform.Rotate(new Vector3(0, 0, 0));
-                InventoryManager.upTracksAvailable--;
-                newTrack.tag = "rotated45"; //the rotation of the up track  is the same as that of the straight track it is added to.
+
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated45"; //this is so the track following the rotated track is targged as rotated by 45 degrees so any track added to it can be rotated likewise.
+
+
 
                 hideTrack();
-
-                //blood.Play();
-                //ref: https://www.youtube.com/watch?v=0NCTAuP3BgU for the basics of playing a particle effect upon collision. This was adapted for a trigger event
-                //the particle effect (FX_BloodSplatter) comes from the free downloadable asset package: SimpleFX.
-                StartCoroutine(PassengerHurt()); //coroutine is used to give time for the blood splatter and sound effect to play before restarting the level
-                OhNo.GetComponent<SFX>().OhNo.Play();
-
                 nextTrack = "straight";
 
             }
@@ -1517,35 +1550,35 @@ public class PlayerController : MonoBehaviour
             {
                 addingTrack = true;
 
+                showNow = false;
+
+
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(-0.4f, 0.4f, 0), other.transform.rotation);
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated-45";
 
 
 
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(0.85f, -1.15f, 0), other.transform.rotation);
-                InventoryManager.downTracksAvailable--;
-                newTrack.tag = "rotated-90";
+
                 hideTrack();
-
-                StartCoroutine(PassengerHurt());
-                OhNo.GetComponent<SFX>().OhNo.Play();
                 nextTrack = "straight";
+
             }
 
             else if (nextTrack == "down" && InventoryManager.upTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated-45") && movingLeft)
             {
                 addingTrack = true;
 
+                showNow = false;
 
-
-
-                newTrack = Instantiate(down_track, other.transform.position + new Vector3(-0.85f, -1.15f, 0), other.transform.rotation);
+                newTrack = Instantiate(straight_track, other.transform.position + new Vector3(0.4f + calV, 0.4f, 0), other.transform.rotation);
                 newTrack.transform.Rotate(new Vector3(0, 0, 0));
-                InventoryManager.downTracksAvailable--;
-                newTrack.tag = "rotated-90";
-                hideTrack();
+                InventoryManager.straightTracksAvailable--;
+                newTrack.tag = "rotated-45";
 
-                StartCoroutine(PassengerHurt());
-                OhNo.GetComponent<SFX>().OhNo.Play();
+                hideTrack();
                 nextTrack = "straight";
+
             }
 
 

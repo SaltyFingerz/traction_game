@@ -155,43 +155,43 @@ public class CameraController : MonoBehaviour
         }
         else if(scene.name == level2)
         {
-            Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y + 2, Camera.main.transform.position.z);
             //with the extra passenger carriage the camera in level2 is positioned more to the left so this carriage can be seen too, this makes the second level more difficult as the player cannot see so far ahead. 
         }
 
         else if (scene.name == level3)
         {
-            Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y + 2, Camera.main.transform.position.z);
             //with the extra passenger carriage the camera in level2 is positioned more to the left so this carriage can be seen too, this makes the second level more difficult as the player cannot see so far ahead. 
         }
 
         else if (scene.name == level4)
         {
-            Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y + 2, Camera.main.transform.position.z);
             //with the extra passenger carriage the camera in level2 is positioned more to the left so this carriage can be seen too, this makes the second level more difficult as the player cannot see so far ahead. 
         }
 
         else if (scene.name == level5)
         {
-            Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y + 2, Camera.main.transform.position.z);
             //with the extra passenger carriage the camera in level2 is positioned more to the left so this carriage can be seen too, this makes the second level more difficult as the player cannot see so far ahead. 
         }
 
         else if (scene.name == level6)
         {
-            Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y + 2, Camera.main.transform.position.z);
             //with the extra passenger carriage the camera in level2 is positioned more to the left so this carriage can be seen too, this makes the second level more difficult as the player cannot see so far ahead. 
         }
 
         else if (scene.name == level7)
         {
-            Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y + 2, Camera.main.transform.position.z);
             //with the extra passenger carriage the camera in level2 is positioned more to the left so this carriage can be seen too, this makes the second level more difficult as the player cannot see so far ahead. 
         }
 
         else
         {
-            Camera.main.transform.position = new Vector3(train.position.x + 2, train.position.y + 2, Camera.main.transform.position.z);
+            Camera.main.transform.position = new Vector3(train.position.x + 4, train.position.y + 2, Camera.main.transform.position.z);
         }
     }
     
