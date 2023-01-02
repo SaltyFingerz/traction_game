@@ -219,6 +219,7 @@ public class PlayerController : MonoBehaviour
         canDieUpsideDown = true;
     }
 
+ 
     void Update()
     {
         if (transform.localScale.x == 1)
@@ -253,6 +254,7 @@ public class PlayerController : MonoBehaviour
             {
                 canFlip = false;
                 transform.localScale = new Vector3(-1, 1, 1);
+               
                 flipped = true;
                 movingRight = false;
                 movingLeft = true;
@@ -261,6 +263,8 @@ public class PlayerController : MonoBehaviour
 
             }
             transform.position = currentPortal.GetComponent<Teleporter>().GetDestination().position;
+            
+            
             TeleportSound.GetComponent<SFX>().Teleport.Play();
           
             /*camUp = false;
