@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour
     private bool boosting = false;
     public static float playerSpeed;
     public static int playerRotation;
+    private bool canDieUpsideDown = true;
     public static string nextTrack; //this variable denotes the next type of track piece that the player tells the train to add. (it takes values of "straight" "up" "down"
     //public float movementSpeed = 0.1f;
     public Text highScore; //this is the text that displays the high score at the centre top of the screen in level 2. It is public to be linked to the HUD's HighScore game object that displays this text in the HUD UI.
@@ -172,18 +173,22 @@ public class PlayerController : MonoBehaviour
         }
        if(rb2d.rotation > 90 || rb2d.rotation < -90)
         {
-            print("boo");
-            PlayerDied("hit rock");
+
             blood.Play();
-            StartCoroutine(PassengerHurtRock());
+            if(canDieUpsideDown)
+            StartCoroutine(PassengerUpsideDown());
         }
     }
 
-    IEnumerator PassengerHurtRock()
+
+
+    IEnumerator PassengerUpsideDown()
     {
-        PlayerDied("hit rock");
+        canDieUpsideDown = false;
+        
         PlayerController.levelDeaths += 1;
         yield return new WaitForSeconds(1f); //enough time for the hurt animation to play
+        PlayerDied("upside down");
         PlayerController.Stop = true;
         PlayerController.movingLeft = false;
         PlayerController.movingRight = false;
@@ -211,6 +216,7 @@ public class PlayerController : MonoBehaviour
         TrackForcePassenger.onInverted = false;
         //the above ensures the train is not in loopdeloop mode upon restarting a level.
         Player.GetComponent<InventoryManager>().RefreshTracks(); //this reloads the tracks available in the inventory upon restarting a level.
+        canDieUpsideDown = true;
     }
 
     void Update()
