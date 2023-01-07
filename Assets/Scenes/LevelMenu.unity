@@ -239,7 +239,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ae974dcf45b66334f88d287fba0031a3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 48efcdc4f0ffc2e46a9fd12aae45a34f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -279,9 +279,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
+  ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &106623349
 GameObject:
   m_ObjectHideFlags: 0
@@ -879,9 +883,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
+  ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &286192689
 GameObject:
   m_ObjectHideFlags: 0
@@ -981,7 +989,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &310784107
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1024,9 +1032,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
+  ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &310784109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1871,9 +1883,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
+  ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &757111309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2262,9 +2278,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
+  ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &911494243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2341,7 +2361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fb417991060891d4d9043d2d5cb03101, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ae974dcf45b66334f88d287fba0031a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3003,7 +3023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1051784095
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3794,7 +3814,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 48efcdc4f0ffc2e46a9fd12aae45a34f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fb417991060891d4d9043d2d5cb03101, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3834,9 +3854,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
+  ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1597070773
 GameObject:
   m_ObjectHideFlags: 0
@@ -4134,6 +4158,7 @@ MonoBehaviour:
   OhNo: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
+  NoInput: {fileID: 0}
   speed: 20
   SlowDown: 0
   highScore: {fileID: 1042704522}
@@ -4157,6 +4182,8 @@ MonoBehaviour:
   Music: {fileID: 0}
   Engine: {fileID: 0}
   TeleportSound: {fileID: 0}
+  RightHanded: {fileID: 0}
+  LeftHanded: {fileID: 0}
 --- !u!95 &1602982212
 Animator:
   serializedVersion: 4
@@ -4505,9 +4532,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
+  ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!1 &1715147221
 GameObject:
   m_ObjectHideFlags: 0
@@ -5114,8 +5145,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 236.9, y: -155.89}
-  m_SizeDelta: {x: 88.744, y: 98.382}
+  m_AnchoredPosition: {x: 236.9, y: -161.8}
+  m_SizeDelta: {x: 88.744, y: 115.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1844902009
 MonoBehaviour:
@@ -5130,7 +5161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.83137256}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5579,9 +5610,13 @@ MonoBehaviour:
   TutePrompt6: {fileID: 0}
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
+  TutePrompt9: {fileID: 0}
+  TutePromptFinal: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
+  ChooseHandedness: {fileID: 0}
+  NoInput: {fileID: 0}
 --- !u!114 &1969379769
 MonoBehaviour:
   m_ObjectHideFlags: 0

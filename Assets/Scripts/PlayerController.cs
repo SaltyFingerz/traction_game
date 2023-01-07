@@ -838,7 +838,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (other.gameObject.name.Contains("Goal2")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
+        if (other.gameObject.name.Contains("Goal3")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
             
            // TimeInLevel();
@@ -853,57 +853,7 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
             
-            if (Timer.currentTime <= 45)
-            {
-                medal = "gold";
-                Timer.stop = true;
-                Gold.SetActive(true);
-                Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog2", 2.1f);
-            }
-
-            if (Timer.currentTime <= 50 && Timer.currentTime > 45)
-            {
-                medal = "silver";
-                Timer.stop = true;
-                Silver.SetActive(true);
-                Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog2", 2.2f);
-            }
-
-            if (Timer.currentTime > 50)
-            {
-                medal = "bronze";
-                Timer.stop = true;
-                Bronze.SetActive(true);
-                Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog2", 2.3f);
-            }
-
-            //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
-
-
-            StartCoroutine(VictoryEnsemble2());
-            //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
-
-        }
-
-        if (other.gameObject.name.Contains("Goal3")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
-        {
-           
-          //  TimeInLevel();
-            Time.timeScale = 0;
-
-            Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
-
-            PlayerController.Stop = true;
-            PlayerController.movingLeft = false;
-            PlayerController.movingRight = false;
-
-            Music.GetComponent<SFX>().Music.Stop();
-            Victory.GetComponent<SFX>().Victory.Play();
-
-            if (Timer.currentTime <= 47)
+            if (Timer.currentTime <= 34)
             {
                 medal = "gold";
                 Timer.stop = true;
@@ -912,7 +862,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetFloat("Prog3", 3.1f);
             }
 
-            if (Timer.currentTime <= 52 && Timer.currentTime > 47)
+            if (Timer.currentTime <= 39 && Timer.currentTime > 34)
             {
                 medal = "silver";
                 Timer.stop = true;
@@ -921,7 +871,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetFloat("Prog3", 3.2f);
             }
 
-            if (Timer.currentTime > 52)
+            if (Timer.currentTime > 39)
             {
                 medal = "bronze";
                 Timer.stop = true;
@@ -941,6 +891,56 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("Goal4")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
            
+          //  TimeInLevel();
+            Time.timeScale = 0;
+
+            Score.BaseScore += 100; //the player is awarded 100 points for completing this level. However a highscore is not yet recorded, until the second level is completed at which point the score accumulated in level one is included.
+
+            PlayerController.Stop = true;
+            PlayerController.movingLeft = false;
+            PlayerController.movingRight = false;
+
+            Music.GetComponent<SFX>().Music.Stop();
+            Victory.GetComponent<SFX>().Victory.Play();
+
+            if (Timer.currentTime <= 29)
+            {
+                medal = "gold";
+                Timer.stop = true;
+                Gold.SetActive(true);
+                Fail.SetActive(false);
+                PlayerPrefs.SetFloat("Prog4", 4.1f);
+            }
+
+            if (Timer.currentTime <= 39 && Timer.currentTime > 29)
+            {
+                medal = "silver";
+                Timer.stop = true;
+                Silver.SetActive(true);
+                Fail.SetActive(false);
+                PlayerPrefs.SetFloat("Prog4", 4.2f);
+            }
+
+            if (Timer.currentTime > 39)
+            {
+                medal = "bronze";
+                Timer.stop = true;
+                Bronze.SetActive(true);
+                Fail.SetActive(false);
+                PlayerPrefs.SetFloat("Prog4", 4.3f);
+            }
+
+            //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
+
+
+            StartCoroutine(VictoryEnsemble2());
+            //a coroutine is initiated to ensure enough time to play the victorious music allowing the player to celebrate briefly before embarking on the next level.
+
+        }
+
+        if (other.gameObject.name.Contains("Goal2")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
+        {
+           
             //TimeInLevel();
             Time.timeScale = 0;
 
@@ -953,31 +953,31 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 22)
+            if (Timer.currentTime <= 23)
             {
                 medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog4", 4.1f);
+                PlayerPrefs.SetFloat("Prog2", 2.1f);
             }
 
-            if (Timer.currentTime <= 30 && Timer.currentTime > 22)
+            if (Timer.currentTime <= 26 && Timer.currentTime > 23)
             {
                 medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog4", 4.2f);
+                PlayerPrefs.SetFloat("Prog2", 2.2f);
             }
 
-            if (Timer.currentTime > 30)
+            if (Timer.currentTime > 26)
             {
                 medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog4", 4.3f);
+                PlayerPrefs.SetFloat("Prog2", 2.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
@@ -1003,7 +1003,7 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 45)
+            if (Timer.currentTime <= 50)
             {
                 medal = "gold";
                 Timer.stop = true;
@@ -1012,7 +1012,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetFloat("Prog5", 5.1f);
             }
 
-            if (Timer.currentTime <= 50 && Timer.currentTime > 45)
+            if (Timer.currentTime <= 61 && Timer.currentTime > 50)
             {
                 medal = "silver";
                 Timer.stop = true;
@@ -1021,7 +1021,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetFloat("Prog5", 5.2f);
             }
 
-            if (Timer.currentTime > 50)
+            if (Timer.currentTime > 61)
             {
                 medal = "bronze";
                 Timer.stop = true;
@@ -1038,7 +1038,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (other.gameObject.name.Contains("Goal6")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
+        if (other.gameObject.name.Contains("Goal7")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
            
            // TimeInLevel();
@@ -1059,7 +1059,7 @@ public class PlayerController : MonoBehaviour
                 Timer.stop = true;
                 Gold.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog6", 6.1f);
+                PlayerPrefs.SetFloat("Prog7", 7.1f);
             }
 
             if (Timer.currentTime <= 50 && Timer.currentTime > 44)
@@ -1068,7 +1068,7 @@ public class PlayerController : MonoBehaviour
                 Timer.stop = true;
                 Silver.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog6", 6.2f);
+                PlayerPrefs.SetFloat("Prog7", 7.2f);
             }
 
             if (Timer.currentTime > 50)
@@ -1077,7 +1077,7 @@ public class PlayerController : MonoBehaviour
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog6", 6.3f);
+                PlayerPrefs.SetFloat("Prog7", 7.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.
@@ -1125,7 +1125,7 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (other.gameObject.name.Contains("Goal7")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
+        if (other.gameObject.name.Contains("Goal6")) //this is upon colliding with the trigger at the end of level 1, marking the level's completion.
         {
            
            // TimeInLevel();
@@ -1140,31 +1140,31 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 35)
+            if (Timer.currentTime <= 29)
             {
                 medal = "gold";
                 Timer.stop = true;
                 Gold.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog7", 7.1f);
+                PlayerPrefs.SetFloat("Prog6", 6.1f);
             }
 
-            if (Timer.currentTime <= 42 && Timer.currentTime > 35)
+            if (Timer.currentTime <= 40 && Timer.currentTime > 29)
             {
                 medal = "silver";
                 Timer.stop = true;
                 Silver.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog7", 7.2f);
+                PlayerPrefs.SetFloat("Prog6", 6.2f);
             }
 
-            if (Timer.currentTime >= 42)
+            if (Timer.currentTime >= 40)
             {
                 medal = "bronze";
                 Timer.stop = true;
                 Bronze.SetActive(true);
                 Fail.SetActive(false);
-                PlayerPrefs.SetFloat("Prog7", 7.3f);
+                PlayerPrefs.SetFloat("Prog6", 6.3f);
             }
 
             //the above is to ensure the player stops moving upon reaching the goal as this is the end of the level.

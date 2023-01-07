@@ -73,7 +73,17 @@ public class UIButtonManager : MonoBehaviour
 
     public void RightHandedOption()
     {
-       
+
+
+        Dictionary<string, object> HandedParameters = new Dictionary<string, object>()
+            {
+
+                {"playerName", PlayerPrefs.GetString("nickname")},
+            {"handedness", "rightHanded" }
+            };
+
+        AnalyticsManager.SendCustomEvent("Handedness", HandedParameters);
+
         if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 11)
         { PauBut = true;
             TutePrompt2.SetActive(false);
@@ -102,6 +112,16 @@ public class UIButtonManager : MonoBehaviour
     }
     public void LeftHandedOption()
     {
+
+        Dictionary<string, object> HandedParameters = new Dictionary<string, object>()
+            {
+
+                {"playerName", PlayerPrefs.GetString("nickname")},
+            {"handedness", "leftHanded" }
+            };
+
+        AnalyticsManager.SendCustomEvent("Handedness", HandedParameters);
+
         if (SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 11)
         {
             TutePrompt2.SetActive(false);
@@ -621,7 +641,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level7ButtonClicked()
     {
 
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(0);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
