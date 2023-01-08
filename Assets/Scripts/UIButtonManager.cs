@@ -51,8 +51,11 @@ public class UIButtonManager : MonoBehaviour
         {
             if(MenuDirect)
             {
+                if(Waiver != null)
                 Waiver.SetActive(false);
+                if(Shade != null)
                 Shade.SetActive(false);
+                if(Nickname != null)
                 Nickname.SetActive(false);
             }
         }
@@ -641,7 +644,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level7ButtonClicked()
     {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(7);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();
@@ -660,7 +663,7 @@ public class UIButtonManager : MonoBehaviour
         
         Score.CrateScore = 0; //this is to prevent players from cheating by gathering crates and restarting to accumulate extra points.
         Time.timeScale = 1;
-        
+        if (Player != null)
         Player.GetComponent<InventoryManager>().RefreshTracks(); //ref: https://forum.unity.com/threads/calling-function-from-other-scripts-c.57072/ for calling a function from another script.
         Timer.currentTime = 0f;
         Timer.stop = false;
@@ -670,6 +673,12 @@ public class UIButtonManager : MonoBehaviour
         PlayerController.camCent = false;
         PlayerController.camCentOpp = false;
         PlayerController.flipped = false;
+
+
+        PlayerController.Stop = true;
+        PlayerController.movingLeft = false;
+        PlayerController.movingRight = false;
+
         StrBut = false;
         UpBut = false;
         DowBut = false;

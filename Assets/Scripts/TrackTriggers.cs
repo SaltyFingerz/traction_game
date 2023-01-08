@@ -28,7 +28,7 @@ public class TrackTriggers : MonoBehaviour
         {
             if (other.gameObject.GetComponent<SpriteRenderer>().enabled == false)
             {
-                print("ExtraTrackPiece!");
+                
                 if (gameObject.name.Contains("straight"))
                 {
                     InventoryManager.straightTracksAvailable += 1;

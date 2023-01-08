@@ -18,20 +18,20 @@ public class ArrowAnimation : MonoBehaviour
         if ((transform.localScale.x <= 1.2f) && grow)
         {
             transform.localScale +=  new Vector3(1, 1, 0) * Time.deltaTime;
-            print("grow");
+            
         }
 
         if (transform.localScale.x >= 1.2f)
         {
             grow = false;
             shrink = true;
-            print("should shrink");
+          
         }
 
          if (transform.localScale.x >= 0.5f && shrink)
         {
             transform.localScale -= new Vector3(1, 1, 0) * Time.deltaTime;
-            print("shrink");
+           
         }
 
       

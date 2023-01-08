@@ -14,6 +14,7 @@ public class SFX : MonoBehaviour
     public AudioSource Music;
     public AudioSource OhNo;
     public AudioSource Teleport;
+    public AudioSource Acceleration;
     //public AudioSource Music;
 
     //ref: https://www.youtube.com/watch?v=JnbDxG04i7c showed me the basic code for defining and playing sounds in unity.

@@ -124,7 +124,7 @@ public class CameraController : MonoBehaviour
 
         else if (PlayerController.camUp)
         {
-            print("camUP");
+           
             Vector2 follow = followObject.transform.position;
             float xDifference = Vector2.Distance(Vector2.right * transform.position.x, Vector2.right * follow.x);
             float yDifference = Vector2.Distance(Vector2.up * transform.position.y, Vector2.up * follow.y);

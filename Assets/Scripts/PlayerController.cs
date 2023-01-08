@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject Victory;
     public GameObject Steam;
+    public GameObject Acceleration;
     public GameObject PickUp;
     public GameObject Music;
     public GameObject Engine;
@@ -258,7 +259,7 @@ public class PlayerController : MonoBehaviour
                 flipped = true;
                 movingRight = false;
                 movingLeft = true;
-                print("flip");
+               
                
 
             }
@@ -323,6 +324,10 @@ public class PlayerController : MonoBehaviour
                     rb2d.velocity = new Vector2(2, rb2d.velocity.y);
                     if (!Boost.isPlaying)
                     Boost.Play();
+                    if (!Acceleration.GetComponent<SFX>().Acceleration.isPlaying)
+                    {
+                        Acceleration.GetComponent<SFX>().Acceleration.Play(); //moving right starts the engine so the sound effect is thus played.
+                    }
                 }
 
                 else
@@ -335,6 +340,7 @@ public class PlayerController : MonoBehaviour
             else            {
                 rb2d.velocity = new Vector2(1.5f, rb2d.velocity.y);
                 Boost.Stop();
+                Acceleration.GetComponent<SFX>().Acceleration.Stop();
             }
 
 
@@ -2223,7 +2229,7 @@ public class PlayerController : MonoBehaviour
             else if (nextTrack == "straight" && InventoryManager.straightTracksAvailable >= 1 && other.gameObject.tag.Contains("rotated45") && movingRight)
             {
                 addingTrack = true;
-                print("should add straight track");
+                
 
 
 
