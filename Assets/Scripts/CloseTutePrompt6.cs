@@ -17,14 +17,15 @@ public class CloseTutePrompt6 : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space) || UIButtonManager.PauBut)
         {
-            StartCoroutine(NextPrompt());
+            PromptDeac.SetActive(false);
+            Invoke("NextPrompt", 1f);
         }
     }
 
-    IEnumerator NextPrompt()
+    void NextPrompt()
     {
-        yield return new WaitForSeconds(1f);
-        PromptDeac.SetActive(false);
+        
+       
             PromptAct.SetActive(true);
        // PlayerPrefs.SetFloat("Prog1", 1f);
         

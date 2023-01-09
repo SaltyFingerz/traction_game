@@ -6,17 +6,17 @@ public class InventoryManager : MonoBehaviour
 {
     //the inventory essentially contains track pieces that are reduced upon use and gained upon loading a level or picking up a crate.
     public static int tracksAvailable; 
-    public static int straightTracksAvailable = 42;
-    public static int upTracksAvailable = 22;
-    public static int downTracksAvailable = 22;
+    public static int straightTracksAvailable = 32;
+    public static int upTracksAvailable = 4;
+    public static int downTracksAvailable = 4;
     // Start is called before the first frame update
    
 
    public void RefreshTracks()
     {
-        straightTracksAvailable = 42;
-        upTracksAvailable = 22;
-        downTracksAvailable = 22;
+        straightTracksAvailable = 32;
+        upTracksAvailable = 4;
+        downTracksAvailable = 4;
         //sets the initial track pieces. This function gets called when (re)starting a level in the UIButtonManager script
     }
 

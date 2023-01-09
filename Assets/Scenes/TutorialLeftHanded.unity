@@ -4490,8 +4490,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 228.58, y: -162.05}
-  m_SizeDelta: {x: 551.54, y: -51.745}
+  m_AnchoredPosition: {x: 225, y: -171.18}
+  m_SizeDelta: {x: 551.54, y: -51.743}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282791791
 MonoBehaviour:
@@ -21464,8 +21464,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 213.1, y: -223.22998}
-  m_SizeDelta: {x: 565.3, y: -51.74}
+  m_AnchoredPosition: {x: 213.1, y: -228.14}
+  m_SizeDelta: {x: 565.3, y: -41.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &922417438
 MonoBehaviour:
@@ -35082,7 +35082,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press this button to add a Downward railtrack piece
+  m_text: "Nice one! \nPress this button to add One Downward track-piece"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c398af1dfe43d4e44a76ed81bf205b05, type: 2}
   m_sharedMaterial: {fileID: 5263167124124362854, guid: c398af1dfe43d4e44a76ed81bf205b05,
@@ -35122,7 +35122,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 97.76
+  m_lineSpacing: -23.29
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -35146,7 +35146,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -51.418243, y: 0, z: -430.32153, w: -15.847311}
+  m_margin: {x: -51.418243, y: -19.647194, z: -430.32153, w: -15.847311}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -35596,7 +35596,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press this button to add an Upward railtrack piece
+  m_text: Press this button to add One Upward track-piece
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c398af1dfe43d4e44a76ed81bf205b05, type: 2}
   m_sharedMaterial: {fileID: 5263167124124362854, guid: c398af1dfe43d4e44a76ed81bf205b05,

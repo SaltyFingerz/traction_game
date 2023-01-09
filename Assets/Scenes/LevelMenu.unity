@@ -280,7 +280,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -884,7 +886,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -1033,7 +1037,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -1884,7 +1890,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -2279,7 +2287,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -3855,7 +3865,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -4158,6 +4170,7 @@ MonoBehaviour:
   OhNo: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   NoInput: {fileID: 0}
   speed: 20
   SlowDown: 0
@@ -4534,7 +4547,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -4709,11 +4724,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 255402611}
+  - {fileID: 281697251}
   - {fileID: 1689753135}
   - {fileID: 1559368675}
   - {fileID: 63018147}
   - {fileID: 1200980235}
-  - {fileID: 281697251}
   - {fileID: 1488466611}
   - {fileID: 286192690}
   - {fileID: 561679416}
@@ -4736,25 +4751,25 @@ RectTransform:
   - {fileID: 1597070774}
   - {fileID: 1451875051}
   - {fileID: 1897652465}
-  - {fileID: 438618322}
-  - {fileID: 1194160271}
   - {fileID: 393629959}
+  - {fileID: 1194160271}
+  - {fileID: 438618322}
   - {fileID: 374245785}
-  - {fileID: 1527490916}
-  - {fileID: 380500600}
   - {fileID: 1177804949}
-  - {fileID: 1806243402}
-  - {fileID: 2062492386}
+  - {fileID: 380500600}
+  - {fileID: 1527490916}
   - {fileID: 977830361}
-  - {fileID: 1194108737}
-  - {fileID: 1605674591}
+  - {fileID: 2062492386}
+  - {fileID: 1806243402}
   - {fileID: 1731270984}
-  - {fileID: 1043041503}
-  - {fileID: 106623352}
+  - {fileID: 1605674591}
+  - {fileID: 1194108737}
   - {fileID: 188433920}
-  - {fileID: 1028765814}
-  - {fileID: 2019727777}
+  - {fileID: 106623352}
+  - {fileID: 1043041503}
   - {fileID: 470548847}
+  - {fileID: 2019727777}
+  - {fileID: 1028765814}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5612,7 +5627,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}

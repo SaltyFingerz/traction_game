@@ -4290,8 +4290,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 246.755, y: -145.78128}
-  m_SizeDelta: {x: 587.89, y: -25.922535}
+  m_AnchoredPosition: {x: 246.755, y: -133.95}
+  m_SizeDelta: {x: 587.89, y: -49.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &282791791
 MonoBehaviour:
@@ -36841,8 +36841,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Nice one! The train continues going up. \nPress this button to add One
-    Downward track-piece"
+  m_text: "Nice one! \nPress this button to add One Downward track-piece"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c398af1dfe43d4e44a76ed81bf205b05, type: 2}
   m_sharedMaterial: {fileID: 5263167124124362854, guid: c398af1dfe43d4e44a76ed81bf205b05,
@@ -36906,7 +36905,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -51.418243, y: 0, z: -430.32153, w: -15.847311}
+  m_margin: {x: -51.418243, y: -4.9117856, z: -430.32153, w: -15.847311}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -37326,8 +37325,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The train automatically adds Straight Track Pieces. Press This button to
-    add One Upward track piece
+  m_text: Press This button to add One Upward track-piece
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c398af1dfe43d4e44a76ed81bf205b05, type: 2}
   m_sharedMaterial: {fileID: 5263167124124362854, guid: c398af1dfe43d4e44a76ed81bf205b05,

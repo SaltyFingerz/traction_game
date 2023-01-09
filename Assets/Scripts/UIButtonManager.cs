@@ -486,6 +486,13 @@ public class UIButtonManager : MonoBehaviour
     {
         PromptClosed(4);
         TutePrompt4.SetActive(false);
+        StartCoroutine(DownPrompt());
+        
+    }
+
+    IEnumerator DownPrompt()
+    {
+        yield return new WaitForSeconds(1f);
         TutePrompt5.SetActive(true);
     }
 
@@ -513,6 +520,12 @@ public class UIButtonManager : MonoBehaviour
     {
         PromptClosed(5);
         TutePrompt5.SetActive(false);
+        Invoke("OnPrompt6", 1f);
+       
+    }
+
+    void OnPrompt6()
+    {
         TutePrompt6.SetActive(true);
     }
 
@@ -654,7 +667,7 @@ public class UIButtonManager : MonoBehaviour
     public void Level6ButtonClicked()
     {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(9);
         //this function is called when the level 2 button is clicked from within the levels menu. It thus loads level two and resets the variables. 
         //Score.BaseScore = Score.BaseScore + (int)Time.time; //when starting from level 2 the score is reset to 100. However greater scores can be accumulated by succesfully completing level 1 in the same go.
         ResetVariables();

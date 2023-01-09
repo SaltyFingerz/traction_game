@@ -371,11 +371,16 @@ public class PlayerController : MonoBehaviour
                     rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
                     if (!Boost.isPlaying)
                         Boost.Play();
+                    if (!Acceleration.GetComponent<SFX>().Acceleration.isPlaying)
+                    {
+                        Acceleration.GetComponent<SFX>().Acceleration.Play(); //moving right starts the engine so the sound effect is thus played.
+                    }
                 }
                 else
                 {
                     rb2d.constraints = RigidbodyConstraints2D.None;
                     rb2d.velocity = new Vector2(-1.5f, rb2d.velocity.y);
+
                 }
                 
 
@@ -386,6 +391,7 @@ public class PlayerController : MonoBehaviour
                 rb2d.constraints = RigidbodyConstraints2D.None;
                 rb2d.velocity = new Vector2(-1.5f, rb2d.velocity.y);
                 Boost.Stop();
+                Acceleration.GetComponent<SFX>().Acceleration.Stop();
             }
 
 
@@ -700,6 +706,7 @@ public class PlayerController : MonoBehaviour
             TutePromptCrate.SetActive(false);
             TutePrompt3.SetActive(true);
             NoInput.SetActive(false);
+
             Time.timeScale = 0;
             AudioListener.pause = true;
 
