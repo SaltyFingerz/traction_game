@@ -132,7 +132,7 @@ public class LevelProgress : MonoBehaviour
             Bronze6.SetActive(true);
         }
         //level7 complete:
-        if (PlayerPrefs.GetFloat("Prog7") == 7.1)
+        if (PlayerPrefs.GetFloat("Prog7") == 7.1f)
         {
             Gold7.SetActive(true);
         }

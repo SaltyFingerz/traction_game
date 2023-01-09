@@ -1651,7 +1651,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -2129,7 +2131,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -3362,7 +3366,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -3688,7 +3694,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -4171,7 +4179,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -4526,7 +4536,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -4774,7 +4786,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -5134,6 +5148,7 @@ MonoBehaviour:
   OhNo: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   NoInput: {fileID: 0}
   speed: 20
   SlowDown: 0
@@ -6371,7 +6386,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -7063,6 +7080,7 @@ GameObject:
   - component: {fileID: 690123641}
   - component: {fileID: 690123640}
   - component: {fileID: 690123639}
+  - component: {fileID: 690123644}
   m_Layer: 5
   m_Name: UpTrackButton (1)
   m_TagString: Untagged
@@ -7170,7 +7188,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -7258,6 +7278,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 690123637}
   m_CullTransparentMesh: 1
+--- !u!114 &690123644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 690123637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad88c91653a0a94089e8c0fdf8446d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RightImage: {fileID: 21300000, guid: b4e44fd082e7a1140a7301746dfc88fb, type: 3}
+  LeftImage: {fileID: 21300000, guid: cde6996415ed1fa4caa89aa12745df71, type: 3}
 --- !u!1 &704374998 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2833592116236754947, guid: 0888e71689fbf7c4f9a2bde8a784bc30,
@@ -7836,7 +7870,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -8719,7 +8755,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -9347,7 +9385,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -9971,7 +10011,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -15861,7 +15903,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -16809,7 +16853,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -17049,7 +17095,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -17659,7 +17707,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -18995,6 +19045,7 @@ GameObject:
   - component: {fileID: 1489665092}
   - component: {fileID: 1489665091}
   - component: {fileID: 1489665090}
+  - component: {fileID: 1489665095}
   m_Layer: 5
   m_Name: DownTrackButton (1)
   m_TagString: Untagged
@@ -19102,7 +19153,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -19190,6 +19243,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1489665088}
   m_CullTransparentMesh: 1
+--- !u!114 &1489665095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1489665088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad88c91653a0a94089e8c0fdf8446d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RightImage: {fileID: 21300000, guid: 48da6c7754f3c80429be3f5cd72c2ec3, type: 3}
+  LeftImage: {fileID: 21300000, guid: a19748bedbd60dd4cab79715590510a4, type: 3}
 --- !u!1 &1490517606
 GameObject:
   m_ObjectHideFlags: 0
@@ -19523,6 +19590,7 @@ MonoBehaviour:
   OhNo: {fileID: 396837614}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   NoInput: {fileID: 0}
   speed: 20
   SlowDown: 0
@@ -19845,7 +19913,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -20229,7 +20299,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -21966,7 +22038,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -22113,7 +22187,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -22277,7 +22353,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -22670,7 +22748,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -23842,7 +23922,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -25553,7 +25635,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}

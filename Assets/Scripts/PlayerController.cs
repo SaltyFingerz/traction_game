@@ -322,7 +322,7 @@ public class PlayerController : MonoBehaviour
                 if (!SlowDown)
                 {
                     // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
-                    rb2d.velocity = new Vector2(2, rb2d.velocity.y);
+                    rb2d.velocity = new Vector2(2.3f, rb2d.velocity.y);
                     if (!Boost.isPlaying)
                     Boost.Play();
                     if (!Acceleration.GetComponent<SFX>().Acceleration.isPlaying)
@@ -368,7 +368,7 @@ public class PlayerController : MonoBehaviour
                 {
                     rb2d.constraints = RigidbodyConstraints2D.None;
                     // rb2d.AddForce(transform.right * speed * Time.fixedDeltaTime * 10f, ForceMode2D.Force);
-                    rb2d.velocity = new Vector2(-2, rb2d.velocity.y);
+                    rb2d.velocity = new Vector2(-2.3f, rb2d.velocity.y);
                     if (!Boost.isPlaying)
                         Boost.Play();
                     if (!Acceleration.GetComponent<SFX>().Acceleration.isPlaying)
@@ -1019,7 +1019,7 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 50)
+            if (Timer.currentTime <= 51)
             {
                 medal = "gold";
                 Timer.stop = true;
