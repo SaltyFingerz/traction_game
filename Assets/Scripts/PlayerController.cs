@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     public static bool Stop = false;
     public GameObject TutePrompt2;
     public GameObject TutePrompt3;
+    public GameObject TutePromptCrate;
     public GameObject NoInput;
     public static bool camDown = false;
     public static bool camCent = false;
@@ -696,9 +697,11 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.name.Contains("CrateTute")) //upon the train colliding with the crate trigger. The crate is a trigger because it is a pickup not an obstacle.
         {
             TutePrompt2.SetActive(false);
+            TutePromptCrate.SetActive(false);
             TutePrompt3.SetActive(true);
             NoInput.SetActive(false);
             Time.timeScale = 0;
+            AudioListener.pause = true;
 
 
 
@@ -1059,7 +1062,7 @@ public class PlayerController : MonoBehaviour
             Music.GetComponent<SFX>().Music.Stop();
             Victory.GetComponent<SFX>().Victory.Play();
 
-            if (Timer.currentTime <= 44)
+            if (Timer.currentTime <= 55)
             {
                 medal = "gold";
                 Timer.stop = true;
@@ -1068,7 +1071,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetFloat("Prog7", 7.1f);
             }
 
-            if (Timer.currentTime <= 50 && Timer.currentTime > 44)
+            if (Timer.currentTime <= 63 && Timer.currentTime > 55)
             {
                 medal = "silver";
                 Timer.stop = true;
@@ -1077,7 +1080,7 @@ public class PlayerController : MonoBehaviour
                 PlayerPrefs.SetFloat("Prog7", 7.2f);
             }
 
-            if (Timer.currentTime > 50)
+            if (Timer.currentTime > 63)
             {
                 medal = "bronze";
                 Timer.stop = true;

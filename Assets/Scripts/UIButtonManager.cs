@@ -37,7 +37,9 @@ public class UIButtonManager : MonoBehaviour
     public GameObject TutePrompt7;
     public GameObject TutePrompt8;
     public GameObject TutePrompt9;
+    public GameObject TutePromptGoal;
     public GameObject TutePromptFinal;
+    public GameObject TutePromptCrate;
     public GameObject Shade;
     public GameObject Waiver;
     public GameObject Nickname;
@@ -477,6 +479,7 @@ public class UIButtonManager : MonoBehaviour
         Time.timeScale = 1;
         TutePrompt3.SetActive(false);
         TutePrompt4.SetActive(true);
+        AudioListener.pause = false;
     }
 
     public void ClosePrompt4()
@@ -492,8 +495,18 @@ public class UIButtonManager : MonoBehaviour
         {
             PromptClosed(2);
             TutePrompt2.SetActive(false);
+           
             NoInput.SetActive(true);
+            StartCoroutine(TuteGoal());
         }
+    }
+
+    IEnumerator TuteGoal()
+    {
+        yield return new WaitForSeconds(1);
+        TutePromptGoal.SetActive(true);
+        Time.timeScale = 0;
+        AudioListener.pause = true;
     }
 
     public void ClosePrompt5()
@@ -508,6 +521,14 @@ public class UIButtonManager : MonoBehaviour
         PromptClosed(6);
         TutePrompt6.SetActive(false);
         TutePrompt7.SetActive(true);
+    }
+
+    public void ClosePromptGoal()
+    {
+        TutePromptGoal.SetActive(false);
+        TutePromptCrate.SetActive(true);
+        Time.timeScale = 1;
+        AudioListener.pause = false;
     }
     public void Level1MenuButtonClicked()
     {

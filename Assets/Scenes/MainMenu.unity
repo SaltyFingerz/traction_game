@@ -287,7 +287,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 2112921381}
   Waiver: {fileID: 1460794520}
   Nickname: {fileID: 1605069613}
@@ -874,7 +876,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -1282,7 +1286,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 2112921381}
   Waiver: {fileID: 1460794520}
   Nickname: {fileID: 1605069613}
@@ -1441,7 +1447,7 @@ PrefabInstance:
     - target: {fileID: 1810374959312665362, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
         type: 3}
       propertyPath: m_UnityAnalytics
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1810374959312665363, guid: d0e1b03230cdb0b4684e322e8b49bdfe,
         type: 3}
@@ -2347,7 +2353,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 2112921381}
   Waiver: {fileID: 0}
   Nickname: {fileID: 1605069613}
@@ -4117,7 +4125,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -5076,7 +5086,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
   Nickname: {fileID: 0}
@@ -5675,7 +5687,9 @@ MonoBehaviour:
   TutePrompt7: {fileID: 0}
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
+  TutePromptGoal: {fileID: 0}
   TutePromptFinal: {fileID: 0}
+  TutePromptCrate: {fileID: 0}
   Shade: {fileID: 2112921381}
   Waiver: {fileID: 1460794520}
   Nickname: {fileID: 0}
