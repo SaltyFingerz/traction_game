@@ -17,15 +17,15 @@ public class HUDManager : MonoBehaviour
     {
         if (gameObject.name.Contains("StraightTracks")) //if this script is attached to the StraightTracks game object child of the UI HUD object
         {
-            trackText.text = "x"+InventoryManager.straightTracksAvailable.ToString(); //display in the text that is underneath the straight tracks HUD image the number of straight tracks available in the inventory. 
+            trackText.text = "X"+InventoryManager.straightTracksAvailable.ToString(); //display in the text that is underneath the straight tracks HUD image the number of straight tracks available in the inventory. 
         }
         else if (gameObject.name.Contains("UpTracks")) //if this script is attached to the UpTracks game object child of the UI HUD object...
         {
-            trackText.text = "x"+ InventoryManager.upTracksAvailable.ToString();
+            trackText.text = "X"+ InventoryManager.upTracksAvailable.ToString();
         }
         else if (gameObject.name.Contains("DownTracks"))
         {
-            trackText.text = "x" + InventoryManager.downTracksAvailable.ToString();
+            trackText.text = "X" + InventoryManager.downTracksAvailable.ToString();
         }
         // ref: Brackeys tutorial https://www.youtube.com/watch?v=TAGZxRMloyU . I modified the code to display the inventory in the HUD instead of the score. 
     }
