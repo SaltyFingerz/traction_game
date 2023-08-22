@@ -19,6 +19,7 @@ TagManager:
   - rotated225
   - rotated270
   - track not to hide
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - background
   - level
   - blood
-  - 
+  - GoalUI
   - 
   - 
   - 

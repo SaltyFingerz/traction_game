@@ -5,12 +5,13 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Analytics;
 using Abertay.Analytics;
-
+using UnityEngine.Rendering.PostProcessing;
 public class UIButtonManager : MonoBehaviour
 {
     public GameObject pauseMenu; //to access the pause menu's buttons
     public GameObject Player; //to call functions from the player's inventory manager script and refresh the tracks available when loading a level.
     private PlayerController playerController; //to access the player's movement and stop it when starting a level.
+    public UISpriteAnimation spriteAnim;
     private InventoryManager inventoryManager; //to reset the tracks available when loading levels.
     private TrackForce trackForce; //included here and below to eliminate any additional forces that were present at the moment of pressing restart or pause for the next scene that is loaded.
     private TrackForceCargo trackForceCargo; //included here and below to eliminate prior additional forces onto the cargo carriage upon loading a scene.
@@ -45,10 +46,18 @@ public class UIButtonManager : MonoBehaviour
     public GameObject Nickname;
     public GameObject ChooseHandedness;
     public GameObject NoInput;
+    public GameObject Train;
     public static bool TutorialRight = true;
-
+    public PostProcessVolume ppVol;
+   // private DepthOfField DoF;
+   // public Camera mainCamera;
+   
+    
     private void Start()
     {
+      //  mainCamera = Camera.main;
+        
+
          if(SceneManager.GetActiveScene().buildIndex == 0)
         {
             if(MenuDirect)
@@ -512,7 +521,14 @@ public class UIButtonManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         TutePromptGoal.SetActive(true);
-        Time.timeScale = 0;
+        PauBut = true;
+        spriteAnim.Func_PlayUIAnim();
+        DepthOfField dph;
+        if(ppVol.profile.TryGetSettings<DepthOfField>(out dph))
+        {
+            dph.active = true;
+        }
+       // Time.timeScale = 0;
         AudioListener.pause = true;
     }
 
@@ -540,7 +556,14 @@ public class UIButtonManager : MonoBehaviour
     {
         TutePromptGoal.SetActive(false);
         TutePromptCrate.SetActive(true);
-        Time.timeScale = 1;
+        spriteAnim.Func_StopUIAnim();
+        DepthOfField dph;
+        if (ppVol.profile.TryGetSettings<DepthOfField>(out dph))
+        {
+            dph.active = false;
+        }
+        PauBut = false;
+        //Time.timeScale = 1;
         AudioListener.pause = false;
     }
     public void Level1MenuButtonClicked()
