@@ -8554,6 +8554,7 @@ GameObject:
   - component: {fileID: 450668583}
   - component: {fileID: 450668582}
   - component: {fileID: 450668584}
+  - component: {fileID: 450668585}
   m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
@@ -8631,6 +8632,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95ea8894b9c1b8c439a174598653f026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &450668585
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450668580}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &459424989
 GameObject:
   m_ObjectHideFlags: 0
@@ -14242,7 +14255,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &498830980
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24843,7 +24856,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1074153892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24861,8 +24874,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 16.317, y: -152.5}
-  m_SizeDelta: {x: 49.153, y: 49.15}
+  m_AnchoredPosition: {x: 4.093998, y: -134.19}
+  m_SizeDelta: {x: 253.85, y: 85.78}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1074153893
 MonoBehaviour:
@@ -24884,7 +24897,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: aa226b53c7a0d3543bd3903c19971673, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 78b772310f863b94c81a94675bb00f71, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -34168,7 +34181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1623825698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -34851,8 +34864,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.5, y: 1.46}
-    newSize: {x: 1.5, y: 1.46}
+    oldSize: {x: 1.57, y: 1.48}
+    newSize: {x: 1.57, y: 1.48}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -34907,7 +34920,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.46}
+  m_Size: {x: 1.57, y: 1.48}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -34945,7 +34958,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1661331756
 RectTransform:
   m_ObjectHideFlags: 0
@@ -35021,7 +35034,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1663151951
 RectTransform:
   m_ObjectHideFlags: 0
