@@ -82,8 +82,18 @@ public class UIButtonManager : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (TutePrompt3.activeSelf)
+        {
+            DepthOfField dph;
+            if (ppVol.profile.TryGetSettings<DepthOfField>(out dph))
+            {
+                dph.active = true;
+            }
+        }
+    }
 
- 
 
     public void RightHandedOption()
     {
@@ -484,12 +494,18 @@ public class UIButtonManager : MonoBehaviour
 
     public void ClosePrompt3()
     {
+        DepthOfField dph;
+        if (ppVol.profile.TryGetSettings<DepthOfField>(out dph))
+        {
+            dph.active = false;
+        }
         PromptClosed(3);
         Time.timeScale = 1;
         TutePrompt3.SetActive(false);
         TutePrompt4.SetActive(true);
         AudioListener.pause = false;
     }
+
 
     public void ClosePrompt4()
     {
@@ -511,6 +527,9 @@ public class UIButtonManager : MonoBehaviour
         {
             PromptClosed(2);
             TutePrompt2.SetActive(false);
+
+       
+
            
             NoInput.SetActive(true);
             StartCoroutine(TuteGoal());
