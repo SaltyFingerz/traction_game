@@ -84,7 +84,7 @@ public class UIButtonManager : MonoBehaviour
 
     private void Update()
     {
-        if (TutePrompt3.activeSelf)
+        if (TutePrompt3.activeSelf || TutePromptFinal.activeSelf)
         {
             DepthOfField dph;
             if (ppVol.profile.TryGetSettings<DepthOfField>(out dph))
