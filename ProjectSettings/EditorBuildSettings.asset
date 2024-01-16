@@ -39,8 +39,8 @@ EditorBuildSettings:
     path: Assets/Scenes/About.unity
     guid: 4a77de7e82edd1c4d9eb12876785e35a
   - enabled: 1
-    path: Assets/Scenes/TutorialLeftHanded.unity
-    guid: e58b16e0c5f7c094699d607a568c69ed
+    path: Assets/Scenes/level1LeftHanded.unity
+    guid: 3dbeb7385ce1e394496c11199e471c16
   - enabled: 1
     path: Assets/Scenes/TutorialEndBeta.unity
     guid: d687ddec2a21f844db3013e0c808eeeb
