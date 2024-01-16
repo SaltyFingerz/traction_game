@@ -6966,7 +6966,7 @@ MonoBehaviour:
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
   TutePromptGoal: {fileID: 0}
-  TutePromptFinal: {fileID: 2091080969}
+  TutePromptFinal: {fileID: 0}
   TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
@@ -8683,7 +8683,7 @@ MonoBehaviour:
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
   TutePromptGoal: {fileID: 0}
-  TutePromptFinal: {fileID: 2091080969}
+  TutePromptFinal: {fileID: 0}
   TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
@@ -14563,7 +14563,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &498830980
 RectTransform:
   m_ObjectHideFlags: 0
@@ -14609,7 +14609,7 @@ MonoBehaviour:
   spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 498830979}
   TutePrompt2: {fileID: 1876872578}
-  TutePrompt3: {fileID: 19878345}
+  TutePrompt3: {fileID: 0}
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
@@ -14617,7 +14617,7 @@ MonoBehaviour:
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
   TutePromptGoal: {fileID: 0}
-  TutePromptFinal: {fileID: 2091080969}
+  TutePromptFinal: {fileID: 0}
   TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
@@ -15572,7 +15572,7 @@ MonoBehaviour:
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
   TutePromptGoal: {fileID: 577596453}
-  TutePromptFinal: {fileID: 2091080969}
+  TutePromptFinal: {fileID: 0}
   TutePromptCrate: {fileID: 159990782}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
@@ -16884,7 +16884,7 @@ MonoBehaviour:
   spriteAnim: {fileID: 396107927}
   TutePrompt1: {fileID: 577596453}
   TutePrompt2: {fileID: 0}
-  TutePrompt3: {fileID: 0}
+  TutePrompt3: {fileID: 19878345}
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
@@ -17731,7 +17731,6 @@ RectTransform:
   - {fileID: 541287808}
   - {fileID: 302277536}
   - {fileID: 578083636}
-  - {fileID: 2091080970}
   - {fileID: 498830980}
   - {fileID: 1623825698}
   m_Father: {fileID: 0}
@@ -29436,7 +29435,7 @@ MonoBehaviour:
   TutePrompt8: {fileID: 0}
   TutePrompt9: {fileID: 0}
   TutePromptGoal: {fileID: 0}
-  TutePromptFinal: {fileID: 2091080969}
+  TutePromptFinal: {fileID: 0}
   TutePromptCrate: {fileID: 0}
   Shade: {fileID: 0}
   Waiver: {fileID: 0}
@@ -34644,7 +34643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1623825698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -40599,6 +40598,7 @@ RectTransform:
   m_Children:
   - {fileID: 19878346}
   - {fileID: 577596455}
+  - {fileID: 2091080970}
   m_Father: {fileID: 0}
   m_RootOrder: 41
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42883,7 +42883,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2091080970
 RectTransform:
   m_ObjectHideFlags: 0
@@ -42892,8 +42892,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091080969}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9999669, y: 0.9999669, z: 0.9999669}
+  m_LocalPosition: {x: 0, y: 0, z: 82.85386}
+  m_LocalScale: {x: 1.0116266, y: 1.0116266, z: 1.0116266}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 787263985}
@@ -42908,12 +42908,12 @@ RectTransform:
   - {fileID: 1248212613}
   - {fileID: 17031223}
   - {fileID: 220361437}
-  m_Father: {fileID: 625338755}
+  m_Father: {fileID: 1991551399}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -196, y: 263.93}
+  m_AnchoredPosition: {x: -195, y: 205}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091080971
@@ -42933,7 +42933,7 @@ MonoBehaviour:
   spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 2091080969}
   TutePrompt2: {fileID: 0}
-  TutePrompt3: {fileID: 0}
+  TutePrompt3: {fileID: 19878345}
   TutePrompt4: {fileID: 0}
   TutePrompt5: {fileID: 0}
   TutePrompt6: {fileID: 0}
