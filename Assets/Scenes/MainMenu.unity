@@ -261,8 +261,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 160}
+  m_AnchoredPosition: {x: 0.000010967, y: 24.3}
+  m_SizeDelta: {x: 97.986, y: 105.0628}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &78639633
 MonoBehaviour:
@@ -278,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -295,6 +296,8 @@ MonoBehaviour:
   Nickname: {fileID: 1605069613}
   ChooseHandedness: {fileID: 1824403756}
   NoInput: {fileID: 0}
+  Train: {fileID: 0}
+  ppVol: {fileID: 0}
 --- !u!114 &78639634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +376,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: aa226b53c7a0d3543bd3903c19971673, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -756,8 +759,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -284, y: -120}
-  m_SizeDelta: {x: 250, y: 400}
+  m_AnchoredPosition: {x: -261, y: -127}
+  m_SizeDelta: {x: 296.9264, y: 452.2588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &306408646
 MonoBehaviour:
@@ -867,6 +870,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -884,6 +888,8 @@ MonoBehaviour:
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
   NoInput: {fileID: 0}
+  Train: {fileID: 0}
+  ppVol: {fileID: 0}
 --- !u!1 &382579618
 GameObject:
   m_ObjectHideFlags: 0
@@ -901,7 +907,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &382579619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -919,7 +925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4.5000024, y: -68.1}
+  m_AnchoredPosition: {x: -4.5, y: -68.09999}
   m_SizeDelta: {x: 8.999995, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &382579620
@@ -1277,6 +1283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -1294,6 +1301,8 @@ MonoBehaviour:
   Nickname: {fileID: 1605069613}
   ChooseHandedness: {fileID: 0}
   NoInput: {fileID: 0}
+  Train: {fileID: 0}
+  ppVol: {fileID: 0}
 --- !u!1 &405443178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,9 +1339,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 20}
+  m_SizeDelta: {x: -17, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &405443180
 MonoBehaviour:
@@ -2022,7 +2031,7 @@ RectTransform:
   m_GameObject: {fileID: 559067069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1980714, y: 1.7372036, z: 1.1980714}
+  m_LocalScale: {x: 1, y: 1, z: 1.1980714}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1654910838}
@@ -2031,8 +2040,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -21.5, y: -184}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 5.6744, y: -186.9}
+  m_SizeDelta: {x: 109.3349, y: 63.1707}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &559067071
 MonoBehaviour:
@@ -2112,7 +2121,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: fb4d847e5b37cb54fbed03cf32d7bb1d, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -2344,6 +2353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -2361,6 +2371,8 @@ MonoBehaviour:
   Nickname: {fileID: 1605069613}
   ChooseHandedness: {fileID: 0}
   NoInput: {fileID: 0}
+  Train: {fileID: 0}
+  ppVol: {fileID: 0}
 --- !u!1 &633556132
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,7 +3192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7c86dcb8eac73124e8d65007397e9750, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 865519b806cab6442b74fd7b2b2111f1, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3232,7 +3244,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4099,8 +4111,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 307, y: -169.3}
-  m_SizeDelta: {x: 160, y: 158}
+  m_AnchoredPosition: {x: 278.20428, y: -186.89737}
+  m_SizeDelta: {x: 102.4086, y: 122.8053}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1205579029
 MonoBehaviour:
@@ -4116,6 +4128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -4133,6 +4146,8 @@ MonoBehaviour:
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
   NoInput: {fileID: 0}
+  Train: {fileID: 0}
+  ppVol: {fileID: 0}
 --- !u!114 &1205579030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4211,7 +4226,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: bd5773ac6e8764442bf96a90d45882b3, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4244,7 +4259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1214992599
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4725,7 +4740,7 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -4785,7 +4800,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1460794521
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4968,9 +4983,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -17, y: -17}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1590360872
 MonoBehaviour:
@@ -5077,6 +5092,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -5094,6 +5110,8 @@ MonoBehaviour:
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
   NoInput: {fileID: 0}
+  Train: {fileID: 0}
+  ppVol: {fileID: 0}
 --- !u!1 &1634797894
 GameObject:
   m_ObjectHideFlags: 0
@@ -5130,9 +5148,9 @@ RectTransform:
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 0}
+  m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1634797896
 MonoBehaviour:
@@ -5238,7 +5256,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1654910838
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5678,6 +5696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 0}
   Player: {fileID: 0}
+  spriteAnim: {fileID: 0}
   TutePrompt1: {fileID: 0}
   TutePrompt2: {fileID: 0}
   TutePrompt3: {fileID: 0}
@@ -5695,6 +5714,8 @@ MonoBehaviour:
   Nickname: {fileID: 0}
   ChooseHandedness: {fileID: 0}
   NoInput: {fileID: 0}
+  Train: {fileID: 0}
+  ppVol: {fileID: 0}
 --- !u!1 &1824403756
 GameObject:
   m_ObjectHideFlags: 0
@@ -5986,7 +6007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2112921382
 RectTransform:
   m_ObjectHideFlags: 0

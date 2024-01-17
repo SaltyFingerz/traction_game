@@ -307,6 +307,12 @@ public class UIButtonManager : MonoBehaviour
     {
         Time.timeScale = 1;
         pauseMenu.SetActive(false);
+
+        DepthOfField dph;
+        if (ppVol.profile.TryGetSettings<DepthOfField>(out dph))
+        {
+            dph.active = false;
+        }
         //this function is called by the resume button in unity editor. It ensure the pause menu is deactivated and time is running upon clicking resume.
     }
 
