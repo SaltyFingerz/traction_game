@@ -34,10 +34,10 @@ public class Timer : MonoBehaviour
         if (stop)
         {
             currentTime = currentTime;
-            timerText.text = currentTime.ToString("0.0");
-            timerText2.text = currentTime.ToString("0.0");
-            timerText3.text = currentTime.ToString("0.0");
-            timerText4.text = currentTime.ToString("0.0");
+            timerText.text = currentTime.ToString("0");
+            timerText2.text = currentTime.ToString("0");
+            timerText3.text = currentTime.ToString("0");
+            timerText4.text = currentTime.ToString("0");
             
         }
 
@@ -45,10 +45,10 @@ public class Timer : MonoBehaviour
 
         {
             currentTime += Time.deltaTime;
-            timerText.text = currentTime.ToString("0.0");
-            timerText2.text = currentTime.ToString("0.0");
-            timerText3.text = currentTime.ToString("0.0");
-            timerText4.text = currentTime.ToString("0.0");
+            timerText.text = currentTime.ToString("0");
+            timerText2.text = currentTime.ToString("0");
+            timerText3.text = currentTime.ToString("0");
+            timerText4.text = currentTime.ToString("0");
         }
 
        
